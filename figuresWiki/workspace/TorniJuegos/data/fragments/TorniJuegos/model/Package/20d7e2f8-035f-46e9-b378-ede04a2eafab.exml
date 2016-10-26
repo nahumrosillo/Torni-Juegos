@@ -56,6 +56,12 @@
         <COMPID name="Finalizar Partida" mc="Standard.UseCase" uid="469840de-4020-4aeb-948a-6b8b139e6f9b"/>
         <COMPID name="Iniciar Partida" mc="Standard.UseCase" uid="970fb8e1-51a3-4a7d-81ea-1f039805ec5a"/>
         <COMPID name="Tiempo" mc="Standard.Actor" uid="f6d0a264-038d-4aa2-a5df-850e76e0ea6a"/>
+        <COMPID name="Superadministrador" mc="Standard.Actor" uid="0c35ce63-303a-413a-a2d9-320e2d61214c"/>
+        <COMPID name="Administrador" mc="Standard.Actor" uid="8f4becc7-8316-4221-bfd3-8a10b566d65d"/>
+        <COMPID name="Alta Jugador" mc="Standard.UseCase" uid="eb1dc1de-a66a-4f41-9b80-61444e12893d"/>
+        <COMPID name="Baja Jugador" mc="Standard.UseCase" uid="41a97b13-ddf9-448f-9ac2-96d02fdead6d"/>
+        <COMPID name="Usuario" mc="Standard.Actor" uid="80e92b32-4eb9-4691-90a8-f268bf1ba979"/>
+        <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="d633816c-bd2c-4220-b628-2940b6896359"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="DCU Superadministrador y Administrador" mc="Standard.UseCaseDiagram" uid="4413c67b-7e0a-4002-af8b-7ce77eb05471"/>
