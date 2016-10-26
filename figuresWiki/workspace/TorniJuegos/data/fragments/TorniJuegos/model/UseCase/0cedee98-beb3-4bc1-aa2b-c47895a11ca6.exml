@@ -13,6 +13,23 @@
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
+      <COMP relation="Used">
+        <OBJECT>
+          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="8f377992-a952-44e7-ba1d-d2303c227b97"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[UseCaseDependency]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID name="Validar Usuario" mc="Standard.UseCase" uid="2743d113-0509-4112-9e42-298129c1fd78"/>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID name="include" mc="Standard.Stereotype" uid="00000000-0000-9c49-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
       <COMP relation="Descriptor">
         <OBJECT>
           <ID name="" mc="Standard.Note" uid="f383b180-8b83-4f72-8ba7-058e796fa580"/>

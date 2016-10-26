@@ -62,6 +62,8 @@
         <COMPID name="Baja Jugador" mc="Standard.UseCase" uid="41a97b13-ddf9-448f-9ac2-96d02fdead6d"/>
         <COMPID name="Usuario" mc="Standard.Actor" uid="80e92b32-4eb9-4691-90a8-f268bf1ba979"/>
         <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="d633816c-bd2c-4220-b628-2940b6896359"/>
+        <COMPID name="Descalificar Grupo" mc="Standard.UseCase" uid="a6231123-3332-45d9-b764-1a668e2199ed"/>
+        <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="2743d113-0509-4112-9e42-298129c1fd78"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="DCU Superadministrador y Administrador" mc="Standard.UseCaseDiagram" uid="4413c67b-7e0a-4002-af8b-7ce77eb05471"/>
