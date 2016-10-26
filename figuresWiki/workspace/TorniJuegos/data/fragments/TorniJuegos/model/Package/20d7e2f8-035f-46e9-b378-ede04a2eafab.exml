@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="tornijuegos" version="4">
+  <OBJECT>
+    <ID name="tornijuegos" mc="Standard.Package" uid="20d7e2f8-035f-46e9-b378-ede04a2eafab"/>
+    <PID name="TorniJuegos" mc="Standard.Project" uid="32c89210-7bcb-4540-a304-1b8a824803c9"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[tornijuegos]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Eliminar Juego" mc="Standard.UseCase" uid="160a5993-3f48-4602-b106-309021819656"/>
+        <COMPID name="Superadministrador" mc="Standard.Actor" uid="98661202-ebd8-4dbc-8ffb-93c1b1bdb3d7"/>
+        <COMPID name="Alta Administrador" mc="Standard.UseCase" uid="bb51faa1-65ba-4ee0-b743-85f9f9ef3726"/>
+        <COMPID name="Baja Administrador" mc="Standard.UseCase" uid="241dba92-31c5-484c-91d7-f9046fbf6043"/>
+        <COMPID name="Usuario" mc="Standard.Actor" uid="e4d14031-fb6b-43bc-ac39-1a4516263bbc"/>
+        <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="05b76ebe-3965-4085-bb44-2862de75478d"/>
+        <COMPID name="Administrador" mc="Standard.Actor" uid="1bb3be0c-d5cb-4ade-9e11-ec9ff43069da"/>
+        <COMPID name="Alta Patrocinador" mc="Standard.UseCase" uid="cefdfc50-29d7-4056-9a02-d64999c2f409"/>
+        <COMPID name="Baja Patrocinador" mc="Standard.UseCase" uid="8eb2f9a3-aedd-4883-9678-f0365831666c"/>
+        <COMPID name="Crear Juego" mc="Standard.UseCase" uid="7f6bba32-012a-4c5a-8fa9-41333aa5671a"/>
+        <COMPID name="Modificar Juego" mc="Standard.UseCase" uid="1f590d06-dcdc-470a-b485-416f4fcf802f"/>
+        <COMPID name="Jugador" mc="Standard.Actor" uid="85dff2dd-cba5-485d-b346-b224af435a1a"/>
+        <COMPID name="Usuario" mc="Standard.Actor" uid="08e73654-91eb-47c0-9fc7-ae0b71c3a89b"/>
+        <COMPID name="Crear Grupo" mc="Standard.UseCase" uid="2802a758-d6f8-4458-80e5-e357d170f883"/>
+        <COMPID name="Disolver Grupo" mc="Standard.UseCase" uid="c612776f-5863-45e3-9a71-da3a85b03c11"/>
+        <COMPID name="Unir al Grupo" mc="Standard.UseCase" uid="68f8f2e3-4490-4f98-b756-765f83e94787"/>
+        <COMPID name="Inscribir en Torneo" mc="Standard.UseCase" uid="ac8aa519-6dcf-4283-86bf-f295aa8e6f11"/>
+        <COMPID name="Desinscribir en Torneo" mc="Standard.UseCase" uid="cffebd7f-aed9-4881-b585-d2d2c9fa8582"/>
+        <COMPID name="Jugar Partido" mc="Standard.UseCase" uid="f8b203a9-c652-4c45-80b2-b34d5e1d8787"/>
+        <COMPID name="Abandonar Partido" mc="Standard.UseCase" uid="6d3059e5-2407-4d5d-ac5e-8da17bc40418"/>
+        <COMPID name="Usuario" mc="Standard.Actor" uid="94f2a281-9ca9-41d8-ac34-7178e4138bf2"/>
+        <COMPID name="Class" mc="Standard.Class" uid="1feb032b-d95c-490b-870a-1678ba7d9851"/>
+        <COMPID name="Modificar Datos Personales" mc="Standard.UseCase" uid="ab819606-3579-422b-8b6f-6e3901cdfe1b"/>
+        <COMPID name="Consultar Juegos" mc="Standard.UseCase" uid="fe79a6a8-046c-45a7-af58-1b4e200e7cf2"/>
+        <COMPID name="Consultar Torneos" mc="Standard.UseCase" uid="d5159638-86fc-4d34-8b78-2515037ca813"/>
+        <COMPID name="Consultar Partidos" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
+        <COMPID name="Invitado" mc="Standard.Actor" uid="584fff33-1e9d-4221-a55e-42e890dd4f94"/>
+        <COMPID name="Registrar Usuario" mc="Standard.UseCase" uid="2e09e5ce-4b26-42d5-b8c0-a8b05021ae32"/>
+        <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="d3623440-c73d-4796-9c7d-a95176dff19b"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="overview diagram" mc="Standard.ClassDiagram" uid="01897375-ef47-4349-966f-631f076fd755"/>
+        <COMPID name="DCU Superadministrador" mc="Standard.UseCaseDiagram" uid="4413c67b-7e0a-4002-af8b-7ce77eb05471"/>
+        <COMPID name="Diagrama Participante" mc="Standard.UseCaseDiagram" uid="429478fc-10d4-4d14-87e2-d77ce72a0e76"/>
+        <COMPID name="tornijuegos Use Case diagram" mc="Standard.UseCaseDiagram" uid="8d40635e-ba37-41a5-8bd2-96534be837ce"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
