@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Consultar Partidos" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Consultar Torneo" version="4">
   <OBJECT>
-    <ID name="Consultar Partidos" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
+    <ID name="Consultar Torneo" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
     <PID name="tornijuegos" mc="Standard.Package" uid="20d7e2f8-035f-46e9-b378-ede04a2eafab"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Consultar Partidos]]></ATT>
+      <ATT name="Name"><![CDATA[Consultar Torneo]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -28,6 +28,17 @@
               <FOREIGNID name="include" mc="Standard.Stereotype" uid="00000000-0000-9c49-0000-000000000000"/>
             </LINK>
           </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="OwnedExtension">
+        <OBJECT>
+          <ID name="rank" mc="Standard.ExtensionPoint" uid="b699325c-2715-4491-9051-4b2d21bfbb18"/>
+          <ATTRIBUTES>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[rank]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
       </COMP>
       <COMP relation="Descriptor">

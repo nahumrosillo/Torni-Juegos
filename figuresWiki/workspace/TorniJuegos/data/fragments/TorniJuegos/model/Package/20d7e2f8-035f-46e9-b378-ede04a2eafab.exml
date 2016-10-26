@@ -15,7 +15,6 @@
     <DEPENDENCIES>
       <COMP relation="OwnedElement">
         <COMPID name="Eliminar Juego" mc="Standard.UseCase" uid="160a5993-3f48-4602-b106-309021819656"/>
-        <COMPID name="Superadministrador" mc="Standard.Actor" uid="98661202-ebd8-4dbc-8ffb-93c1b1bdb3d7"/>
         <COMPID name="Alta Administrador" mc="Standard.UseCase" uid="bb51faa1-65ba-4ee0-b743-85f9f9ef3726"/>
         <COMPID name="Baja Administrador" mc="Standard.UseCase" uid="241dba92-31c5-484c-91d7-f9046fbf6043"/>
         <COMPID name="Usuario" mc="Standard.Actor" uid="e4d14031-fb6b-43bc-ac39-1a4516263bbc"/>
@@ -29,26 +28,30 @@
         <COMPID name="Usuario" mc="Standard.Actor" uid="08e73654-91eb-47c0-9fc7-ae0b71c3a89b"/>
         <COMPID name="Crear Grupo" mc="Standard.UseCase" uid="2802a758-d6f8-4458-80e5-e357d170f883"/>
         <COMPID name="Disolver Grupo" mc="Standard.UseCase" uid="c612776f-5863-45e3-9a71-da3a85b03c11"/>
-        <COMPID name="Unir al Grupo" mc="Standard.UseCase" uid="68f8f2e3-4490-4f98-b756-765f83e94787"/>
+        <COMPID name="Invitar al Grupo" mc="Standard.UseCase" uid="68f8f2e3-4490-4f98-b756-765f83e94787"/>
         <COMPID name="Inscribir en Torneo" mc="Standard.UseCase" uid="ac8aa519-6dcf-4283-86bf-f295aa8e6f11"/>
         <COMPID name="Desinscribir en Torneo" mc="Standard.UseCase" uid="cffebd7f-aed9-4881-b585-d2d2c9fa8582"/>
-        <COMPID name="Jugar Partido" mc="Standard.UseCase" uid="f8b203a9-c652-4c45-80b2-b34d5e1d8787"/>
         <COMPID name="Abandonar Partido" mc="Standard.UseCase" uid="6d3059e5-2407-4d5d-ac5e-8da17bc40418"/>
         <COMPID name="Usuario" mc="Standard.Actor" uid="94f2a281-9ca9-41d8-ac34-7178e4138bf2"/>
-        <COMPID name="Class" mc="Standard.Class" uid="1feb032b-d95c-490b-870a-1678ba7d9851"/>
         <COMPID name="Modificar Datos Personales" mc="Standard.UseCase" uid="ab819606-3579-422b-8b6f-6e3901cdfe1b"/>
         <COMPID name="Consultar Juegos" mc="Standard.UseCase" uid="fe79a6a8-046c-45a7-af58-1b4e200e7cf2"/>
-        <COMPID name="Consultar Torneos" mc="Standard.UseCase" uid="d5159638-86fc-4d34-8b78-2515037ca813"/>
-        <COMPID name="Consultar Partidos" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
+        <COMPID name="Consultar Partido" mc="Standard.UseCase" uid="d5159638-86fc-4d34-8b78-2515037ca813"/>
+        <COMPID name="Consultar Torneo" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
         <COMPID name="Invitado" mc="Standard.Actor" uid="584fff33-1e9d-4221-a55e-42e890dd4f94"/>
-        <COMPID name="Registrar Usuario" mc="Standard.UseCase" uid="2e09e5ce-4b26-42d5-b8c0-a8b05021ae32"/>
+        <COMPID name="Registrar Jugador" mc="Standard.UseCase" uid="2e09e5ce-4b26-42d5-b8c0-a8b05021ae32"/>
         <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="d3623440-c73d-4796-9c7d-a95176dff19b"/>
+        <COMPID name="Superadministrador" mc="Standard.Actor" uid="1fd3763b-7f5c-4c3e-97ca-1385c48f8eea"/>
+        <COMPID name="Jugador" mc="Standard.Actor" uid="6b08a094-8dd5-41f3-a4e3-cf5fdc8f9412"/>
+        <COMPID name="Aceptar Invitacion" mc="Standard.UseCase" uid="35c16d8e-7ff5-415a-b9f9-79752fe2d9d0"/>
+        <COMPID name="Rechazar Invitacion" mc="Standard.UseCase" uid="1195ce85-b5a1-42aa-951f-539395efc4d3"/>
+        <COMPID name="Abandonar Torneo" mc="Standard.UseCase" uid="3ffcd481-d196-4f3c-b80c-983879b6b23c"/>
+        <COMPID name="Consultar Ranking Torneo" mc="Standard.UseCase" uid="8f48f6f4-4ef1-4a62-b8b6-9389ad5640ac"/>
+        <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="67956d01-85ff-46f2-baa7-8790b4bbf953"/>
       </COMP>
       <COMP relation="Product">
-        <COMPID name="overview diagram" mc="Standard.ClassDiagram" uid="01897375-ef47-4349-966f-631f076fd755"/>
-        <COMPID name="DCU Superadministrador" mc="Standard.UseCaseDiagram" uid="4413c67b-7e0a-4002-af8b-7ce77eb05471"/>
-        <COMPID name="Diagrama Participante" mc="Standard.UseCaseDiagram" uid="429478fc-10d4-4d14-87e2-d77ce72a0e76"/>
-        <COMPID name="tornijuegos Use Case diagram" mc="Standard.UseCaseDiagram" uid="8d40635e-ba37-41a5-8bd2-96534be837ce"/>
+        <COMPID name="DCU Superadministrador y Administrador" mc="Standard.UseCaseDiagram" uid="4413c67b-7e0a-4002-af8b-7ce77eb05471"/>
+        <COMPID name="DCU Jugador" mc="Standard.UseCaseDiagram" uid="429478fc-10d4-4d14-87e2-d77ce72a0e76"/>
+        <COMPID name="DCU Usuario e Invitado" mc="Standard.UseCaseDiagram" uid="8d40635e-ba37-41a5-8bd2-96534be837ce"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

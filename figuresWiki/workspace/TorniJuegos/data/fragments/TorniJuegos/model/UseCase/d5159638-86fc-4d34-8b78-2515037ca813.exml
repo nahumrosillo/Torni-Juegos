@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Consultar Torneos" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Consultar Partido" version="4">
   <OBJECT>
-    <ID name="Consultar Torneos" mc="Standard.UseCase" uid="d5159638-86fc-4d34-8b78-2515037ca813"/>
+    <ID name="Consultar Partido" mc="Standard.UseCase" uid="d5159638-86fc-4d34-8b78-2515037ca813"/>
     <PID name="tornijuegos" mc="Standard.Package" uid="20d7e2f8-035f-46e9-b378-ede04a2eafab"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Consultar Torneos]]></ATT>
+      <ATT name="Name"><![CDATA[Consultar Partido]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
