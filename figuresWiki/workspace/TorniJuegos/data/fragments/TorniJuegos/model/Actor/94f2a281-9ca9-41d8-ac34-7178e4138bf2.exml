@@ -155,7 +155,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Consultar Torneos" mc="Standard.UseCase" uid="d5159638-86fc-4d34-8b78-2515037ca813"/>
+              <ID name="Consultar Partido" mc="Standard.UseCase" uid="d5159638-86fc-4d34-8b78-2515037ca813"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -216,7 +216,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Consultar Partidos" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
+              <ID name="Consultar Torneo" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>

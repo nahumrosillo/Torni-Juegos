@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Jugar Partido" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Finalizar Partida" version="4">
   <OBJECT>
-    <ID name="Jugar Partido" mc="Standard.UseCase" uid="f8b203a9-c652-4c45-80b2-b34d5e1d8787"/>
+    <ID name="Finalizar Partida" mc="Standard.UseCase" uid="469840de-4020-4aeb-948a-6b8b139e6f9b"/>
     <PID name="tornijuegos" mc="Standard.Package" uid="20d7e2f8-035f-46e9-b378-ede04a2eafab"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,13 +9,30 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Jugar Partido]]></ATT>
+      <ATT name="Name"><![CDATA[Finalizar Partida]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
+      <COMP relation="Used">
+        <OBJECT>
+          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="e7033f0e-aaad-44e2-b3f3-4d8e51d07b5a"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[UseCaseDependency]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID name="Validar Usuario" mc="Standard.UseCase" uid="2743d113-0509-4112-9e42-298129c1fd78"/>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID name="include" mc="Standard.Stereotype" uid="00000000-0000-9c49-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
       <COMP relation="Descriptor">
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="8083e8d6-f349-4115-91f5-d4842e3d331a"/>
+          <ID name="" mc="Standard.Note" uid="c8afe56e-511f-4764-924e-ddef56a535e4"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -29,7 +46,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="1daaae9c-e0ab-41aa-952c-5fb8bbab0bce"/>
+          <ID name="" mc="Standard.Note" uid="0203c19b-4c95-420f-9ce9-61bb7d6574c7"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -43,7 +60,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="9a93ef2c-fba5-4e61-865c-2146399a468f"/>
+          <ID name="" mc="Standard.Note" uid="24015bcf-6e8e-4e4b-b44f-85f4100b52d0"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -57,7 +74,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="5297cc21-fcda-46fc-81a4-6752b01f9eac"/>
+          <ID name="" mc="Standard.Note" uid="e1bc5d00-56e8-4649-88d4-25d3ba6602d8"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -71,7 +88,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="681bfbee-c3d8-4a6c-8cb8-f89d1bae85b8"/>
+          <ID name="" mc="Standard.Note" uid="66b6b8cb-087f-4866-a706-984ffc131529"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -85,7 +102,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="2c36c8d5-38a2-443b-a805-a511c3c5e37f"/>
+          <ID name="" mc="Standard.Note" uid="514a1712-7658-443a-8f65-ee69ed5e7abe"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
