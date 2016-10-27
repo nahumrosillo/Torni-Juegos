@@ -13,6 +13,17 @@
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
+      <COMP relation="OwnedExtension">
+        <OBJECT>
+          <ID name="verPartido" mc="Standard.ExtensionPoint" uid="348ecdff-49de-4205-8023-363f20a1503b"/>
+          <ATTRIBUTES>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[verPartido]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+      </COMP>
       <COMP relation="Descriptor">
         <OBJECT>
           <ID name="" mc="Standard.Note" uid="0d5c6c1e-9d57-4ed5-9f1b-1868d8ce909f"/>

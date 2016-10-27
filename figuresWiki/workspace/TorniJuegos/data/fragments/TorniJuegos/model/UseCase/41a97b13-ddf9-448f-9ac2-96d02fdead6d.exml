@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Baja Jugador" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Borrar Jugador" version="4">
   <OBJECT>
-    <ID name="Baja Jugador" mc="Standard.UseCase" uid="41a97b13-ddf9-448f-9ac2-96d02fdead6d"/>
+    <ID name="Borrar Jugador" mc="Standard.UseCase" uid="41a97b13-ddf9-448f-9ac2-96d02fdead6d"/>
     <PID name="tornijuegos" mc="Standard.Package" uid="20d7e2f8-035f-46e9-b378-ede04a2eafab"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Baja Jugador]]></ATT>
+      <ATT name="Name"><![CDATA[Borrar Jugador]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

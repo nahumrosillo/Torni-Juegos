@@ -15,29 +15,14 @@
     <DEPENDENCIES>
       <COMP relation="Used">
         <OBJECT>
-          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="7d1ac30a-07a5-4bc1-bc8d-36546b497cd4"/>
+          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="30fafbaa-979e-4640-9ebf-aff220f9df69"/>
           <ATTRIBUTES>
             <ATT name="Name"><![CDATA[UseCaseDependency]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Validar Usuario" mc="Standard.UseCase" uid="d3623440-c73d-4796-9c7d-a95176dff19b"/>
-            </LINK>
-            <LINK relation="Extension">
-              <FOREIGNID name="include" mc="Standard.Stereotype" uid="00000000-0000-9c49-0000-000000000000"/>
-            </LINK>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="rank" mc="Standard.UseCaseDependency" uid="f3640936-5440-4a8c-bc0c-2c22ea704b91"/>
-          <ATTRIBUTES>
-            <ATT name="Name"><![CDATA[rank]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <LINK relation="Target">
-              <ID name="Consultar Torneo" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
+              <ID name="Consultar Torneo" mc="Standard.UseCase" uid="7fa41343-1ffc-48bd-8f3b-ef330d995410"/>
             </LINK>
             <LINK relation="Extension">
               <FOREIGNID name="extend" mc="Standard.Stereotype" uid="00000000-0000-9c48-0000-000000000000"/>

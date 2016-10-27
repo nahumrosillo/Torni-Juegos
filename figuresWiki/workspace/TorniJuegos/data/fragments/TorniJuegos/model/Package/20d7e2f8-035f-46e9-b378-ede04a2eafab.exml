@@ -26,24 +26,17 @@
         <COMPID name="Modificar Juego" mc="Standard.UseCase" uid="1f590d06-dcdc-470a-b485-416f4fcf802f"/>
         <COMPID name="Jugador" mc="Standard.Actor" uid="85dff2dd-cba5-485d-b346-b224af435a1a"/>
         <COMPID name="Usuario" mc="Standard.Actor" uid="08e73654-91eb-47c0-9fc7-ae0b71c3a89b"/>
-        <COMPID name="Crear Grupo" mc="Standard.UseCase" uid="2802a758-d6f8-4458-80e5-e357d170f883"/>
-        <COMPID name="Disolver Grupo" mc="Standard.UseCase" uid="c612776f-5863-45e3-9a71-da3a85b03c11"/>
-        <COMPID name="Invitar al Grupo" mc="Standard.UseCase" uid="68f8f2e3-4490-4f98-b756-765f83e94787"/>
         <COMPID name="Inscribir en Torneo" mc="Standard.UseCase" uid="ac8aa519-6dcf-4283-86bf-f295aa8e6f11"/>
         <COMPID name="Desinscribir en Torneo" mc="Standard.UseCase" uid="cffebd7f-aed9-4881-b585-d2d2c9fa8582"/>
         <COMPID name="Abandonar Partido" mc="Standard.UseCase" uid="6d3059e5-2407-4d5d-ac5e-8da17bc40418"/>
         <COMPID name="Usuario" mc="Standard.Actor" uid="94f2a281-9ca9-41d8-ac34-7178e4138bf2"/>
         <COMPID name="Modificar Datos Personales" mc="Standard.UseCase" uid="ab819606-3579-422b-8b6f-6e3901cdfe1b"/>
-        <COMPID name="Consultar Juego" mc="Standard.UseCase" uid="fe79a6a8-046c-45a7-af58-1b4e200e7cf2"/>
         <COMPID name="Consultar Partido" mc="Standard.UseCase" uid="d5159638-86fc-4d34-8b78-2515037ca813"/>
-        <COMPID name="Consultar Torneo" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
         <COMPID name="Invitado" mc="Standard.Actor" uid="584fff33-1e9d-4221-a55e-42e890dd4f94"/>
         <COMPID name="Registrar Jugador" mc="Standard.UseCase" uid="2e09e5ce-4b26-42d5-b8c0-a8b05021ae32"/>
         <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="d3623440-c73d-4796-9c7d-a95176dff19b"/>
         <COMPID name="Superadministrador" mc="Standard.Actor" uid="1fd3763b-7f5c-4c3e-97ca-1385c48f8eea"/>
         <COMPID name="Invitado" mc="Standard.Actor" uid="6b08a094-8dd5-41f3-a4e3-cf5fdc8f9412"/>
-        <COMPID name="Aceptar Invitacion" mc="Standard.UseCase" uid="35c16d8e-7ff5-415a-b9f9-79752fe2d9d0"/>
-        <COMPID name="Rechazar Invitacion" mc="Standard.UseCase" uid="1195ce85-b5a1-42aa-951f-539395efc4d3"/>
         <COMPID name="Abandonar Torneo" mc="Standard.UseCase" uid="3ffcd481-d196-4f3c-b80c-983879b6b23c"/>
         <COMPID name="Consultar Ranking Torneo" mc="Standard.UseCase" uid="8f48f6f4-4ef1-4a62-b8b6-9389ad5640ac"/>
         <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="67956d01-85ff-46f2-baa7-8790b4bbf953"/>
@@ -55,13 +48,14 @@
         <COMPID name="Finalizar Torneo" mc="Standard.UseCase" uid="e3456f23-2eeb-43e6-85c1-773eb713ce1e"/>
         <COMPID name="Finalizar Partida" mc="Standard.UseCase" uid="469840de-4020-4aeb-948a-6b8b139e6f9b"/>
         <COMPID name="Iniciar Partida" mc="Standard.UseCase" uid="970fb8e1-51a3-4a7d-81ea-1f039805ec5a"/>
-        <COMPID name="Tiempo" mc="Standard.Actor" uid="f6d0a264-038d-4aa2-a5df-850e76e0ea6a"/>
-        <COMPID name="Baja Jugador" mc="Standard.UseCase" uid="41a97b13-ddf9-448f-9ac2-96d02fdead6d"/>
+        <COMPID name="Borrar Jugador" mc="Standard.UseCase" uid="41a97b13-ddf9-448f-9ac2-96d02fdead6d"/>
         <COMPID name="Descalificar Grupo" mc="Standard.UseCase" uid="a6231123-3332-45d9-b764-1a668e2199ed"/>
         <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="2743d113-0509-4112-9e42-298129c1fd78"/>
         <COMPID name="Mostrar Partidos" mc="Standard.UseCase" uid="1a30fb91-628f-4508-9e68-bcebd5e23b53"/>
         <COMPID name="Mostrar Juegos" mc="Standard.UseCase" uid="8910ec38-2f9b-4cff-8653-ef0042864c10"/>
         <COMPID name="Mostrar Torneos" mc="Standard.UseCase" uid="b6c06b6e-989c-413c-9e48-3d70c15fe13a"/>
+        <COMPID name="Consultar Juego" mc="Standard.UseCase" uid="427f2615-904c-4e9f-819e-1f3b28c81b27"/>
+        <COMPID name="Consultar Torneo" mc="Standard.UseCase" uid="7fa41343-1ffc-48bd-8f3b-ef330d995410"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="DCU Superadministrador y Administrador" mc="Standard.UseCaseDiagram" uid="4413c67b-7e0a-4002-af8b-7ce77eb05471"/>

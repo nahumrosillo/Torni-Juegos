@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Consultar Torneo" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Consultar Juego" version="4">
   <OBJECT>
-    <ID name="Consultar Torneo" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
+    <ID name="Consultar Juego" mc="Standard.UseCase" uid="427f2615-904c-4e9f-819e-1f3b28c81b27"/>
     <PID name="tornijuegos" mc="Standard.Package" uid="20d7e2f8-035f-46e9-b378-ede04a2eafab"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,41 +9,30 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Consultar Torneo]]></ATT>
+      <ATT name="Name"><![CDATA[Consultar Juego]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="Used">
         <OBJECT>
-          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="873a0160-a84f-4bf8-98a7-f68f75194ad5"/>
+          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="8cada7f2-9bd1-48ed-ad45-db1aa63f6753"/>
           <ATTRIBUTES>
             <ATT name="Name"><![CDATA[UseCaseDependency]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Validar Usuario" mc="Standard.UseCase" uid="d3623440-c73d-4796-9c7d-a95176dff19b"/>
+              <ID name="Mostrar Juegos" mc="Standard.UseCase" uid="8910ec38-2f9b-4cff-8653-ef0042864c10"/>
             </LINK>
             <LINK relation="Extension">
-              <FOREIGNID name="include" mc="Standard.Stereotype" uid="00000000-0000-9c49-0000-000000000000"/>
+              <FOREIGNID name="extend" mc="Standard.Stereotype" uid="00000000-0000-9c48-0000-000000000000"/>
             </LINK>
           </DEPENDENCIES>
         </OBJECT>
       </COMP>
-      <COMP relation="OwnedExtension">
-        <OBJECT>
-          <ID name="rank" mc="Standard.ExtensionPoint" uid="b699325c-2715-4491-9051-4b2d21bfbb18"/>
-          <ATTRIBUTES>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[rank]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
-      </COMP>
       <COMP relation="Descriptor">
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="8f4da8b5-fb03-4e09-9b53-26e8cda932ef"/>
+          <ID name="" mc="Standard.Note" uid="f11ed646-3a5d-4256-8949-1585128929cd"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -57,7 +46,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="f59f5d52-c491-4ef5-99fe-6f5d2de5bec0"/>
+          <ID name="" mc="Standard.Note" uid="a075a84a-44f0-4aa5-8775-6f0ba0866f08"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -71,7 +60,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="373bc691-ab07-4cb3-829f-293202c51f84"/>
+          <ID name="" mc="Standard.Note" uid="e23dec25-3547-41eb-8fc1-7f7da811fd51"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -85,7 +74,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="1a68019e-dc8b-4fa9-b2df-45e605c0ec6e"/>
+          <ID name="" mc="Standard.Note" uid="73db81f6-07ff-4388-9c59-d311b6c2fbc7"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -99,7 +88,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="82420755-33c9-47b8-ae93-7ebc19cfad48"/>
+          <ID name="" mc="Standard.Note" uid="09f7bb47-bf3e-4f90-890d-81698b1d4555"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
@@ -113,7 +102,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.Note" uid="77ad18f6-4a13-4495-90e1-8ef2e31ce706"/>
+          <ID name="" mc="Standard.Note" uid="06d89409-ba28-410a-bd81-e05f25787517"/>
           <ATTRIBUTES>
             <ATT name="Content"><![CDATA[...]]></ATT>
             <ATT name="MimeType"><![CDATA[text/plain]]></ATT>

@@ -15,7 +15,7 @@
     <DEPENDENCIES>
       <COMP relation="Used">
         <OBJECT>
-          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="3e8879ec-88fb-433d-8eae-6b735fefe207"/>
+          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="e8862231-bf6d-4818-a638-f7c7cee8c0b2"/>
           <ATTRIBUTES>
             <ATT name="Name"><![CDATA[UseCaseDependency]]></ATT>
             <ATT name="status">1970354901745664</ATT>
