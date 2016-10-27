@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Alta Administrador" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Registrar Administrador" version="4">
   <OBJECT>
-    <ID name="Alta Administrador" mc="Standard.UseCase" uid="bb51faa1-65ba-4ee0-b743-85f9f9ef3726"/>
+    <ID name="Registrar Administrador" mc="Standard.UseCase" uid="bb51faa1-65ba-4ee0-b743-85f9f9ef3726"/>
     <PID name="tornijuegos" mc="Standard.Package" uid="20d7e2f8-035f-46e9-b378-ede04a2eafab"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Alta Administrador]]></ATT>
+      <ATT name="Name"><![CDATA[Registrar Administrador]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -50,7 +50,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Jugador" mc="Standard.Actor" uid="6b08a094-8dd5-41f3-a4e3-cf5fdc8f9412"/>
+              <ID name="Invitado" mc="Standard.Actor" uid="6b08a094-8dd5-41f3-a4e3-cf5fdc8f9412"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>

@@ -15,13 +15,13 @@
     <DEPENDENCIES>
       <COMP relation="OwnedElement">
         <COMPID name="Eliminar Juego" mc="Standard.UseCase" uid="160a5993-3f48-4602-b106-309021819656"/>
-        <COMPID name="Alta Administrador" mc="Standard.UseCase" uid="bb51faa1-65ba-4ee0-b743-85f9f9ef3726"/>
-        <COMPID name="Baja Administrador" mc="Standard.UseCase" uid="241dba92-31c5-484c-91d7-f9046fbf6043"/>
+        <COMPID name="Registrar Administrador" mc="Standard.UseCase" uid="bb51faa1-65ba-4ee0-b743-85f9f9ef3726"/>
+        <COMPID name="Borrar Administrador" mc="Standard.UseCase" uid="241dba92-31c5-484c-91d7-f9046fbf6043"/>
         <COMPID name="Usuario" mc="Standard.Actor" uid="e4d14031-fb6b-43bc-ac39-1a4516263bbc"/>
         <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="05b76ebe-3965-4085-bb44-2862de75478d"/>
         <COMPID name="Administrador" mc="Standard.Actor" uid="1bb3be0c-d5cb-4ade-9e11-ec9ff43069da"/>
-        <COMPID name="Alta Patrocinador" mc="Standard.UseCase" uid="cefdfc50-29d7-4056-9a02-d64999c2f409"/>
-        <COMPID name="Baja Patrocinador" mc="Standard.UseCase" uid="8eb2f9a3-aedd-4883-9678-f0365831666c"/>
+        <COMPID name="Registrar Patrocinador" mc="Standard.UseCase" uid="cefdfc50-29d7-4056-9a02-d64999c2f409"/>
+        <COMPID name="Borrar Patrocinador" mc="Standard.UseCase" uid="8eb2f9a3-aedd-4883-9678-f0365831666c"/>
         <COMPID name="Crear Juego" mc="Standard.UseCase" uid="7f6bba32-012a-4c5a-8fa9-41333aa5671a"/>
         <COMPID name="Modificar Juego" mc="Standard.UseCase" uid="1f590d06-dcdc-470a-b485-416f4fcf802f"/>
         <COMPID name="Jugador" mc="Standard.Actor" uid="85dff2dd-cba5-485d-b346-b224af435a1a"/>
@@ -34,14 +34,14 @@
         <COMPID name="Abandonar Partido" mc="Standard.UseCase" uid="6d3059e5-2407-4d5d-ac5e-8da17bc40418"/>
         <COMPID name="Usuario" mc="Standard.Actor" uid="94f2a281-9ca9-41d8-ac34-7178e4138bf2"/>
         <COMPID name="Modificar Datos Personales" mc="Standard.UseCase" uid="ab819606-3579-422b-8b6f-6e3901cdfe1b"/>
-        <COMPID name="Consultar Juegos" mc="Standard.UseCase" uid="fe79a6a8-046c-45a7-af58-1b4e200e7cf2"/>
+        <COMPID name="Consultar Juego" mc="Standard.UseCase" uid="fe79a6a8-046c-45a7-af58-1b4e200e7cf2"/>
         <COMPID name="Consultar Partido" mc="Standard.UseCase" uid="d5159638-86fc-4d34-8b78-2515037ca813"/>
         <COMPID name="Consultar Torneo" mc="Standard.UseCase" uid="1904150d-0ea2-454b-9ab1-b05e0d0e7022"/>
         <COMPID name="Invitado" mc="Standard.Actor" uid="584fff33-1e9d-4221-a55e-42e890dd4f94"/>
         <COMPID name="Registrar Jugador" mc="Standard.UseCase" uid="2e09e5ce-4b26-42d5-b8c0-a8b05021ae32"/>
         <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="d3623440-c73d-4796-9c7d-a95176dff19b"/>
         <COMPID name="Superadministrador" mc="Standard.Actor" uid="1fd3763b-7f5c-4c3e-97ca-1385c48f8eea"/>
-        <COMPID name="Jugador" mc="Standard.Actor" uid="6b08a094-8dd5-41f3-a4e3-cf5fdc8f9412"/>
+        <COMPID name="Invitado" mc="Standard.Actor" uid="6b08a094-8dd5-41f3-a4e3-cf5fdc8f9412"/>
         <COMPID name="Aceptar Invitacion" mc="Standard.UseCase" uid="35c16d8e-7ff5-415a-b9f9-79752fe2d9d0"/>
         <COMPID name="Rechazar Invitacion" mc="Standard.UseCase" uid="1195ce85-b5a1-42aa-951f-539395efc4d3"/>
         <COMPID name="Abandonar Torneo" mc="Standard.UseCase" uid="3ffcd481-d196-4f3c-b80c-983879b6b23c"/>
@@ -56,14 +56,12 @@
         <COMPID name="Finalizar Partida" mc="Standard.UseCase" uid="469840de-4020-4aeb-948a-6b8b139e6f9b"/>
         <COMPID name="Iniciar Partida" mc="Standard.UseCase" uid="970fb8e1-51a3-4a7d-81ea-1f039805ec5a"/>
         <COMPID name="Tiempo" mc="Standard.Actor" uid="f6d0a264-038d-4aa2-a5df-850e76e0ea6a"/>
-        <COMPID name="Superadministrador" mc="Standard.Actor" uid="0c35ce63-303a-413a-a2d9-320e2d61214c"/>
-        <COMPID name="Administrador" mc="Standard.Actor" uid="8f4becc7-8316-4221-bfd3-8a10b566d65d"/>
-        <COMPID name="Alta Jugador" mc="Standard.UseCase" uid="eb1dc1de-a66a-4f41-9b80-61444e12893d"/>
         <COMPID name="Baja Jugador" mc="Standard.UseCase" uid="41a97b13-ddf9-448f-9ac2-96d02fdead6d"/>
-        <COMPID name="Usuario" mc="Standard.Actor" uid="80e92b32-4eb9-4691-90a8-f268bf1ba979"/>
-        <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="d633816c-bd2c-4220-b628-2940b6896359"/>
         <COMPID name="Descalificar Grupo" mc="Standard.UseCase" uid="a6231123-3332-45d9-b764-1a668e2199ed"/>
         <COMPID name="Validar Usuario" mc="Standard.UseCase" uid="2743d113-0509-4112-9e42-298129c1fd78"/>
+        <COMPID name="Mostrar Partidos" mc="Standard.UseCase" uid="1a30fb91-628f-4508-9e68-bcebd5e23b53"/>
+        <COMPID name="Mostrar Juegos" mc="Standard.UseCase" uid="8910ec38-2f9b-4cff-8653-ef0042864c10"/>
+        <COMPID name="Mostrar Torneos" mc="Standard.UseCase" uid="b6c06b6e-989c-413c-9e48-3d70c15fe13a"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="DCU Superadministrador y Administrador" mc="Standard.UseCaseDiagram" uid="4413c67b-7e0a-4002-af8b-7ce77eb05471"/>

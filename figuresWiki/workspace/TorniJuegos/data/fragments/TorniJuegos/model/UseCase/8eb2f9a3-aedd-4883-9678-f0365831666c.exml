@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Baja Patrocinador" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Borrar Patrocinador" version="4">
   <OBJECT>
-    <ID name="Baja Patrocinador" mc="Standard.UseCase" uid="8eb2f9a3-aedd-4883-9678-f0365831666c"/>
+    <ID name="Borrar Patrocinador" mc="Standard.UseCase" uid="8eb2f9a3-aedd-4883-9678-f0365831666c"/>
     <PID name="tornijuegos" mc="Standard.Package" uid="20d7e2f8-035f-46e9-b378-ede04a2eafab"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Baja Patrocinador]]></ATT>
+      <ATT name="Name"><![CDATA[Borrar Patrocinador]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -50,7 +50,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Jugador" mc="Standard.Actor" uid="6b08a094-8dd5-41f3-a4e3-cf5fdc8f9412"/>
+              <ID name="Invitado" mc="Standard.Actor" uid="6b08a094-8dd5-41f3-a4e3-cf5fdc8f9412"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
