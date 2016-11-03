@@ -69,6 +69,7 @@
         <COMPID name="DCU Usuario e Invitado" mc="Standard.UseCaseDiagram" uid="8d40635e-ba37-41a5-8bd2-96534be837ce"/>
         <COMPID name="DCU Patrocinador" mc="Standard.UseCaseDiagram" uid="e818f416-43c8-4a50-bb16-430525ca7ba8"/>
         <COMPID name="Modelo Conceptual de Datos" mc="Standard.ClassDiagram" uid="46f8bc47-3b87-4bea-ac1c-157cf9d57ce4"/>
+        <COMPID name="Modelo Diseño v1" mc="Standard.ClassDiagram" uid="9effed47-3420-4721-b299-6fc004390db3"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>
