@@ -58,10 +58,11 @@
         <COMPID name="Partido" mc="Standard.Class" uid="a0d9cec4-48c6-4746-b239-6be8f1ff497e"/>
         <COMPID name="Equipo" mc="Standard.Class" uid="88e7098c-76bf-4166-bf99-a59c483816b9"/>
         <COMPID name="Usuario" mc="Standard.Class" uid="24138361-8e6f-4b7c-8b7f-2aa232209ece"/>
-        <COMPID name="Patrocinador" mc="Standard.Class" uid="68cb4872-7b1e-496c-9dc0-17bba2fa7ecb"/>
-        <COMPID name="Administrador" mc="Standard.Class" uid="a3d95681-7697-40ea-90eb-077988175a90"/>
-        <COMPID name="SuperAdministrador" mc="Standard.Class" uid="b328a141-e392-415c-a188-b443a12ff740"/>
-        <COMPID name="Jugador" mc="Standard.Class" uid="ef71fcd6-2d98-4f82-9c21-600267362ab3"/>
+        <COMPID name="LoginHandler" mc="Standard.Class" uid="8a6a241d-94b6-482b-b73a-ffc1b58497cc"/>
+        <COMPID name="NickPassLogin" mc="Standard.Class" uid="41630c48-71b6-438b-97ab-1388df31e73d"/>
+        <COMPID name="UsersManager" mc="Standard.Class" uid="e0e095d2-32d2-48fd-b705-747594b7b24f"/>
+        <COMPID name="StoreLogin" mc="Standard.Class" uid="423c6a11-3341-4f85-812c-b2e421d7db8e"/>
+        <COMPID name="SystemManager" mc="Standard.Class" uid="1cac98da-a660-4ba7-915a-ff39eca9dc30"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="DCU Superadministrador y Administrador" mc="Standard.UseCaseDiagram" uid="4413c67b-7e0a-4002-af8b-7ce77eb05471"/>

@@ -93,56 +93,10 @@
           <ID name="sexo" mc="Standard.Attribute" uid="0baa70fa-3264-45bb-850f-638e3b6bc9ec"/>
         </REFOBJ>
         <REFOBJ>
-          <ID name="jugador" mc="Standard.AssociationEnd" uid="caf199df-4fb6-48db-8ab9-39af2156b4f6"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="" mc="Standard.AssociationEnd" uid="a784a85d-9675-4ac4-bbc6-b18c87c9aae3"/>
-        </REFOBJ>
-        <REFOBJ>
           <ID name="ID" mc="Standard.Attribute" uid="0894617f-92ab-48ed-a426-c186e18d1c60"/>
         </REFOBJ>
         <REFOBJ>
           <ID name="numMaximoJugadores" mc="Standard.Attribute" uid="f639a596-c866-43f0-a8c1-0737b4d889d3"/>
-        </REFOBJ>
-        <ID name="Patrocinador" mc="Standard.Class" uid="68cb4872-7b1e-496c-9dc0-17bba2fa7ecb"/>
-        <ID name="Administrador" mc="Standard.Class" uid="a3d95681-7697-40ea-90eb-077988175a90"/>
-        <ID name="SuperAdministrador" mc="Standard.Class" uid="b328a141-e392-415c-a188-b443a12ff740"/>
-        <ID name="Jugador" mc="Standard.Class" uid="ef71fcd6-2d98-4f82-9c21-600267362ab3"/>
-        <REFOBJ>
-          <ID name="Generalization" mc="Standard.Generalization" uid="463cf3be-d6e3-41d8-8504-34fbc81b32e0"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="Generalization" mc="Standard.Generalization" uid="85de4c06-bd65-4b09-9083-8ccba26617e0"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="Generalization" mc="Standard.Generalization" uid="4bd01a79-cc3f-4aae-b70a-c504c4ee44fb"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="Generalization" mc="Standard.Generalization" uid="d36412f8-5eb3-4fdf-a715-096b2a00cb54"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="gestiona" mc="Standard.AssociationEnd" uid="82160a6c-c8eb-4cda-88f2-af90a9f6e868"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="" mc="Standard.AssociationEnd" uid="21d2a6f2-1c75-40a4-a0de-47c94725badf"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="gestiona" mc="Standard.AssociationEnd" uid="8160bac7-f884-441b-aa2d-df1642d2153d"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="" mc="Standard.AssociationEnd" uid="3adf8365-2655-4563-8908-3c73e809014d"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="" mc="Standard.AssociationEnd" uid="348d8dc3-3b25-4ee9-9cfe-e22f1ce04e02"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="gestiona" mc="Standard.AssociationEnd" uid="3cf14431-dc73-4916-94e3-39128c535c65"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="gestiona" mc="Standard.AssociationEnd" uid="abcdc162-402c-4a67-bebc-0db89000dde7"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="" mc="Standard.AssociationEnd" uid="62272dae-e8cd-4e4d-be4b-94d0956dd125"/>
         </REFOBJ>
         <REFOBJ>
           <ID name="numActualJugadores" mc="Standard.Attribute" uid="20b3b201-35ea-414f-b32d-2c5ebbed58ec"/>
@@ -155,9 +109,6 @@
         </REFOBJ>
         <REFOBJ>
           <ID name="modificarDatos" mc="Standard.Operation" uid="97e0f29a-ebab-4f15-a9fa-0cef6412f5e3"/>
-        </REFOBJ>
-        <REFOBJ>
-          <ID name="validarUsuario" mc="Standard.Operation" uid="aac5f6c3-8827-4172-a92b-405707ad2353"/>
         </REFOBJ>
         <REFOBJ>
           <ID name="crearSuperadmin" mc="Standard.Operation" uid="57b74aec-28bc-44e7-a642-cace8f7cc76e"/>

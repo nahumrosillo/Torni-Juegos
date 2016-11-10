@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="SuperAdministrador" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="StoreLogin" version="4">
   <OBJECT>
-    <ID name="SuperAdministrador" mc="Standard.Class" uid="b328a141-e392-415c-a188-b443a12ff740"/>
+    <ID name="StoreLogin" mc="Standard.Class" uid="423c6a11-3341-4f85-812c-b2e421d7db8e"/>
     <PID name="tornijuegos" mc="Standard.Package" uid="20d7e2f8-035f-46e9-b378-ede04a2eafab"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
@@ -11,51 +11,61 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[SuperAdministrador]]></ATT>
+      <ATT name="Name"><![CDATA[StoreLogin]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
-      <COMP relation="OwnedOperation">
+      <COMP relation="OwnedAttribute">
         <OBJECT>
-          <ID name="crearSuperadmin" mc="Standard.Operation" uid="57b74aec-28bc-44e7-a642-cace8f7cc76e"/>
+          <ID name="Lista&lt;Usuario&gt;" mc="Standard.Attribute" uid="dd199837-de56-460f-ad40-4e13b64e7d72"/>
           <ATTRIBUTES>
-            <ATT name="Concurrency">false</ATT>
-            <ATT name="Final">false</ATT>
-            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="TypeConstraint"></ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="TargetIsClass">false</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[crearSuperadmin]]></ATT>
+            <ATT name="Name"><![CDATA[Lista<Usuario>]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
+          <DEPENDENCIES>
+            <LINK relation="Type">
+              <FOREIGNID name="string" mc="Standard.DataType" uid="00000004-0000-000d-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
         </OBJECT>
       </COMP>
       <COMP relation="OwnedEnd">
         <OBJECT>
-          <ID name="gestiona" mc="Standard.AssociationEnd" uid="3cf14431-dc73-4916-94e3-39128c535c65"/>
+          <ID name="usuario" mc="Standard.AssociationEnd" uid="3ac3c765-3f1a-431b-82a9-ede4cb026526"/>
           <ATTRIBUTES>
-            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="Aggregation">KindIsComposition</ATT>
             <ATT name="IsChangeable">true</ATT>
             <ATT name="Changeable">ReadWrite</ATT>
             <ATT name="IsDerived">false</ATT>
             <ATT name="IsOrdered">false</ATT>
             <ATT name="IsUnique">false</ATT>
             <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
-            <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[gestiona]]></ATT>
+            <ATT name="Name"><![CDATA[usuario]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Administrador" mc="Standard.Class" uid="a3d95681-7697-40ea-90eb-077988175a90"/>
+              <ID name="Usuario" mc="Standard.Class" uid="24138361-8e6f-4b7c-8b7f-2aa232209ece"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
-                <ID name="" mc="Standard.AssociationEnd" uid="348d8dc3-3b25-4ee9-9cfe-e22f1ce04e02"/>
+                <ID name="" mc="Standard.AssociationEnd" uid="6fa4c5c7-9da5-4097-a76b-3e784da516f6"/>
                 <ATTRIBUTES>
                   <ATT name="Aggregation">KindIsAssociation</ATT>
                   <ATT name="IsChangeable">true</ATT>
@@ -73,11 +83,11 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <COMP relation="Opposite">
-                    <COMPID name="gestiona" mc="Standard.AssociationEnd" uid="3cf14431-dc73-4916-94e3-39128c535c65"/>
+                    <COMPID name="usuario" mc="Standard.AssociationEnd" uid="3ac3c765-3f1a-431b-82a9-ede4cb026526"/>
                   </COMP>
                   <COMP relation="Association">
                     <OBJECT>
-                      <ID name="" mc="Standard.Association" uid="ac169ee0-c218-426f-94fd-397afab3006e"/>
+                      <ID name="" mc="Standard.Association" uid="11617a67-ed66-45f8-b20b-e44b22f54b75"/>
                       <ATTRIBUTES>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
@@ -89,23 +99,8 @@
               </OBJECT>
             </COMP>
             <COMP relation="Association">
-              <COMPID name="" mc="Standard.Association" uid="ac169ee0-c218-426f-94fd-397afab3006e"/>
+              <COMPID name="" mc="Standard.Association" uid="11617a67-ed66-45f8-b20b-e44b22f54b75"/>
             </COMP>
-          </DEPENDENCIES>
-        </OBJECT>
-      </COMP>
-      <COMP relation="Parent">
-        <OBJECT>
-          <ID name="Generalization" mc="Standard.Generalization" uid="d36412f8-5eb3-4fdf-a715-096b2a00cb54"/>
-          <ATTRIBUTES>
-            <ATT name="Discriminator"></ATT>
-            <ATT name="Name"><![CDATA[Generalization]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <LINK relation="SuperType">
-              <ID name="Usuario" mc="Standard.Class" uid="24138361-8e6f-4b7c-8b7f-2aa232209ece"/>
-            </LINK>
           </DEPENDENCIES>
         </OBJECT>
       </COMP>
