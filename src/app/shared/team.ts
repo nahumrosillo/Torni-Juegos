@@ -1,35 +1,56 @@
-import * as Collection from 'typescript-collections';
 import { User } from './user';
 
 export class Team
 {
     private static numTeams: number = 0;
     private id: number;
-    private maxPlayer: number;
-    private Users = new Collection.Set<User>();
+    private maxPlayers: number;
+    private Users;
+    //private iterator: Iterator;
 
     constructor() {
         this.id = Team.numTeams;
         Team.numTeams++;
+        this.Users = new Set();
     }
 
-    public setMaxPlayer(numMax: number): void {
-        this.maxPlayer = numMax;
+    set setMaxPlayers(numMax: number) {  //UT
+        this.maxPlayers = numMax;
     }
 
-    public setPlayerIntoTeam(user: User): void {
+    set setPlayerIntoTeam(user: User) { //UT
         this.Users.add(user);
     }
 
-    public getId(): number {
+    get getId(): number { //UT
         return this.id;
     }
 
-    public getMaxPlayer(): number {
-        return this.maxPlayer;
+    get getMaxPlayers(): number { //UT
+        return this.maxPlayers;
     }
 
-    public isFull(): boolean {
-        return this.Users.size() == this.maxPlayer;
+    get getNumPlayers(): number { //UT
+        return this.Users.size;
+    }
+
+    get isFull(): boolean { //UT
+        return this.Users.size == this.maxPlayers;
+    }
+
+    get begin(): any {
+        return this.Users.entries;
+    }
+
+    get end(): any {
+
+        let iter = this.Users.entries;
+
+        for(let i of this.Users)
+        {
+            iter.next();
+        }
+
+        return iter;
     }
 }
