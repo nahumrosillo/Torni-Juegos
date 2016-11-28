@@ -38,14 +38,17 @@ describe('Team', () => {
         
         let maxPlayers = 3;
         expect(team.isFull).toEqual(false);
+        let user1: User = new User();
+        let user2: User = new User();
+        let user3: User = new User();
+        let user4: User = new User();
+        let user5: User = new User();
 
         team.setMaxPlayers = maxPlayers;
 
-        team.setPlayerIntoTeam = user;
-        team.setPlayerIntoTeam = user;
-        team.setPlayerIntoTeam = user;
-        team.setPlayerIntoTeam = user;
-        team.setPlayerIntoTeam = user;
+        team.setPlayerIntoTeam = user1;
+        team.setPlayerIntoTeam = user2;
+        team.setPlayerIntoTeam = user3;
 
         expect(team.isFull).toEqual(true);
     }));

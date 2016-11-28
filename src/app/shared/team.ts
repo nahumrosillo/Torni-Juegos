@@ -19,7 +19,8 @@ export class Team
     }
 
     set setPlayerIntoTeam(user: User) { //UT
-        this.Users.add(user);
+        if(this.Users.size != this.maxPlayers)
+            this.Users.add(user);
     }
 
     get getId(): number { //UT
