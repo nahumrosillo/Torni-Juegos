@@ -77,7 +77,7 @@ describe('Team', () => {
 
         for (let u of teamFour)
         {
-            console.log(u.nick);
+            console.log(u.getNick);
         }
 
 
