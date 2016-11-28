@@ -69,8 +69,20 @@ describe('Team', () => {
         let user4: User = new User();
         user1.setNick('usuario4');
 
+        teamFour.setPlayerIntoTeam = user1;
+        teamFour.setPlayerIntoTeam = user2;
+        teamFour.setPlayerIntoTeam = user3;
+        teamFour.setPlayerIntoTeam = user4;
 
 
+        for (let u of teamFour)
+        {
+            console.log(u.nick);
+        }
+
+
+
+        /*
         teamFour.setPlayerIntoTeam = user1;
         teamFour.setPlayerIntoTeam = user2;
         teamFour.setPlayerIntoTeam = user3;
@@ -87,6 +99,7 @@ describe('Team', () => {
         for(; iterador2 != teamFour.end ; iterador2++);
 
         expect(iterador2.next().values).toEqual('usuario4');
+        */
 
     }));
 
