@@ -38,6 +38,7 @@ describe('Team', () => {
         
         let maxPlayers = 3;
 
+        //Testing isFull when false
         expect(team.isFull).toEqual(false);
         let user1: User = new User();
         let user2: User = new User();
@@ -51,6 +52,7 @@ describe('Team', () => {
         team.setPlayerIntoTeam = user2;
         team.setPlayerIntoTeam = user3;
 
+        //Testing isFull when true
         expect(team.isFull).toEqual(true);
     }));
 
@@ -64,11 +66,11 @@ describe('Team', () => {
         let user1: User = new User();
         user1.setNick = 'usuario1';
         let user2: User = new User();
-        user1.setNick = 'usuario2';
+        user2.setNick = 'usuario2';
         let user3: User = new User();
-        user1.setNick = 'usuario3';
+        user3.setNick = 'usuario3';
         let user4: User = new User();
-        user1.setNick = 'usuario4';
+        user4.setNick = 'usuario4';
 
 
         teamFour.setPlayerIntoTeam = user1;
@@ -76,34 +78,37 @@ describe('Team', () => {
         teamFour.setPlayerIntoTeam = user3;
         teamFour.setPlayerIntoTeam = user4;
 
-        console.log(teamFour.getMaxPlayers);
-        console.log(teamFour.getNumPlayers);
+
+        let iterador = teamFour.iterator();
+
+        //Testing begin
+        expect(iterador.begin().getNick).toEqual('usuario1'); 
+        //Testing end
+        expect(iterador.end().getNick).toEqual('usuario4'); 
+        //Testing hasNext when true
+        expect(iterador.hasNext()).toEqual(true); 
+
+        //Testing next and current
+        expect(iterador.current().getNick).toEqual('usuario1'); 
+        iterador.next();
+        expect(iterador.current().getNick).toEqual('usuario2');
+        iterador.next();
+        expect(iterador.current().getNick).toEqual('usuario3');
+        iterador.next();
+        expect(iterador.current().getNick).toEqual('usuario4');
+
+        //Testing hasNext when false 
+        expect(iterador.hasNext()).toEqual(false); 
         
-        for (let i of teamFour.Users)
-        {
-            console.log(i);
-        }
 
+        let iterador2 = teamFour.iterator();
+        
+        //Testing for iterator
+        for(; iterador2.current() != iterador2.end() ; iterador2.next());
+
+        expect(iterador2.current().getNick).toEqual('usuario4');
 
         
-        //console.log(iterador.begin().getNick);
-
-        //expect(iterador.begin().getNick).toEqual('usuario1'); 
-        /*
-        //iterador = iterador.next();
-        expect(iterador.getNick).toEqual('usuario2');
-        //iterador = iterador.next();
-        expect(iterador.getNick).toEqual('usuario3');
-        //iterador = iterador.next();
-        expect(iterador.getNick).toEqual('usuario4');
-
-        let iterador2 = teamFour.iterator().begin();
-
-        for(; iterador2 != iterador2.end() ; iterador2++);
-
-        expect(iterador2.next().values).toEqual('usuario4');
-        
-*/
     }));
 
 });

@@ -1,43 +1,57 @@
 import { User } from './user';
 
+export interface Iterator
+{
+    begin(): any;
+    next(): any;
+    end(): any;
+    hasNext(): boolean;
+    current(): any;
+}
 
+export interface Aggregator {
+    iterator(): Iterator;
+}
 
+class IndexIterator implements Iterator
+{
+    private index: number = 0;
+    private collection: any;
 
+    constructor(collection: any) {
+        this.collection = collection;
+    }
 
-class SetIterator implements Iterator<User> 
-{ 
-  index: number; 
- 
-  constructor( 
-    public array: Array<User>
-  ) { 
-    this.index = array.length - 1; 
-  } 
- 
-  next(): IteratorResult<User> { 
-    if (this.index <= this.array.length) { 
-      return { 
-        value: undefined, 
-        done: true 
-      }; 
-    } else { 
-      return { 
-        value: this.array[this.index--], 
-        done: false 
-      } 
-    } 
-  } 
-} 
+    begin(): any {
+        return this.collection[0];
+    }
+    next(): any {
+       return this.collection[this.index++]; 
+    }
 
+    hasNext(): boolean{
+        if(this.index < this.collection.length-1)
+            return true;
+        else
+            return false;
+    }
 
+    end(): any {
+        return this.collection[this.collection.length-1];
+    }
 
-export class Team
+    current(): any {
+      return this.collection[this.index];
+    }
+}
+
+export class Team implements Aggregator
 {
 
     private static numTeams: number = 0;
     private id: number;
     private maxPlayers: number;
-    public Users: Array<User>;
+    private Users: Array<User>;
 
 
     constructor() {
@@ -46,11 +60,9 @@ export class Team
         this.Users = new Array<User>();
     }
 
-    [Symbol.iterator]() {
-    
-    return new SetIterator(this.Users);
-
-  } 
+    iterator(): Iterator {
+        return new IndexIterator(this.Users);
+    }
 
     set setMaxPlayers(numMax: number) {  //UT
         this.maxPlayers = numMax;
@@ -77,4 +89,3 @@ export class Team
         return this.Users.length == this.maxPlayers;
     }
 }
-
