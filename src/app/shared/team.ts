@@ -1,17 +1,17 @@
 import { User } from './user';
 
-export class Team
+export class Team implements Iterator<User>
 {
     private static numTeams: number = 0;
     private id: number;
     private maxPlayers: number;
-    private Users;
+    private Users: Set<User>;
     //private iterator: Iterator;
 
     constructor() {
         this.id = Team.numTeams;
         Team.numTeams++;
-        this.Users = new Set();
+        this.Users = new Set<User>();
     }
 
     set setMaxPlayers(numMax: number) {  //UT
@@ -39,19 +39,53 @@ export class Team
         return this.Users.size == this.maxPlayers;
     }
 
-    get begin(): any {
-        return this.Users.entries;
+    get begin(): Iterator<User> {
+        //return this.Users.values;
+        /*return {
+            done: false,
+            value: this.Users[0]
+        }*/
+        return this.Users[0];
     }
 
-    get end(): any {
+    get end(): Iterator<User> {
 
-        let iter = this.Users.entries;
+        return this.Users[this.maxPlayers-1];
+        /*let iter = this.begin;
 
-        for(let i of this.Users)
+        for(let i in this.Users)
         {
-            iter.next();
+            iter = iter.next().value;
         }
 
-        return iter;
+        return iter;*/
+        /*return {
+            done: false,
+            value: this.Users[this.maxPlayers-1]
+        }*/
     }
+
+    public next(): IteratorResult<User> {
+
+        return {
+            done: false,
+            value: this.Users[2]
+        }
+    }
+
+    /*export class TeamIterator implements Iterator<User>
+    {
+        private iterator: number;
+
+        constructor() {
+            this.iterator = 0;
+        }
+
+        public next(): IteratorResult<User> {
+            return {
+                done: false,
+                value: this.Users[this.iterator++]
+            }
+        }
+    }*/
 }

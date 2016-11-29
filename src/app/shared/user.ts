@@ -13,35 +13,35 @@ export class User
         this.nick = 'null';
     }
 
-    public setNick(nick: string): void {
+    set setNick(nick: string) {
         this.nick = nick;
     }
 
-    public setName(name: string): void {
+    set setName(name: string) {
         this.name = name;
     }
 
-    public setDni(dni: string): void {
+    set setDni(dni: string) {
         this.dni = dni;
     }
 
-    public setBirthDate(birthdate: Date): void {
+    set setBirthDate(birthdate: Date) {
         this.birthDate = birthdate;
     }
 
-    public getNick(): string {
+    get getNick(): string {
         return this.nick;
     }
 
-    public getDni(): string {
+    get getDni(): string {
         return this.dni;
     }
 
-    public getBirthDate(): Date {
+    get getBirthDate(): Date {
         return this.birthDate;
     }
 
-    public isEmpty(): boolean {
-        return this.getNick() == 'null';
+    get isEmpty(): boolean {
+        return this.getNick == 'null';
     }
 }

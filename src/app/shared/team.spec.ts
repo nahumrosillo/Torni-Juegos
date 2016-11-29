@@ -61,13 +61,13 @@ describe('Team', () => {
         teamFour.setMaxPlayers = maxPlayers;
 
         let user1: User = new User();
-        user1.setNick('usuario1');
+        user1.setNick = 'usuario1';
         let user2: User = new User();
-        user1.setNick('usuario2');
+        user1.setNick = 'usuario2';
         let user3: User = new User();
-        user1.setNick('usuario3');
+        user1.setNick = 'usuario3';
         let user4: User = new User();
-        user1.setNick('usuario4');
+        user1.setNick = 'usuario4';
 
 
 
@@ -77,10 +77,13 @@ describe('Team', () => {
         teamFour.setPlayerIntoTeam = user4;
 
         let iterador = teamFour.begin;
-        expect(iterador.next.values).toEqual('usuario1');
-        expect(iterador.next.values).toEqual('usuario2');
-        expect(iterador.next.values).toEqual('usuario3');
-        expect(iterador.next.values).toEqual('usuario4');
+        expect(iterador.next().value.getNick).toEqual('usuario1');
+        iterador = iterador.next();
+        expect(iterador.next().value.getNick).toEqual('usuario2');
+        iterador = iterador.next();
+        expect(iterador.next().value.getNick).toEqual('usuario3');
+        iterador = iterador.next();
+        expect(iterador.next().value.getNick).toEqual('usuario4');
 
         let iterador2 = teamFour.begin;
 
