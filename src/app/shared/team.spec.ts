@@ -37,6 +37,7 @@ describe('Team', () => {
     it('equipo está o no lleno', async(() => {
         
         let maxPlayers = 3;
+
         expect(team.isFull).toEqual(false);
         let user1: User = new User();
         let user2: User = new User();
@@ -69,28 +70,26 @@ describe('Team', () => {
         let user4: User = new User();
         user1.setNick = 'usuario4';
 
-       /* teamFour.setPlayerIntoTeam = user1;
-        teamFour.setPlayerIntoTeam = user2;
-        teamFour.setPlayerIntoTeam = user3;
-        teamFour.setPlayerIntoTeam = user4;*/
 
-
-
-        
         teamFour.setPlayerIntoTeam = user1;
         teamFour.setPlayerIntoTeam = user2;
         teamFour.setPlayerIntoTeam = user3;
         teamFour.setPlayerIntoTeam = user4;
 
-        /*for (let u of teamFour)
+        console.log(teamFour.getMaxPlayers);
+        console.log(teamFour.getNumPlayers);
+        
+        for (let i of teamFour.Users)
         {
-            console.log(u.getNick);
-        }*/
+            console.log(i);
+        }
 
 
-        let iterador = teamFour.iterator().begin();
+        
+        //console.log(iterador.begin().getNick);
 
-        expect(iterador.getNick).toEqual('usuario1'); 
+        //expect(iterador.begin().getNick).toEqual('usuario1'); 
+        /*
         //iterador = iterador.next();
         expect(iterador.getNick).toEqual('usuario2');
         //iterador = iterador.next();
@@ -104,7 +103,7 @@ describe('Team', () => {
 
         expect(iterador2.next().values).toEqual('usuario4');
         
-
+*/
     }));
 
 });
