@@ -69,27 +69,41 @@ describe('Team', () => {
         let user4: User = new User();
         user1.setNick = 'usuario4';
 
+       /* teamFour.setPlayerIntoTeam = user1;
+        teamFour.setPlayerIntoTeam = user2;
+        teamFour.setPlayerIntoTeam = user3;
+        teamFour.setPlayerIntoTeam = user4;*/
 
 
+
+        
         teamFour.setPlayerIntoTeam = user1;
         teamFour.setPlayerIntoTeam = user2;
         teamFour.setPlayerIntoTeam = user3;
         teamFour.setPlayerIntoTeam = user4;
 
-        let iterador = teamFour.begin;
-        expect(iterador.next().value.getNick).toEqual('usuario1');
-        iterador = iterador.next();
-        expect(iterador.next().value.getNick).toEqual('usuario2');
-        iterador = iterador.next();
-        expect(iterador.next().value.getNick).toEqual('usuario3');
-        iterador = iterador.next();
-        expect(iterador.next().value.getNick).toEqual('usuario4');
+        /*for (let u of teamFour)
+        {
+            console.log(u.getNick);
+        }*/
 
-        let iterador2 = teamFour.begin;
 
-        for(; iterador2 != teamFour.end ; iterador2++);
+        let iterador = teamFour.iterator().begin();
+
+        expect(iterador.getNick).toEqual('usuario1'); 
+        //iterador = iterador.next();
+        expect(iterador.getNick).toEqual('usuario2');
+        //iterador = iterador.next();
+        expect(iterador.getNick).toEqual('usuario3');
+        //iterador = iterador.next();
+        expect(iterador.getNick).toEqual('usuario4');
+
+        let iterador2 = teamFour.iterator().begin();
+
+        for(; iterador2 != iterador2.end() ; iterador2++);
 
         expect(iterador2.next().values).toEqual('usuario4');
+        
 
     }));
 
