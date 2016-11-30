@@ -3,7 +3,7 @@
  */
 
 import { TestBed, async } from '@angular/core/testing';
-import { User } from './user';
+import { User, Rol, Genre } from './user';
 
 let user: User;
 
@@ -29,7 +29,7 @@ describe('User', () => {
         expect(user.getDni).toBeUndefined();
     }));
 
-    it('recibe un Date', async(() => {
+    it('setter/getter Date', async(() => {
         let date = new Date();
 
         date.setFullYear(2016, 12, 5);
@@ -45,16 +45,35 @@ describe('User', () => {
         expect(user.getBirthDate).toEqual(date);
     }));
 
-    it('recibe un Nick', async(() => {
+    it('setter/getter Nick', async(() => {
         user.setNick = 'Nahum';
         expect(user.getNick).toEqual('Nahum');
         expect(user.isEmpty).toBe(false);
     }));
 
-    it('recibe un Dni', async(() => {
+    it('setter/getter Dni', async(() => {
         user.setDni = '32999999H';
         expect(user.getDni).toEqual('32999999H');
-
     }));
 
+    it('setter/getter Rol', async(() => {
+        expect(user.getRol).toBeDefined();
+        expect(user.getRol).toEqual(Rol.NULL);
+        user.setRol = Rol.ADMINISTRATOR;
+        expect(user.getRol).toEqual(Rol.ADMINISTRATOR);
+        expect(user.getRol).not.toEqual(Rol.NULL);
+    }));
+
+    it('setter/getter Genre', async(() => {
+        expect(user.getGenre).toBeDefined();
+        user.setGenre = Genre.FEMALE;
+        expect(user.getGenre).toEqual(Genre.FEMALE);
+    }));
+
+    it('es igual a otro User', async(() => {
+        let u: User;
+        u = new User();
+
+        expect(user.isEqual(u));
+    }));
 });
