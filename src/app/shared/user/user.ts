@@ -25,7 +25,11 @@ export class User {
     private password: string;
 
     constructor(nick?: string) {
-        this.nick = 'null';
+        
+        if(nick != null)
+            this.nick = nick;
+        else
+            this.nick = 'null';
         this.rol = Rol.NULL;
         this.genre = Genre.MALE;
     }
