@@ -80,20 +80,13 @@ describe('Team', () => {
 
     it('prueba de iteradores', async(() => {
         
-        let teamFour: Team = new Team();
         let maxPlayers = 4;
+        let teamFour: Team = new Team(0, maxPlayers);
 
-        teamFour.setMaxPlayers = maxPlayers;
-
-        let user1: User = new User();
-        user1.setNick = 'usuario1';
-        let user2: User = new User();
-        user2.setNick = 'usuario2';
-        let user3: User = new User();
-        user3.setNick = 'usuario3';
-        let user4: User = new User();
-        user4.setNick = 'usuario4';
-
+        let user1: User = new User('usuario1');
+        let user2: User = new User('usuario2');
+        let user3: User = new User('usuario3');
+        let user4: User = new User('usuario4');
 
         teamFour.setPlayerIntoTeam = user1;
         teamFour.setPlayerIntoTeam = user2;

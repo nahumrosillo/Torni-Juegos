@@ -23,6 +23,16 @@ describe('User', () => {
         expect(user).toBeDefined();
     }));
 
+    it('se construye llamando al constructor con nick', async(() => {
+
+        let nombre: string = 'user';
+        let user1 = new User(nombre);
+
+        expect(user1).toBeDefined();
+        expect(user1.getNick).toEqual(nombre);
+
+    }));
+
     it('se construye un usuario vacio', async(() => {
         expect(user.getNick).toEqual('null');
         expect(user.getBirthDate).toBeUndefined();

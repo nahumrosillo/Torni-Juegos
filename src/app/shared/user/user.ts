@@ -22,8 +22,9 @@ export class User {
     private birthDate: Date;
     private rol: Rol;
     private genre: Genre;
+    private password: string;
 
-    constructor() {
+    constructor(nick?: string) {
         this.nick = 'null';
         this.rol = Rol.NULL;
         this.genre = Genre.MALE;
