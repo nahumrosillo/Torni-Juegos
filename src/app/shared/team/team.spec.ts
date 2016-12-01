@@ -1,9 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { Team } from './team';
-import { User } from './user';
-
-let team: Team = new Team();
-let user: User;
+import { User } from './../user/user'; 
 
 describe('Team', () => {
     beforeEach(() => {
@@ -17,36 +14,41 @@ describe('Team', () => {
 
     });
 
-    it('se construye llamando al constructor predeterminado', async(() => {
+    it('se construye llamando al constructor', async(() => {
+
+        let team = new Team(0, 1);
+
         expect(team).toBeDefined();
     }));
 
     it('se construye un equipo vacio', async(() => {
+
+        let team = new Team(0, 1)
+
         expect(team.getId).toEqual(0);
-        expect(team.getMaxPlayers).toBeUndefined();
+        expect(team.getMaxPlayers).toEqual(1);
+        expect(team.getNumPlayers).toEqual(0);
+
     }));
 
     it('recibe un maximo de jugadores', async(() => {
+        
         let maxPlayers = 5;
+        let team = new Team(0, maxPlayers);
 
-        team.setMaxPlayers = maxPlayers;
         expect(team.getMaxPlayers).toEqual(maxPlayers);
-
     }));
 
     it('equipo está o no lleno', async(() => {
         
         let maxPlayers = 3;
+        let team = new Team(0, maxPlayers);
 
         //Testing isFull when false
         expect(team.isFull).toEqual(false);
         let user1: User = new User();
         let user2: User = new User();
         let user3: User = new User();
-        let user4: User = new User();
-        let user5: User = new User();
-
-        team.setMaxPlayers = maxPlayers;
 
         team.setPlayerIntoTeam = user1;
         team.setPlayerIntoTeam = user2;
@@ -54,6 +56,26 @@ describe('Team', () => {
 
         //Testing isFull when true
         expect(team.isFull).toEqual(true);
+    }));
+
+    it('equipo no admite mas jugadores', async(() => {
+        
+        let maxPlayers = 2;
+        let team = new Team(0, maxPlayers);
+
+        //Testing isFull when false
+        expect(team.isFull).toEqual(false);
+        let user1: User = new User();
+        let user2: User = new User();
+        team.setPlayerIntoTeam = user1;
+        team.setPlayerIntoTeam = user2;
+        
+        expect(team.getNumPlayers).toEqual(2);
+
+        let user3: User = new User();
+        team.setPlayerIntoTeam = user3;
+
+        expect(team.getNumPlayers).toEqual(2);
     }));
 
     it('prueba de iteradores', async(() => {

@@ -1,36 +1,23 @@
-import { User } from './user';
-import { Iterator } from './../util/iterator/iterator';
-import { IndexIterator} from './../util/iterator/indexIterator';
-import { Aggregator } from './../util/iterator/aggregator';
+import { User } from './../user/user';
+import { Iterator } from './../../util/iterator/iterator';
+import { IndexIterator} from './../../util/iterator/indexIterator';
+import { Aggregator } from './../../util/iterator/aggregator';
 
 
 export class Team implements Aggregator
-{
-
-    private static numTeams: number = 0;
+{    
     private id: number;
     private maxPlayers: number;
-    private Users: Array<User>;
+    private Users: Array<User> = new Array<User>();
 
 
-    constructor() {
-        this.id = Team.numTeams;
-        Team.numTeams++;
-        this.Users = new Array<User>();
+    constructor(id: number, maxPlayers: number) 
+    {
+        this.id = id;
+        this.maxPlayers = maxPlayers;
     }
 
-    iterator(): Iterator {
-        return new IndexIterator(this.Users);
-    }
-
-    set setMaxPlayers(numMax: number) {  //UT
-        this.maxPlayers = numMax;
-    }
-
-    set setPlayerIntoTeam(user: User) { //UT
-        if(this.Users.length != this.maxPlayers)
-            this.Users.push(user);
-    }
+    //gets
 
     get getId(): number { //UT
         return this.id;
@@ -46,5 +33,23 @@ export class Team implements Aggregator
 
     get isFull(): boolean { //UT
         return this.Users.length == this.maxPlayers;
+    }
+    
+    //sets
+    set setPlayerIntoTeam(user: User) { //UT
+        if(this.Users.length != this.maxPlayers)
+            this.Users.push(user);
+    }
+
+    set removePlayerIntoTeam(user: User) 
+    {
+        let userToRemove = this.Users.indexOf(user);
+
+        this.Users.splice(userToRemove);
+    }
+
+    //iterator
+    iterator(): Iterator {
+        return new IndexIterator(this.Users);
     }
 }
