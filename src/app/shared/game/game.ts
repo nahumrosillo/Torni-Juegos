@@ -29,9 +29,21 @@ export class Game implements Aggregator {
 		return this.description;
 	}
 
+	addTournament(tournament: Tournament) {
+
+		let item = this.tournament.indexOf(tournament);
+
+		if (item == -1) {
+			this.tournament.push(tournament);
+		}
+	}
+
+	get lengthTournament(): number {
+		return this.tournament.length;
+	}
+
 	// iterator
     iterator(): Iterator {
         return new IndexIterator(this.tournament);
     }
-
 }
