@@ -22,7 +22,7 @@ export class Memory implements BD
 		}
 
 		if (item instanceof Game) {
-			this.mapGame.set(item.getName, item);
+			this.mapGame.set('pepe', item);
 		}
 	}
 
@@ -33,7 +33,7 @@ export class Memory implements BD
 		}
 
 		if (item instanceof Game) {
-			this.mapUser.delete(item.getName);
+			this.mapUser.delete('pepe');
 		}
 	}
 
@@ -44,6 +44,6 @@ export class Memory implements BD
 
 	getGame(item: Game): Game {
 
-		return this.mapGame.get(item.getName);
+		return this.mapGame.get('pepe');
 	}
 }

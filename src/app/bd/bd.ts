@@ -1,10 +1,11 @@
-import { User } from '../user/user';
+import { User } from '../shared/user/user';
+import { Game } from '../shared/game/game';
 
 export interface BD {
 
-	addUser(user: User);
+	add(item: User | Game);
 
-	removeUser(user: User);
+	remove(item: User | Game);
 
-	getUser(user: User): User;
+
 }

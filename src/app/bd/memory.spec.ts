@@ -3,7 +3,7 @@
  */
 
 import { TestBed, async } from '@angular/core/testing';
-import { User } from '../user/user';
+import { User } from '../shared/user/user';
 import { Memory } from './memory';
 
 let bd: Memory;
