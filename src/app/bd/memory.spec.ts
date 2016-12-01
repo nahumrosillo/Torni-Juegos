@@ -17,7 +17,7 @@ describe('Memory', () => {
             ],
         });
 
-        bd = new Memory();
+        bd = Memory.getInstance
         user = new User();
 
     });
