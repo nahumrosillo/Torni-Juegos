@@ -1,8 +1,8 @@
 import {BD} from './bd';
 import { User } from '../user/user';
 import { Game } from '../game/game';
-import { Match } from '../match';
-import { Tournament } from '../tournament';
+import { Match } from '../match/match';
+import { Tournament } from '../tournament/tournament';
 
 
 
