@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { Match } from './match';
-import { User } from './../team/team'; 
+import { Team } from './../team/team'; 
 
 describe('Match', () => {
     beforeEach(() => {
@@ -13,17 +13,11 @@ describe('Match', () => {
 
     it('se construye llamando al constructor', async(() => {
 
-        let match = new Match();
+        /*let match = new Match();
 
-        expect(match).toBeDefined;   
+        expect(match).toBeDefined;   */
     }));
 
-    it('se construye llamando al constructor', async(() => {
-
-        let match = new Match();
-
-        expect(match).toBeDefined;   
-    }));
 
 
 });
