@@ -10,7 +10,7 @@ describe('Team', () => {
             ],
         });
 
-        //let team = new Team();
+        // let team = new Team();
 
     });
 
@@ -119,7 +119,7 @@ describe('Team', () => {
         let iterador2 = teamFour.iterator();
         
         //Testing for iterator
-        for(; iterador2.current() != iterador2.end() ; iterador2.next());
+        for(; iterador2.current() !== iterador2.end() ; iterador2.next());
 
         expect(iterador2.current().getNick).toEqual('usuario4');
 
