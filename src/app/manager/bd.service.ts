@@ -5,7 +5,7 @@ import { BD } from '../bd/bd';
 @Injectable()
 export class BDService {
 
-  instanciar(): BD {
+  get connect(): BD {
   	return Memory.getInstance;
   }
 }

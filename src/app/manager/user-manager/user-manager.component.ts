@@ -11,9 +11,9 @@ import { BDService } from '../bd.service';
 })
 export class UserManagerComponent extends SystemManager implements OnInit {
 
-  constructor(bd: BDService) {
+  constructor(dataBaseService: BDService) {
   	super();
-  	SystemManager.dataBase = bd.instanciar();
+  	SystemManager.dataBase = dataBaseService.connect;
   }
 
   ngOnInit() {
