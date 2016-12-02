@@ -2,8 +2,7 @@ import { BD } from '../bd/bd';
 import { User, Rol } from '../shared/user/user';
 
 export abstract class SystemManager  {
-	protected dataBase: BD;
-	protected userLogged: User;
+	protected static dataBase: BD;
+	protected static userLogged: User;
 
-	abstract get getManager(): SystemManager;
 }
