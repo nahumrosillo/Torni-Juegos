@@ -1,7 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { Match } from './match';
 import { Team } from './../team/team';
-//import { User } from './../user/user'; 
 
 describe('Match', () => {
     beforeEach(() => {
@@ -20,8 +19,6 @@ describe('Match', () => {
         let teamvisitor = new Team(1, 5);
 
         let match = new Match(date, teamlocal, teamvisitor);
-
-        expect(match).toBeDefined;   
     }));
 
     it('se construye un partido con puntuación 0-0', async(() => {
@@ -96,6 +93,4 @@ describe('Match', () => {
         expect(match.getScoreLocal).toEqual(scoreLocal);
         expect(match.getScoreVisitor).toEqual(scoreVisitor);
     }));
-
-
 });

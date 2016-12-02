@@ -7,13 +7,23 @@ import { Tournament } from '../shared/tournament/tournament';
 
 export class Memory implements BD
 {
+	private static instance: Memory;
+
 	private mapUser: Map<string, User>;
 	private mapGame: Map<string, Game>;
 
-	constructor() {
-		this.mapUser = new Map<string, User>();
-		this.mapGame = new Map<string, Game>();
-	}
+	static get getInstance() {
+
+    	if (this.instance === null || this.instance === undefined) {
+
+            this.instance = new Memory();
+            this.instance.mapUser = new Map<string, User>();
+			this.instance.mapGame = new Map<string, Game>();
+        }
+            return this.instance;
+    }
+
+	private constructor() {}
 
 	add(item: User | Game) {
 
@@ -22,7 +32,7 @@ export class Memory implements BD
 		}
 
 		if (item instanceof Game) {
-			this.mapGame.set('pepe', item);
+			this.mapGame.set(item.getName, item);
 		}
 	}
 
@@ -33,7 +43,7 @@ export class Memory implements BD
 		}
 
 		if (item instanceof Game) {
-			this.mapUser.delete('pepe');
+			this.mapGame.delete(item.getName);
 		}
 	}
 
@@ -44,6 +54,6 @@ export class Memory implements BD
 
 	getGame(item: Game): Game {
 
-		return this.mapGame.get('pepe');
+		return this.mapGame.get(item.getName);
 	}
 }
