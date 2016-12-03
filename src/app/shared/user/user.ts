@@ -42,6 +42,10 @@ export class User {
         this.name = name;
     }
 
+    set setPassword(password: string) {
+        this.password = password;
+    }
+
     set setDni(dni: string) {
         this.dni = dni;
     }
