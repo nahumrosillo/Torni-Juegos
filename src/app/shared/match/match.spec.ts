@@ -19,6 +19,18 @@ describe('Match', () => {
         let teamvisitor = new Team(1, 5);
 
         let match = new Match(date, teamlocal, teamvisitor);
+
+        expect(match).toBeDefined();
+    }));
+
+    it('se construye llamando al constructor', async(() => {
+
+        let date = new Date();
+        date.setFullYear(2016, 12, 5);
+        let teamlocal = new Team(0, 5);
+        let teamvisitor = new Team(1, 5);
+
+        let match = new Match(date, teamlocal, teamvisitor);
     }));
 
     it('se construye un partido con puntuación 0-0', async(() => {

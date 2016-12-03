@@ -8,7 +8,7 @@ export class Match {
 	private VisitorTeam: Team;
 	private finishedMatch: boolean = false;
 
-	constructor(startdate: Date, local: Team, visitor: Team) //OK
+	constructor(startdate: Date, local?: Team, visitor?: Team) //OK
 	{
 		this.startDate = startdate;
 		this.LocalTeam = local;
