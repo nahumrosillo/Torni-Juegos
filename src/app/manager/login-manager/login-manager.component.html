@@ -1,0 +1,47 @@
+
+
+<div class="col-sm-4" (ngSubmit)="onSubmit()">
+	<div class="input-group">
+  		<span class="input-group-addon" id="nick">Nick</span>
+  		<input type="text" class="form-control" placeholder="Nick" aria-describedby="basic-addon1" required
+  			[(ngModel)]="newUser.setNick">
+	</div>
+
+ 	<div class="input-group">
+  		<span class="input-group-addon" id="password">Password</span>
+  		<input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" required 
+			[(ngModel)]="newUser.setPassword">
+	</div>
+<!--
+	<div class="input-group">
+  		<span class="input-group-addon" id="name">Name</span>
+  		<input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1" required 
+  			[(ngModel)]="newUser.setName">
+	</div>
+
+	<div class="input-group">
+  		<span class="input-group-addon" id="dni">DNI</span>
+  		<input type="text" class="form-control" placeholder="DNI" aria-describedby="basic-addon1" required 
+  			[(ngModel)]="newUser.setDni">
+	</div>
+
+	<div class="input-group">
+		<label class="radio-inline"><input type="radio" name="optradio1" value="0"
+		[(ngModel)]="newUser.setGenre" >Male</label>
+
+		<label class="radio-inline"><input type="radio" name="optradio1" value="1"
+		[(ngModel)]="newUser.setGenre">Female</label>
+	</div>
+		
+	<div class="input-group">
+  		<span class="input-group-addon" id="birthday">Birthday</span>
+  		<input type="date" class="form-control" placeholder="Birthday" aria-describedby="basic-addon1" required
+  			[(ngModel)]="newUser.setBirthDate">
+	</div>
+
+-->
+
+	<button type="submit" class="btn btn-lg btn-block btn-primary" (click)="onSubmit()">
+        Login
+	</button>
+</div>
