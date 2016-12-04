@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../shared/user/user';
+import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../systemManager';
 import { BDService } from '../bd.service';
 
@@ -11,7 +11,7 @@ import { BDService } from '../bd.service';
 })
 export class LoginManagerComponent extends SystemManager implements OnInit {
 
-  private newUser: User;
+  private loginUser: User;
 
   constructor(dataBaseService: BDService) {
   	super();
@@ -19,15 +19,17 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
   }
 
   ngOnInit() {
-      this.newUser = new User();
+      this.loginUser = new User();
   }
 
   onSubmit() {
-    if (SystemManager.dataBase.getUser(this.newUser) == this.newUser) {
-      SystemManager.userLogged = this.newUser;
-      console.log("Usuario Logeado: " + this.newUser);
-    } else {
-      console.log("Usuario No Existe");
+    let userBD = SystemManager.dataBase.getUser(this.loginUser);
+
+    if (userBD === null || userBD === undefined) {
+      console.log("Usuario No existe en la BD");
+    } else if (this.loginUser.getNick == userBD.getNick && this.loginUser.getPassword == userBD.getPassword) {
+      SystemManager.userLogged = userBD;
+      console.log("Usuario Logeado");
     }
   }
 
