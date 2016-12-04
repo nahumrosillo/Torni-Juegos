@@ -20,20 +20,20 @@ export class Tournament implements Aggregator {
 
 	constructor(startIns: Date, endIns: Date, 
 				startTour: Date,  endTour: Date, 
-				numTeams: number, numPLayersByTeam: number)
+				numTeams: number, numPlayersByTeam: number)
 	{
 		this.startIns = startIns;
 		this.endIns = endIns;
 		this.startTour = startTour;
 		this.endTour = endTour;
 		this.numTeams = numTeams;
-		this.numPlayersByTeam = numPLayersByTeam;
+		this.numPlayersByTeam = numPlayersByTeam;
 		this.award = 'null';
 
 		let Teams: Array<Team> = new Array<Team>();
 		for(let i: number = 0 ; i < numTeams ; ++i)
 		{
-			Teams[i] = new Team(i, numPLayersByTeam);
+			Teams[i] = new Team(i, numPlayersByTeam);
 		}
 
 		

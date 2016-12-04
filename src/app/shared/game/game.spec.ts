@@ -37,6 +37,7 @@ describe('Game', () => {
         let t1 = new Tournament();
         let t2 = new Tournament();
 
+
         let i = game.iterator();
         game.addTournament(t1);
         game.addTournament(t1);

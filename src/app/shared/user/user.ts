@@ -74,6 +74,10 @@ export class User {
         return this.birthDate;
     }
 
+    get getPassword(): string {
+        return this.password;
+    }
+
     get getRol(): Rol {
         return this.rol;
     }
