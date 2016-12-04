@@ -1,3 +1,29 @@
-<p>
-  user-manager works!
-</p>
+
+
+<div class="col-sm-4">
+	<p align="center">Administrador / SuperAdmin </p>
+	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1 || this.userLogged.getRol == 2 ">
+		New Game
+	</button>
+
+	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1 || this.userLogged.getRol == 2 ">
+		Delete Game
+	</button>
+
+	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1 || this.userLogged.getRol == 2 ">
+		New Sponsor
+	</button>
+
+	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1 || this.userLogged.getRol == 2 ">
+		Delete Sponsor
+	</button>
+
+	<p align="center"> SuperAdmin </p>
+	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1">
+		New Administrator
+	</button>
+
+	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1">
+		Delete Administrator
+	</button>
+</div>

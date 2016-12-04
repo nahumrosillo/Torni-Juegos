@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../shared/user/user';
+import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../systemManager';
 import { BDService } from '../bd.service';
 
@@ -11,9 +11,17 @@ import { BDService } from '../bd.service';
 })
 export class UserManagerComponent extends SystemManager implements OnInit {
 
+  private userLogged: User;
+
   constructor(dataBaseService: BDService) {
   	super();
   	SystemManager.dataBase = dataBaseService.connect;
+
+    //  Es un Mock. Borrar la proxima sentencia al final del proyecto
+    SystemManager.userLogged = dataBaseService.connect.getUser(new User('root'));
+
+    this.userLogged = SystemManager.userLogged;
+
   }
 
   ngOnInit() {
@@ -26,10 +34,4 @@ export class UserManagerComponent extends SystemManager implements OnInit {
   getUser(user: User): User {
     return SystemManager.dataBase.getUser(user);
   }
-
-  get isAvailableBD(): boolean {
-    return (SystemManager.dataBase !== null 
-      && SystemManager.dataBase !== undefined);
-  }
-
 }

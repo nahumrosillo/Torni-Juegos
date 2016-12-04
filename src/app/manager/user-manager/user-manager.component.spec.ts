@@ -31,11 +31,6 @@ describe('UserManagerComponent', () => {
     expect(component2).toBeTruthy();
   });
 
-  it('conectada a la Base de Datos', () => {
-    expect(component.isAvailableBD).toBeTruthy();
-
-  });
-
   it('añadido usuarios a la BD', () => {
     let u: User = new User('Nahum');
     let u2: User = new User('Francisco');
