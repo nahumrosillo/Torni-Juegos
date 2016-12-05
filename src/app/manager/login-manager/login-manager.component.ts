@@ -3,6 +3,8 @@ import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../systemManager';
 import { BDService } from '../bd.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login-manager',
   templateUrl: './login-manager.component.html',
@@ -11,7 +13,7 @@ import { BDService } from '../bd.service';
 })
 export class LoginManagerComponent extends SystemManager implements OnInit {
 
-  private loginUser: User;
+  loginUser: User;
 
   constructor(dataBaseService: BDService) {
   	super();

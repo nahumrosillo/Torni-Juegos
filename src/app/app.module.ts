@@ -8,6 +8,8 @@ import { UserManagerComponent } from './manager/user-manager/user-manager.compon
 import { LoginManagerComponent } from './manager/login-manager/login-manager.component';
 import { BDService } from './manager/bd.service';
 
+import { AppRouting } from './app.routing';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,8 @@ import { BDService } from './manager/bd.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRouting
   ],
   providers: [BDService],
   bootstrap: [AppComponent]
