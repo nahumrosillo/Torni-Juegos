@@ -7,7 +7,7 @@ import { UserManagerComponent } from './manager/user-manager/user-manager.compon
 
 // Route Configuration
 export const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'login'},
+  {path: '', pathMatch: 'full', redirectTo: ''},
   {path: 'login', component: LoginManagerComponent },
   {path: 'usermanager', component: UserManagerComponent },
 ];

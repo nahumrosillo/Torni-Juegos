@@ -2,9 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../systemManager';
 import { BDService } from '../bd.service';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
-import { Observable } from 'rxjs/Observable';
 
 
 
@@ -14,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./user-manager.component.css'],
   providers: [BDService]
 })
-export class UserManagerComponent extends SystemManager implements OnInit, OnDestroy {
+export class UserManagerComponent extends SystemManager implements OnInit {
 
   private userLogged: User;
 
@@ -30,10 +27,6 @@ export class UserManagerComponent extends SystemManager implements OnInit, OnDes
   }
 
   ngOnInit() {
-
-  }
-
-  ngOnDestroy() {
 
   }
 
