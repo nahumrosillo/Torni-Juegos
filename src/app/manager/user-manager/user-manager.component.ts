@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../systemManager';
 import { BDService } from '../bd.service';
+
+
 
 @Component({
   selector: 'app-user-manager',
@@ -18,13 +20,14 @@ export class UserManagerComponent extends SystemManager implements OnInit {
   	SystemManager.dataBase = dataBaseService.connect;
 
     //  Es un Mock. Borrar la proxima sentencia al final del proyecto
+    //  Añade un superAdmin como user logeado
     SystemManager.userLogged = dataBaseService.connect.getUser(new User('root'));
-
     this.userLogged = SystemManager.userLogged;
 
   }
 
   ngOnInit() {
+
   }
 
   addUser(user: User) {

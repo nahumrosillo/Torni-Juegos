@@ -1,1 +1,26 @@
-<h1>{{title}}</h1>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand">Torni-Juegos</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav">
+        <li><a routerLink="/"> Login </a></li>
+        <li><a routerLink="/usermanager"> User Control </a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li (click)="onSelect(1)"><a routerLink="/login"> Login </a></li>
+        <li (click)="onSelect(2)"><a routerLink="/login"> Sing Up </a></li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<router-outlet></router-outlet>

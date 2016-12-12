@@ -3,15 +3,17 @@ import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../systemManager';
 import { BDService } from '../bd.service';
 
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-login-manager',
   templateUrl: './login-manager.component.html',
   styleUrls: ['./login-manager.component.css'],
   providers: [BDService]
 })
-export class LoginManagerComponent extends SystemManager implements OnInit {
+export class LoginManagerComponent extends SystemManager implements OnInit{
 
-  private loginUser: User;
+  loginUser: User;
 
   constructor(dataBaseService: BDService) {
   	super();
@@ -32,5 +34,4 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
       console.log("Usuario Logeado");
     }
   }
-
 }
