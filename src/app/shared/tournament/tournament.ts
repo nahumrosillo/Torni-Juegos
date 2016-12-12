@@ -21,8 +21,7 @@ export class Tournament implements Aggregator {
 
 	private MatchIterator;
 
-	constructor(startIns: Date, endIns: Date, startTour: Date,  endTour: Date, 
-				matchs: Array<Match>) {
+	constructor(startIns: Date, endIns: Date, startTour: Date,  endTour: Date) {
 
 		this.startIns = startIns;
 		this.endIns = endIns;
@@ -32,7 +31,7 @@ export class Tournament implements Aggregator {
 		//this.numPlayersByTeam = matchs[0].getLocalTeam.getMaxPlayers;
 		this.award = 'null';
 
-		this.Matchs = matchs;
+		this.Matchs = new Array<Match>();
 	}
 
 	//Getters
@@ -60,6 +59,11 @@ export class Tournament implements Aggregator {
 		return this.award;
 	}
 
+	get getNumMatch(): number {
+
+		return this.Matchs.length;
+	}
+
 	//Setters
 
 	set setStartInscription(startIns: Date)
@@ -84,6 +88,11 @@ export class Tournament implements Aggregator {
 
 	set setAward(award: string) {
 		this.award = award
+	}
+
+	set setMatch(match: Match)
+	{
+		this.Matchs.push(match);
 	}
 
 

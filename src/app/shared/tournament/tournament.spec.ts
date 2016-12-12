@@ -16,8 +16,6 @@ let match2: Match;
 let match3: Match;
 let match4: Match;
 
-let matchs: Array<Match>;
-
 describe('Tournament', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -36,8 +34,12 @@ describe('Tournament', () => {
         match3 = new Match(iniTdate);
         match4 = new Match(finTdate);
 
-        matchs = [ match1, match2, match3, match4 ];
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate, matchs);    
+        tournament = new Tournament(inidate, findate, iniTdate, finTdate);
+
+        tournament.setMatch = match1;
+        tournament.setMatch = match2;
+        tournament.setMatch = match3;
+        tournament.setMatch = match4;
     });
 
     it('Se construye llamando al constructor', async(() => {
@@ -65,6 +67,8 @@ describe('Tournament', () => {
         let finInsc: Date = new Date(2017, 10, 5, 0, 0, 0, 0);
         let iniTour: Date = new Date(2017, 11, 5, 0, 0, 0, 0);
         let finTour: Date = new Date(2017, 12, 5, 0, 0, 0, 0);
+
+        let match = new Match(new Date(2018, 1, 5, 0, 0, 0, 0));
         
         let award = 'Trofeo de oro';
 
@@ -75,11 +79,17 @@ describe('Tournament', () => {
 
         tournament.setAward = award;
 
+        expect(tournament.getNumMatch).toEqual(4);
+
+        tournament.setMatch = match;
 
         expect(tournament.getStartInscription).toEqual(iniInsc);
         expect(tournament.getEndInscription).toEqual(finInsc);
         expect(tournament.getStartTournament).toEqual(iniTour);
         expect(tournament.getEndTournament).toEqual(finTour);
+
+        expect(tournament.getNumMatch).toEqual(5);
+
         expect(tournament.getAward).toEqual(award);
     }));
 

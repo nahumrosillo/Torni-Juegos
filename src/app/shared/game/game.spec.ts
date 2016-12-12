@@ -34,8 +34,14 @@ describe('Game', () => {
 
     it('iteradores', async(() => {
 
-        let t1 = new Tournament();
-        let t2 = new Tournament();
+        let inidate = new Date(2016, 9, 5, 0, 0, 0, 0);
+        let findate = new Date(2016, 10, 5, 0, 0, 0, 0);
+        let iniTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
+        let finTdate = new Date(2016, 12, 5, 0, 0, 0, 0);
+
+ 
+        let t1 = new Tournament(inidate, findate, iniTdate, finTdate); 
+        let t2 = new Tournament(inidate, findate, iniTdate, finTdate); 
 
 
         let i = game.iterator();
