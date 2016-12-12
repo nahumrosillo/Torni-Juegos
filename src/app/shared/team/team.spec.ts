@@ -9,9 +9,6 @@ describe('Team', () => {
                 Team
             ],
         });
-
-        // let team = new Team();
-
     });
 
     it('se construye llamando al constructor', async(() => {
