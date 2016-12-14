@@ -11,9 +11,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./login-manager.component.css'],
   providers: [BDService]
 })
-export class LoginManagerComponent extends SystemManager implements OnInit{
+export class LoginManagerComponent extends SystemManager implements OnInit {
 
-  loginUser: User;
+  private loginUser: User;
 
   constructor(dataBaseService: BDService) {
   	super();

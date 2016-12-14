@@ -13,11 +13,11 @@ export class AppComponent {
 
   constructor(private router: Router) {}
 
-  onSelect(n: number) {
-  	console.log('OnSelect');
-  	this.id = n;
-  	console.log(this.id);
-
+  onSelectLogin() {
     this.router.navigate(['/login']);
+  }
+
+    onSelectRegister() {
+    this.router.navigate(['/registeruser']);
   }
 }

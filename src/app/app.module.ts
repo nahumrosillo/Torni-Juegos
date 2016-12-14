@@ -9,12 +9,14 @@ import { LoginManagerComponent } from './manager/login-manager/login-manager.com
 import { BDService } from './manager/bd.service';
 
 import { AppRouting } from './app.routing';
+import { RegisterUserManagerComponent } from './manager/register-user-manager/register-user-manager.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserManagerComponent,
-    LoginManagerComponent
+    LoginManagerComponent,
+    RegisterUserManagerComponent
   ],
   imports: [
     BrowserModule,
