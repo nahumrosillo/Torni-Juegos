@@ -57,11 +57,11 @@ export class Memory implements BD
 		return this.mapGame.get(item.getName);
 	}
 
-	get sizeUser(): number {
+	sizeUser(): number {
 		return this.mapUser.size;
 	}
 
-	get sizeGame(): number {
+	sizeGame(): number {
 		return this.mapGame.size;
 	}
 }

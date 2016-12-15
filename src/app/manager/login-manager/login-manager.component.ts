@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
@@ -14,14 +14,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginManagerComponent extends SystemManager implements OnInit {
 
   private loginUser: User;
-  private userLogged: boolean;
+  private isUserLogged: boolean;
+  @Output() userLogged = new EventEmitter();
 
   constructor(dataBaseService: BDService, private router: Router) 
   {
   	super();
     
   	SystemManager.dataBase = dataBaseService.connect;
-    this.userLogged = false;
+    this.isUserLogged = false;
     this.loginUser = new User();
   }
 
@@ -40,8 +41,8 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
       console.log("Usuario Logeado");
 
       SystemManager.userLogged = userBD;
-      this.userLogged = true;
-      this.router.navigate(['/']);
+      this.isUserLogged = true;
+      this.userLogged.emit( {user: userBD});
     }
   }
 }

@@ -20,7 +20,7 @@ export class IndexIterator implements Iterator
     }
 
     hasNext(): boolean {
-        return this.index < this.collection.length-1)
+        return this.index < this.collection.length-1;
     }
 
     hasPrev(): boolean {

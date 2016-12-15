@@ -1,5 +1,4 @@
 import { Iterator } from './../../util/iterator/iterator';
-import { RelativePositionIterator} from './../../util/iterator/RelativePositionIterator';
 import { IndexIterator } from './../../util/iterator/indexIterator';
 import { Aggregator } from './../../util/iterator/aggregator';
 import { BTreeImpl } from './../../util/BTree/BTreeImpl'
@@ -98,7 +97,6 @@ export class Tournament implements Aggregator {
 
 
 	iterator(): Iterator {
-		//return new RelativePositionIterator(this.Matchs);
 		return new IndexIterator(this.Matchs);
 	}
 }
