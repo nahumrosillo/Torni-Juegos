@@ -15,12 +15,16 @@ export class IndexIterator implements Iterator
     next(): any {
        return this.collection[this.index++]; 
     }
+    prev(): any {
+        return this.collection[this.index--];
+    }
 
-    hasNext(): boolean{
-        if(this.index < this.collection.length-1)
-            return true;
-        else
-            return false;
+    hasNext(): boolean {
+        return this.index < this.collection.length-1)
+    }
+
+    hasPrev(): boolean {
+        return this.index !== 0;
     }
 
     end(): any {

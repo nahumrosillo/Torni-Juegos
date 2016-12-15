@@ -7,7 +7,13 @@ import { Observer } from './observer';
 *	Esto es para que tu veas como se haria
 */
 
-export abstract class Subject {
+export interface Subject {
+	registerObserver(observer: Observer);
+	removeObserver(observer: Observer);
+	notify();
+}
+
+/*export abstract class Subject {
 
 	//	Pongo un set y asi no hay observadores duplicados
 	//	Tampoco se va a iterar, solamente un forEach
@@ -30,4 +36,4 @@ export abstract class Subject {
 			value.update();
 		});
 	}
-}
+}*/
