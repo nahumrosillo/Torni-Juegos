@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
-import { SystemManager } from '../systemManager';
+import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
 import { NgForm } from '@angular/forms';
 
@@ -19,46 +19,42 @@ export class RegisterUserManagerComponent extends SystemManager implements OnIni
 	private newUser: User;
 	private rolUserLogged: number;
 
-  	constructor(dataBaseService: BDService) 
-  	{
-  		super();
-  		SystemManager.dataBase = dataBaseService.connect;
+  constructor(dataBaseService: BDService) 
+  {
+  	super();
+    
+  	SystemManager.dataBase = dataBaseService.connect;
+  	this.rolUserLogged = SystemManager.userLogged.getRol;
+    this.newUser = new User();
+  }
 
-  		this.rolUserLogged = SystemManager.userLogged.getRol;
-		console.log(this.rolUserLogged);
-  	}
-
-	ngOnInit() 
-	{
-		this.newUser = new User();
-	}
+	ngOnInit() { }
 
 
 	onSubmit() 
 	{
-    	let userBD = SystemManager.dataBase.getUser(this.newUser);
-    	console.log("Hola Mundo");
+    let userBD = SystemManager.dataBase.getUser(this.newUser);
 
-    	if (userBD === null || userBD === undefined) 
-    	{
-    		console.log("Agregado a la BD");
-    		console.log(this.newUser);
-    		SystemManager.dataBase.add(this.newUser);
-    	} 
-    	else 
-    	{
-      		console.log("Usuario ya existe en la BD");
-    	}
-  	}
+    if (userBD === null || userBD === undefined) 
+    {
+      SystemManager.dataBase.add(this.newUser);
+    	console.log("Agregado a la BD");
+    } 
+    else 
+    {
+     		console.log("Usuario ya existe en la BD");
+    }
+  }
 
-  	setRol() {
-  		if (SystemManager.userLogged === null || SystemManager.userLogged === undefined)
+  setRol() 
+  {
+  	if (SystemManager.userLogged === null || SystemManager.userLogged === undefined)
+  	{
+  		switch(SystemManager.userLogged.getRol)
   		{
-  			switch(SystemManager.userLogged.getRol)
-  			{
-  				case Rol.SUPERADMIN:
-  					break;
-  			}
+  			case Rol.SUPERADMIN:
+  			break;
   		}
   	}
+  }
 }

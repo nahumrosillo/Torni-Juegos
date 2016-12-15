@@ -7,4 +7,6 @@ export interface BD {
 	remove(item: User | Game);
 	getUser(item: User): User;
 	getGame(item: Game): Game;
+	sizeUser(): number;
+	sizeGame(): number;
 }

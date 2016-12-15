@@ -14,9 +14,9 @@
         <li><a routerLink="/usermanager"> User Control </a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li (click)="onSelectLogin()"><a routerLink="/login"> Login </a></li>
-        <li (click)="onSelectRegister()"><a routerLink="/registeruser"> Sing Up </a></li>
+      <ul class="nav navbar-nav navbar-right" *ngIf="!statusLogged">
+        <li (click)="onSelectLogin()" ><a routerLink="/login"> Login </a></li>
+        <li (click)="onSelectRegister()" ><a routerLink="/registeruser"> Sing Up </a></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
