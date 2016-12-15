@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
-import { SystemManager } from '../systemManager';
+import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
 
 
