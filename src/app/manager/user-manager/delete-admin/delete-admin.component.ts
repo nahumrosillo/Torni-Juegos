@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User, Rol, Genre } from '../../../shared/user/user';
 import { BDService } from '../../bd.service';
 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import { map } from 'rxjs/operator/map';
-import Rx from 'rxjs/Rx';
 
 
 

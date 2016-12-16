@@ -3,14 +3,12 @@ import { User, Rol, Genre } from '../../../shared/user/user';
 import { BDService } from '../../bd.service';
 
 
-
-
 @Component({
-  selector: 'new-admin',
-  templateUrl: './new-admin.component.html',
-  styleUrls: ['./new-admin.component.css']
+  selector: 'delete-sponsor',
+  templateUrl: './delete-sponsor.component.html',
+  styleUrls: ['./delete-sponsor.component.css']
 })
-export class NewAdminComponent implements OnInit {
+export class DeleteSponsorComponent implements OnInit {
 
   private newUser: User;
   private db: any;
@@ -25,17 +23,16 @@ export class NewAdminComponent implements OnInit {
   }
 
   onSubmit() {
-    this.newUser.setRol = Rol.ADMINISTRATOR;
     let userBD = this.db.getUser(this.newUser);
 
-    if (userBD === null || userBD === undefined) 
+    if (userBD !== null && userBD !== undefined && userBD.getRol === Rol.SPONSOR) 
     {
-      this.db.add(this.newUser);
-      console.log("ADMIN agregado a la BD");
+        this.db.remove(userBD);
+        console.log("Sponsor borrado de la BD");
     } 
     else 
     {
-      console.log("Usuario ya existe en la BD");
+      console.log("Usuario no existe o no es Sponsor");
     }
 
   }

@@ -16,6 +16,7 @@ export class AppComponent
 
 
   constructor(private router: Router) {
+    console.log("CONSTRUCTOR");
     this.loginTerminated = false;
   }
 
@@ -23,5 +24,10 @@ export class AppComponent
     this.loginTerminated = true;
     this.userLogged = user;
     this.router.navigate(['/usermanager']);
+  }
+
+  onLogout() {
+    console.log("AVISO LLLEGADOOOO");
+    this.loginTerminated = false;
   }
 }

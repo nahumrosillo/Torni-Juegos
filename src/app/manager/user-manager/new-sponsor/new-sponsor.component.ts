@@ -6,11 +6,11 @@ import { BDService } from '../../bd.service';
 
 
 @Component({
-  selector: 'new-admin',
-  templateUrl: './new-admin.component.html',
-  styleUrls: ['./new-admin.component.css']
+  selector: 'new-sponsor',
+  templateUrl: './new-sponsor.component.html',
+  styleUrls: ['./new-sponsor.component.css']
 })
-export class NewAdminComponent implements OnInit {
+export class NewSponsorComponent implements OnInit {
 
   private newUser: User;
   private db: any;
@@ -25,13 +25,13 @@ export class NewAdminComponent implements OnInit {
   }
 
   onSubmit() {
-    this.newUser.setRol = Rol.ADMINISTRATOR;
+    this.newUser.setRol = Rol.SPONSOR;
     let userBD = this.db.getUser(this.newUser);
 
     if (userBD === null || userBD === undefined) 
     {
       this.db.add(this.newUser);
-      console.log("ADMIN agregado a la BD");
+      console.log("Sponsor agregado a la BD");
     } 
     else 
     {

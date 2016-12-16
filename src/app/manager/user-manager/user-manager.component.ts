@@ -3,10 +3,6 @@ import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import { map } from 'rxjs/operator/map';
-import Rx from 'rxjs/Rx';
 
 
 

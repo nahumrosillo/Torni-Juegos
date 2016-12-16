@@ -2,25 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AppRouting } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { UserManagerComponent } from './manager/user-manager/user-manager.component';
 import { LoginManagerComponent } from './manager/login-manager/login-manager.component';
+import { LogoutManagerComponent } from './manager/logout-manager/logout-manager.component';
 import { BDService } from './manager/bd.service';
 
-import { AppRouting } from './app.routing';
 import { RegisterUserManagerComponent } from './manager/register-user-manager/register-user-manager.component';
 import { NewAdminComponent } from './manager/user-manager/new-admin/new-admin.component';
 import { DeleteAdminComponent } from './manager/user-manager/delete-admin/delete-admin.component';
+import { NewSponsorComponent } from './manager/user-manager/new-sponsor/new-sponsor.component';
+import { DeleteSponsorComponent } from './manager/user-manager/delete-sponsor/delete-sponsor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserManagerComponent,
     LoginManagerComponent,
+    LogoutManagerComponent,
     RegisterUserManagerComponent,
     NewAdminComponent,
-    DeleteAdminComponent
+    DeleteAdminComponent,
+    NewSponsorComponent,
+    DeleteSponsorComponent
   ],
   imports: [
     BrowserModule,
