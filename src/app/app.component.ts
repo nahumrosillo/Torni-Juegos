@@ -22,5 +22,6 @@ export class AppComponent
   onUserLogged(user) {
     this.loginTerminated = true;
     this.userLogged = user;
+    this.router.navigate(['/usermanager']);
   }
 }

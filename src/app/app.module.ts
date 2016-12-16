@@ -10,13 +10,17 @@ import { BDService } from './manager/bd.service';
 
 import { AppRouting } from './app.routing';
 import { RegisterUserManagerComponent } from './manager/register-user-manager/register-user-manager.component';
+import { NewAdminComponent } from './manager/user-manager/new-admin/new-admin.component';
+import { DeleteAdminComponent } from './manager/user-manager/delete-admin/delete-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserManagerComponent,
     LoginManagerComponent,
-    RegisterUserManagerComponent
+    RegisterUserManagerComponent,
+    NewAdminComponent,
+    DeleteAdminComponent
   ],
   imports: [
     BrowserModule,
