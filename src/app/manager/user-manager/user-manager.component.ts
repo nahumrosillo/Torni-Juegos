@@ -26,12 +26,4 @@ export class UserManagerComponent extends SystemManager implements OnInit {
   ngOnInit() {
 
   }
-
-  addUser(user: User) {
-    SystemManager.dataBase.add(user);
-  }
-
-  getUser(user: User): User {
-    return SystemManager.dataBase.getUser(user);
-  }
 }

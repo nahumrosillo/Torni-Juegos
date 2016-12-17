@@ -6,7 +6,12 @@ import { User, Rol, Genre } from '../shared/user/user';
 @Injectable()
 export class BDService {
 
+
   constructor() {
+
+
+
+
     let date = new Date();
     date.setFullYear(1992, 6, 2);
 
@@ -45,7 +50,6 @@ export class BDService {
     player.setRol = Rol.PLAYER;
     player.setGenre = Genre.FEMALE;
     player.setNick = 'player';
-
 
     Memory.getInstance.add(userSuperAdmin);
     Memory.getInstance.add(admin);

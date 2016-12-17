@@ -66,6 +66,10 @@ export class User {
         return this.nick;
     }
 
+    get getName(): string {
+        return this.name;
+    }
+
     get getDni(): string {
         return this.dni;
     }
@@ -92,11 +96,11 @@ export class User {
 
     isEqual(user: User): boolean {
         if (user.nick === this.nick &&
-            user.dni === this.dni &&
-            user.genre === this.genre &&
+            user.getDni === this.dni &&
+            user.getGenre === this.genre &&
             user.getRol === this.rol &&
             user.getBirthDate === this.birthDate &&
-            user.name === this.name) {
+            user.getName === this.name) {
 
             return true;
         } else {

@@ -17,7 +17,7 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
   private isUserLogged: boolean;
   @Output() userLogged = new EventEmitter();
 
-  constructor(dataBaseService: BDService, private router: Router) 
+  constructor(private dataBaseService: BDService, private router: Router) 
   {
   	super();
     SystemManager.userLogged = undefined;
