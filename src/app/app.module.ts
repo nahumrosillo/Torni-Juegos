@@ -15,6 +15,7 @@ import { NewAdminComponent } from './manager/user-manager/new-admin/new-admin.co
 import { DeleteAdminComponent } from './manager/user-manager/delete-admin/delete-admin.component';
 import { NewSponsorComponent } from './manager/user-manager/new-sponsor/new-sponsor.component';
 import { DeleteSponsorComponent } from './manager/user-manager/delete-sponsor/delete-sponsor.component';
+import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DeleteSponsorComponent } from './manager/user-manager/delete-sponsor/de
     NewAdminComponent,
     DeleteAdminComponent,
     NewSponsorComponent,
-    DeleteSponsorComponent
+    DeleteSponsorComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { NewAdminComponent } from './manager/user-manager/new-admin/new-admin.co
 import { DeleteAdminComponent } from './manager/user-manager/delete-admin/delete-admin.component';
 import { NewSponsorComponent } from './manager/user-manager/new-sponsor/new-sponsor.component';
 import { DeleteSponsorComponent } from './manager/user-manager/delete-sponsor/delete-sponsor.component';
+import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-profile.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -24,6 +25,7 @@ export const routes: Routes = [
   {path: 'usermanager/deleteadmin', component: DeleteAdminComponent },
   {path: 'usermanager/newsponsor', component: NewSponsorComponent },
   {path: 'usermanager/deletesponsor', component: DeleteSponsorComponent },
+  {path: 'usermanager/editprofile', component: EditProfileComponent },
   {path: 'registeruser', component: RegisterUserManagerComponent },
 
 ];
