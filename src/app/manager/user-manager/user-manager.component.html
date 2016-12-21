@@ -1,5 +1,5 @@
 
-<div class="col-sm-4" *ngIf="userLogged.getRol == 1">
+<div class="col-sm-4" *ngIf="userLogged.getRol === 1">
 	<p align="center"> SuperAdmin </p>
 	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/newadmin">
 		New Admin
@@ -10,7 +10,7 @@
 	</button>
 </div>
 
-<div class="col-sm-4" *ngIf="userLogged.getRol == 1 || userLogged.getRol == 2 ">
+<div class="col-sm-4" *ngIf="userLogged.getRol === 1 || userLogged.getRol === 2 ">
 	<p align="center"> Admin / SuperAdmin </p>
 	<button class="btn btn-lg btn-block btn-primary">
 		New Game

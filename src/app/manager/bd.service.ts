@@ -9,9 +9,6 @@ export class BDService {
 
   constructor() {
 
-
-
-
     let date = new Date();
     date.setFullYear(1992, 6, 2);
 

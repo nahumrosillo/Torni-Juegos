@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { User, Rol, Genre } from './shared/user/user';
 import { Router } from '@angular/router';
+import { UserLoggedService } from './manager/userLogged.service';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [UserLoggedService]
 })
 export class AppComponent
 {
@@ -15,13 +17,14 @@ export class AppComponent
   private loginTerminated: boolean;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userLog: UserLoggedService) {
     this.loginTerminated = false;
   }
 
   onUserLogged(user) {
     this.loginTerminated = true;
     this.userLogged = user;
+    this.userLog.getUserLogged().setUser = user;
     this.router.navigate(['/usermanager']);
   }
 

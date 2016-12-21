@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
+import { UserLoggedService } from '../userLogged.service'
 
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-logout-manager',
   templateUrl: './logout-manager.component.html',
-  styleUrls: ['./logout-manager.component.css']
+  styleUrls: ['./logout-manager.component.css'],
+  providers: [UserLoggedService]
 })
 export class LogoutManagerComponent implements OnInit {
 
-  constructor(private router: Router) 
+  constructor(private router: Router, userLog: UserLoggedService) 
   {
+  	userLog.getUserLogged().clear();
     this.router.navigate(['/home']);
   }
 

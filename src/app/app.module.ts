@@ -9,6 +9,7 @@ import { UserManagerComponent } from './manager/user-manager/user-manager.compon
 import { LoginManagerComponent } from './manager/login-manager/login-manager.component';
 import { LogoutManagerComponent } from './manager/logout-manager/logout-manager.component';
 import { BDService } from './manager/bd.service';
+import { UserLoggedService } from './manager/userLogged.service';
 
 import { RegisterUserManagerComponent } from './manager/register-user-manager/register-user-manager.component';
 import { NewAdminComponent } from './manager/user-manager/new-admin/new-admin.component';
@@ -36,7 +37,7 @@ import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-p
     HttpModule,
     AppRouting
   ],
-  providers: [BDService],
+  providers: [BDService, UserLoggedService],
   bootstrap: [AppComponent]
 })
 

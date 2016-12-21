@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User, Rol, Genre } from '../../../shared/user/user';
 import { BDService } from '../../bd.service';
+import { UserLoggedService } from '../../userLogged.service';
 
 
 
