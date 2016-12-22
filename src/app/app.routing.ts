@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
 import { LoginManagerComponent } from './manager/login-manager/login-manager.component';
-import { LogoutManagerComponent } from './manager/logout-manager/logout-manager.component';
 import { UserManagerComponent } from './manager/user-manager/user-manager.component';
 import { RegisterUserManagerComponent } from './manager/register-user-manager/register-user-manager.component';
 import { NewAdminComponent } from './manager/user-manager/new-admin/new-admin.component';
@@ -17,9 +16,7 @@ import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-p
 // Route Configuration
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: ''},
-  {path: 'home', component: AppComponent },
   {path: 'login', component: LoginManagerComponent },
-  {path: 'logout', component: LogoutManagerComponent },
   {path: 'usermanager', component: UserManagerComponent },
   {path: 'usermanager/newadmin', component: NewAdminComponent },
   {path: 'usermanager/deleteadmin', component: DeleteAdminComponent },

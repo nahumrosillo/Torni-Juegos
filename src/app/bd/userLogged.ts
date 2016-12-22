@@ -30,7 +30,7 @@ export class UserLogged
 
 	clear()
 	{
-		this.user = null;
+		this.user = undefined;
 	}
 
 }

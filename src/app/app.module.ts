@@ -7,7 +7,6 @@ import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { UserManagerComponent } from './manager/user-manager/user-manager.component';
 import { LoginManagerComponent } from './manager/login-manager/login-manager.component';
-import { LogoutManagerComponent } from './manager/logout-manager/logout-manager.component';
 import { BDService } from './manager/bd.service';
 import { UserLoggedService } from './manager/userLogged.service';
 
@@ -23,7 +22,6 @@ import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-p
     AppComponent,
     UserManagerComponent,
     LoginManagerComponent,
-    LogoutManagerComponent,
     RegisterUserManagerComponent,
     NewAdminComponent,
     DeleteAdminComponent,

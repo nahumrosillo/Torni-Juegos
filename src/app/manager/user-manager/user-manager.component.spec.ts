@@ -34,14 +34,7 @@ describe('UserManagerComponent', () => {
   it('añadido usuarios a la BD', () => {
     let u: User = new User('Nahum');
     let u2: User = new User('Francisco');
-    
-    component.addUser(u);
-    component2.addUser(u2);
-
-    expect(component.getUser(new User('Nahum'))).toEqual(u);
-    expect(component2.getUser(new User('Nahum'))).toEqual(u);
-    expect(component.getUser(new User('Francisco'))).toEqual(u2);
-    expect(component2.getUser(new User('Francisco'))).toEqual(u2);
+   
 
     
   });

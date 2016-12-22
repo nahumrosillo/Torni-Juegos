@@ -18,7 +18,12 @@ export class EditProfileComponent implements OnInit
 
   constructor(bdService: BDService, private userLog: UserLoggedService) {
       this.bd = bdService.connect;
-      this.userLogged = this.userLog.getUserLogged().getUser();
+
+      let user = this.userLog.getUserLogged().getUser();
+      if (user !== null || user !== undefined)
+        this.userLogged = this.userLog.getUserLogged().getUser();
+      else
+        this.userLogged = new User();
   }
 
   ngOnInit()
@@ -28,5 +33,7 @@ export class EditProfileComponent implements OnInit
   {
     this.bd.remove(this.userLogged);
     this.bd.add(this.userLogged);
+
+    this.userLog.getUserLogged().setUser(this.userLogged);
   }
 }
