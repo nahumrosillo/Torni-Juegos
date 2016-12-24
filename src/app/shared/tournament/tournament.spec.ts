@@ -1,20 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
 import { Tournament } from './tournament';
 import { Match } from './../match/match';
+import { Team } from './../team/team';
 import { Iterator } from './../../util/iterator/iterator';
 
 let tournament: Tournament;
 
-let inidate: Date;// = new Date();
-//inidate.setFullYear(2016, 9, 5);
+let inidate: Date;
 let findate: Date;
 let iniTdate: Date;
 let finTdate: Date;
-
-let match1: Match;
-let match2: Match;
-let match3: Match;
-let match4: Match;
 
 describe('Tournament', () => {
     beforeEach(() => {
@@ -23,113 +18,180 @@ describe('Tournament', () => {
                 Tournament
             ],
         });   
-
-        inidate = new Date(2016, 9, 5, 0, 0, 0, 0);
-        findate = new Date(2016, 10, 5, 0, 0, 0, 0);
-        iniTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
-        finTdate = new Date(2016, 12, 5, 0, 0, 0, 0);
-
-        match1 = new Match(inidate);
-        match2 = new Match(findate);
-        match3 = new Match(iniTdate);
-        match4 = new Match(finTdate);
-
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate);
-
-        tournament.setMatch = match1;
-        tournament.setMatch = match2;
-        tournament.setMatch = match3;
-        tournament.setMatch = match4;
     });
 
     it('Se construye llamando al constructor', async(() => {
+
+        inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
+        findate = new Date(2016, 9, 5, 0, 0, 0, 0);
+        iniTdate = new Date(2016, 10, 5, 0, 0, 0, 0);
+        finTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
+
+        let teams: Array<Team> =  new Array<Team>();
+
+        teams.push(new Team(0, 5));
+        teams.push(new Team(1, 5));
+        teams.push(new Team(2, 5));
+        teams.push(new Team(3, 5));
+
+        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
 
         expect(tournament).toBeDefined();
     }));
 
     it('Los getters devuelven el valor correctamente', async(() => {
 
-        let iniInsc: Date = new Date(2016, 9, 5, 0, 0, 0, 0);
-        let finInsc: Date = new Date(2016, 10, 5, 0, 0, 0, 0);
-        let iniTour: Date = new Date(2016, 11, 5, 0, 0, 0, 0);
-        let finTour: Date = new Date(2016, 12, 5, 0, 0, 0, 0);
+        inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
+        findate = new Date(2016, 9, 5, 0, 0, 0, 0);
+        iniTdate = new Date(2016, 10, 5, 0, 0, 0, 0);
+        finTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
 
-        expect(tournament.getStartInscription).toEqual(iniInsc);
-        expect(tournament.getEndInscription).toEqual(finInsc);
-        expect(tournament.getStartTournament).toEqual(iniTour);
-        expect(tournament.getEndTournament).toEqual(finTour);
+        let teams: Array<Team> =  new Array<Team>();
+
+        teams.push(new Team(0, 5));
+        teams.push(new Team(1, 5));
+        teams.push(new Team(2, 5));
+        teams.push(new Team(3, 5));
+
+        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+
+        expect(tournament.getStartInscription).toEqual(inidate);
+        expect(tournament.getEndInscription).toEqual(findate);
+        expect(tournament.getStartTournament).toEqual(iniTdate);
+        expect(tournament.getEndTournament).toEqual(finTdate);
         expect(tournament.getAward).toEqual('null');
     }));
 
     it('Los setters asignan los valores correctos', async(() => {
         
+        inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
+        findate = new Date(2016, 9, 5, 0, 0, 0, 0);
+        iniTdate = new Date(2016, 10, 5, 0, 0, 0, 0);
+        finTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
+
+        let teams: Array<Team> =  new Array<Team>();
+
+        teams.push(new Team(0, 5));
+        teams.push(new Team(1, 5));
+        teams.push(new Team(2, 5));
+        teams.push(new Team(3, 5));
+
+        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+
+
         let iniInsc: Date = new Date(2017, 9, 5, 0, 0, 0, 0);
         let finInsc: Date = new Date(2017, 10, 5, 0, 0, 0, 0);
-        let iniTour: Date = new Date(2017, 11, 5, 0, 0, 0, 0);
-        let finTour: Date = new Date(2017, 12, 5, 0, 0, 0, 0);
-
-        let match = new Match(new Date(2018, 1, 5, 0, 0, 0, 0));
         
         let award = 'Trofeo de oro';
 
         tournament.setStartInscription = iniInsc;
         tournament.setEndInscription = finInsc;
-        tournament.setStartTournament = iniTour;
-        tournament.setEndTournament = finTour;
 
         tournament.setAward = award;
 
-        expect(tournament.getNumMatch).toEqual(4);
+        expect(tournament.getNumMatch).toEqual(2);
 
-        tournament.setMatch = match;
 
         expect(tournament.getStartInscription).toEqual(iniInsc);
         expect(tournament.getEndInscription).toEqual(finInsc);
-        expect(tournament.getStartTournament).toEqual(iniTour);
-        expect(tournament.getEndTournament).toEqual(finTour);
-
-        expect(tournament.getNumMatch).toEqual(5);
 
         expect(tournament.getAward).toEqual(award);
     }));
 
     it('prueba de iteradores', async(() => {
         
-        let dateMatch1: Date = new Date(2016, 9, 5, 0, 0, 0, 0);
-        let dateMatch2: Date = new Date(2016, 10, 5, 0, 0, 0, 0);
-        let dateMatch3: Date = new Date(2016, 11, 5, 0, 0, 0, 0);
-        let dateMatch4: Date = new Date(2016, 12, 5, 0, 0, 0, 0);
+        inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
+        findate = new Date(2016, 9, 5, 0, 0, 0, 0);
+        iniTdate = new Date(2016, 10, 5, 0, 0, 0, 0);
+        finTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
+
+        let teams: Array<Team> =  new Array<Team>();
+
+        teams.push(new Team(0, 5));
+        teams.push(new Team(1, 5));
+        teams.push(new Team(2, 5));
+        teams.push(new Team(3, 5));
+
+        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
 
         let iterador = tournament.iterator();
 
         //Testing begin
-        expect(iterador.begin().getStartDate).toEqual(dateMatch1); 
-        //Testing end
-        expect(iterador.end().getStartDate).toEqual(dateMatch4); 
-        //Testing hasNext when true
+        expect(iterador.begin().getStartDate).toEqual(iniTdate); 
+
         expect(iterador.hasNext()).toEqual(true); 
 
-        //Testing next and current
-        expect(iterador.current().getStartDate).toEqual(dateMatch1); 
         iterador.next();
-        expect(iterador.current().getStartDate).toEqual(dateMatch2);
-        iterador.next();
-        expect(iterador.current().getStartDate).toEqual(dateMatch3);
-        iterador.next();
-        expect(iterador.current().getStartDate).toEqual(dateMatch4);
-
         //Testing hasNext when false 
-        expect(iterador.hasNext()).toEqual(false); 
-        
+        expect(iterador.hasNext()).toEqual(false);       
+    }));
 
-        let iterador2 = tournament.iterator();
+    it('Torneo genera partidas cuando están finalizadas y finaliza el torneo', async(() => {
         
-        //Testing for iterator
-        for(; iterador2.current() !== iterador2.end() ; iterador2.next());
+        inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
+        findate = new Date(2016, 9, 5, 0, 0, 0, 0);
+        iniTdate = new Date(2016, 10, 5, 0, 0, 0, 0);
+        finTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
 
-        expect(iterador2.current().getStartDate).toEqual(dateMatch4);
+        let teams: Array<Team> =  new Array<Team>();
 
+        teams.push(new Team(0, 5));
+        teams.push(new Team(1, 5));
+        teams.push(new Team(2, 5));
+        teams.push(new Team(3, 5));
+
+        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+
+        let iterador = tournament.iterator();
+
+        expect(tournament.getNumMatch).toEqual(2);
+        expect(tournament.getFinishedTournament).toEqual(false);
+
+        iterador.current().endMatch();
+        iterador.end().endMatch();
+
+        expect(tournament.getNumMatch).toEqual(3);
+        expect(tournament.getFinishedTournament).toEqual(false);
+
+        iterador.end().endMatch();
+
+        expect(tournament.getFinishedTournament).toEqual(true);
+
+    }));
+
+        it('Torneo genera partidas cuando están finalizadas y finaliza el torneo', async(() => {
         
+        inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
+        findate = new Date(2016, 9, 5, 0, 0, 0, 0);
+        iniTdate = new Date(2016, 10, 5, 0, 0, 0, 0);
+        finTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
+
+        let teams: Array<Team> =  new Array<Team>();
+
+        teams.push(new Team(0, 5));
+        teams.push(new Team(1, 5));
+        teams.push(new Team(2, 5));
+        teams.push(new Team(3, 5));
+
+        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+
+        let iterador = tournament.iterator();
+
+        iterador.current().setScoreLocal = 5;
+        iterador.end().setScoreVisitor = 5;
+
+        iterador.current().endMatch();
+        iterador.end().endMatch();
+
+        expect(iterador.end().getVisitorTeam).toEqual(new Team(0, 5));
+        expect(iterador.end().getLocalTeam).toEqual(new Team(3, 5));
+
+        iterador.end().setScoreVisitor = 5;
+
+        iterador.end().endMatch();
+
+        expect(tournament.getWinnerTournament).toEqual(new Team(0, 5));
+
     }));
 
 });

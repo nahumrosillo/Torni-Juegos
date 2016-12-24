@@ -1,40 +1,85 @@
 import { Iterator } from './../../util/iterator/iterator';
-import { RelativePositionIterator} from './../../util/iterator/RelativePositionIterator';
 import { IndexIterator } from './../../util/iterator/indexIterator';
 import { Aggregator } from './../../util/iterator/aggregator';
+import { Observer } from './../../util/observer/observer';
 import { BTreeImpl } from './../../util/BTree/BTreeImpl'
 import { Match } from './../match/match';
 import { Team } from './../team/team';
+import { Ranking } from './../ranking/ranking';
 
-export class Tournament implements Aggregator {
+export class Tournament implements Aggregator, Observer {
 	
+	private finishedTournament: boolean = false;
+
+	private currentMatchs: number; 		//Partidas actualmente activos
+	private noEndMatchs : number;		//Partidas actuales no finalizadas
+
+	private currentDateMatch: Date;
+	private difDateMatchs: number;
+
 	private startIns: Date;
 	private endIns: Date;
 
 	private startTour: Date;
 	private endTour: Date;
-	//private numTeams: number;
-	//private numPlayersByTeam: number;
+
 	private award: string;
-	//private Matchs: BTreeImpl<Match> = new BTreeImpl<Match>();
-	private Matchs: Array<Match>; //= new Array<Match>();
+	private Matchs: Array<Match>;
+
+	private ranking: Ranking;
 
 	private MatchIterator;
 
-	constructor(startIns: Date, endIns: Date, startTour: Date,  endTour: Date) {
+	constructor(startIns: Date, endIns: Date, startTour: Date,  endTour: Date, teams: Array<Team>) {
 
 		this.startIns = startIns;
 		this.endIns = endIns;
 		this.startTour = startTour;
+		this.currentDateMatch = startTour;
 		this.endTour = endTour;
-		//this.numTeams = matchs.length+1;
-		//this.numPlayersByTeam = matchs[0].getLocalTeam.getMaxPlayers;
 		this.award = 'null';
 
 		this.Matchs = new Array<Match>();
+		this.currentMatchs = 0;
+		this.noEndMatchs = 0;
+
+		this.difDateMatchs = (endTour.getTime() - startTour.getTime()) / teams.length-1;
+
+		this.createMatchs(teams);
+	}
+
+	private createMatchs(teams: Array<Team>) {
+
+		let i: number = 0;
+		this.currentMatchs = 0;
+
+		while(i < teams.length-1) {
+
+			let newMatch: Match = new Match(this, this.currentDateMatch, teams[i++], i < teams.length ? teams[i++] : null);
+
+			this.currentMatchs++;
+			this.noEndMatchs++;
+
+			this.Matchs.push(newMatch);
+
+			this.currentDateMatch.setTime(this.currentDateMatch.getTime() + this.difDateMatchs);
+		}
 	}
 
 	//Getters
+
+	get getFinishedTournament(): boolean {
+		return this.finishedTournament;
+	}
+
+	get getWinnerTournament(): Team  {
+
+		if(this.finishedTournament)
+			return this.Matchs[this.Matchs.length-1].getWinner;
+		else
+			return null;
+	}
+
 	get getStartInscription(): Date {
 		return this.startIns;
 	}
@@ -68,37 +113,54 @@ export class Tournament implements Aggregator {
 
 	set setStartInscription(startIns: Date)
 	{
-		this.startIns = startIns;
+		if(!this.finishedTournament)
+			this.startIns = startIns;
 	}
 
 	set setEndInscription(endIns: Date)
 	{
-		this.endIns = endIns;
-	}
-
-	set setStartTournament(startTour: Date)
-	{
-		this.startTour = startTour;
-	}
-
-	set setEndTournament(endTour: Date)
-	{
-		this.endTour = endTour;
+		if(!this.finishedTournament)
+			this.endIns = endIns;
 	}
 
 	set setAward(award: string) {
-		this.award = award
+		
+		if(!this.finishedTournament)
+			this.award = award
 	}
-
-	set setMatch(match: Match)
-	{
-		this.Matchs.push(match);
-	}
-
 
 
 	iterator(): Iterator {
-		//return new RelativePositionIterator(this.Matchs);
 		return new IndexIterator(this.Matchs);
+	}
+
+	update(teamwinner: Team)
+	{
+		this.noEndMatchs--;
+
+		if(this.noEndMatchs === 0)
+		{
+			let teams: Array<Team> = new Array<Team>();
+			
+			let currentMatch = 0;
+			let iterador = this.Matchs.length-1;
+
+			while(currentMatch < this.currentMatchs) {
+
+				teams.push(this.Matchs[iterador].getWinner);
+
+				currentMatch++;
+				iterador--;
+			}
+
+			if(teams.length === 1)
+			{
+				this.finishedTournament = true;
+			}
+			else
+			{
+				this.createMatchs(teams);
+			}
+		}
 	}
 }
