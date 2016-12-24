@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
+import { UserLoggedService } from '../userLogged.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -9,19 +10,20 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-login-manager',
   templateUrl: './login-manager.component.html',
   styleUrls: ['./login-manager.component.css'],
-  providers: [BDService]
+  providers: [BDService, UserLoggedService]
 })
 export class LoginManagerComponent extends SystemManager implements OnInit {
 
   private loginUser: User;
-  private userLogged: boolean;
+  private userBD: User;
+  private isUserLogged: boolean;
+  @Output() userLogged = new EventEmitter();
 
-  constructor(dataBaseService: BDService, private router: Router) 
+  constructor(private dataBaseService: BDService, private userLog: UserLoggedService, private router: Router) 
   {
   	super();
-    
   	SystemManager.dataBase = dataBaseService.connect;
-    this.userLogged = false;
+    this.isUserLogged = false;
     this.loginUser = new User();
   }
 
@@ -29,19 +31,20 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
 
   onSubmit() 
   {
-    let userBD = SystemManager.dataBase.getUser(this.loginUser);
+    this.userBD = SystemManager.dataBase.getUser(this.loginUser);
 
-    if (userBD === null || userBD === undefined) 
+    if (this.userBD === null || this.userBD === undefined) 
     {
       console.log("Usuario No existe en la BD");
     } 
-    else if (this.loginUser.getNick == userBD.getNick && this.loginUser.getPassword == userBD.getPassword) 
+    else if (this.loginUser.getNick == this.userBD.getNick && this.loginUser.getPassword == this.userBD.getPassword) 
     {
       console.log("Usuario Logeado");
 
-      SystemManager.userLogged = userBD;
-      this.userLogged = true;
-      this.router.navigate(['/']);
+      this.userLog.getUserLogged().setUser(this.userBD);
+
+      this.isUserLogged = true;
+      this.userLogged.emit( {user: this.userBD});
     }
   }
 }

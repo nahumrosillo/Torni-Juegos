@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
 import { NgForm } from '@angular/forms';
-
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-user-manager',
@@ -17,14 +16,12 @@ import { ActivatedRoute } from '@angular/router';
 export class RegisterUserManagerComponent extends SystemManager implements OnInit {
 
 	private newUser: User;
-	private rolUserLogged: number;
 
-  constructor(dataBaseService: BDService) 
+  constructor(dataBaseService: BDService, private router: Router) 
   {
   	super();
     
   	SystemManager.dataBase = dataBaseService.connect;
-  	this.rolUserLogged = SystemManager.userLogged.getRol;
     this.newUser = new User();
   }
 
@@ -44,17 +41,5 @@ export class RegisterUserManagerComponent extends SystemManager implements OnIni
     {
      		console.log("Usuario ya existe en la BD");
     }
-  }
-
-  setRol() 
-  {
-  	if (SystemManager.userLogged === null || SystemManager.userLogged === undefined)
-  	{
-  		switch(SystemManager.userLogged.getRol)
-  		{
-  			case Rol.SUPERADMIN:
-  			break;
-  		}
-  	}
   }
 }

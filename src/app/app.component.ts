@@ -1,34 +1,34 @@
 import { Component } from '@angular/core';
-
+import { User, Rol, Genre } from './shared/user/user';
 import { Router } from '@angular/router';
-import { BDService } from './manager/bd.service';
+import { UserLoggedService } from './manager/userLogged.service';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [BDService]
+  providers: [UserLoggedService]
 })
 export class AppComponent
 {
   title = 'Torni-Juegos';
-  
-  private statusLogged: boolean;
+  private userLogged: User;
+  private loginTerminated: boolean;
 
 
-  constructor(private router: Router) 
-  {
-
-    this.statusLogged = false
+  constructor(private router: Router, private userLog: UserLoggedService) {
+    this.loginTerminated = false;
   }
 
-  onSelectLogin() {
-    this.router.navigate(['/login']);
+  onUserLogged(user) {
+    this.loginTerminated = true;
+    this.userLogged = user;
+    this.userLog.getUserLogged().setUser = user;
+    this.router.navigate(['/usermanager']);
   }
 
-  onSelectRegister() {
-    this.router.navigate(['/registeruser']);
-
+  onLogout() {
+    this.loginTerminated = false;
   }
 }

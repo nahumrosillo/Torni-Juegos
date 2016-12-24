@@ -1,29 +1,37 @@
 
+<div class="col-sm-4" *ngIf="userLogged.getRol === 1">
+	<p align="center"> SuperAdmin </p>
+	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/newadmin">
+		New Admin
+	</button>
 
-<div class="col-sm-4">
-	<p align="center">Administrador / SuperAdmin </p>
-	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1 || this.userLogged.getRol == 2 ">
+	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/deleteadmin">
+		Delete Admin
+	</button>
+</div>
+
+<div class="col-sm-4" *ngIf="userLogged.getRol === 1 || userLogged.getRol === 2 ">
+	<p align="center"> Admin / SuperAdmin </p>
+	<button class="btn btn-lg btn-block btn-primary">
 		New Game
 	</button>
 
-	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1 || this.userLogged.getRol == 2 ">
+	<button class="btn btn-lg btn-block btn-primary">
 		Delete Game
 	</button>
 
-	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1 || this.userLogged.getRol == 2 ">
+	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/newsponsor">
 		New Sponsor
 	</button>
 
-	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1 || this.userLogged.getRol == 2 ">
+	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/deletesponsor">
 		Delete Sponsor
 	</button>
+</div>
 
-	<p align="center"> SuperAdmin </p>
-	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1">
-		New Administrator
-	</button>
-
-	<button class="btn btn-lg btn-block btn-primary" *ngIf="this.userLogged.getRol == 1">
-		Delete Administrator
+<div class="col-sm-4">
+	<p align="center"> Player </p>
+	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/editprofile">
+		Edit Profile
 	</button>
 </div>

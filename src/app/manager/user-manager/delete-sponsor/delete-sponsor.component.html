@@ -1,0 +1,16 @@
+<div class="col-sm-4">
+<form #f="ngForm" (ngSubmit)="onSubmit()" validate>
+	<div class="form-group">
+  		<input type="text" class="form-control" placeholder="Nick" required 
+  			[(ngModel)]="newUser.setNick" [ngModelOptions]="{standalone: true}">
+	</div>
+
+ 	<div class="form-group">
+  		<input type="password" class="form-control" placeholder="Password" required
+			[(ngModel)]="newUser.setPassword" [ngModelOptions]="{standalone: true}">
+	</div>
+
+	<button type="submit" class="btn btn-lg btn-block btn-primary" > Delete Sponsor
+	</button>
+</form>
+</div>

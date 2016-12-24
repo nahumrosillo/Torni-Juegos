@@ -3,5 +3,4 @@ import { User} from './shared/user/user';
 
 export abstract class SystemManager  {
 	protected static dataBase: BD;
-	protected static userLogged: User;
 }
