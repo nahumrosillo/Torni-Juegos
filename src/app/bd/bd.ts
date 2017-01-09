@@ -9,4 +9,6 @@ export interface BD {
 	getGame(item: Game): Game;
 	sizeUser(): number;
 	sizeGame(): number;
+	getMapUser(): Map<string, User>;
+	getMapGame(): Map<string, Game>;
 }

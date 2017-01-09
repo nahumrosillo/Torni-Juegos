@@ -17,6 +17,7 @@ import { Game } from '../../shared/game/game';
 export class GameManagerComponent extends SystemManager implements OnInit 
 {
   private games: Array<Game>;
+  private mapGame: Map<string, Game>;
 
 
   constructor(dataBaseService: BDService, private router: Router) 
@@ -24,8 +25,8 @@ export class GameManagerComponent extends SystemManager implements OnInit
   	super();
 
     SystemManager.dataBase = dataBaseService.connect;
-   
-    
+    this.mapGame = SystemManager.dataBase.getMapGame();
+    console.log(this.mapGame);
   }
 
 	ngOnInit() { }
