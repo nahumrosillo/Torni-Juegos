@@ -5,6 +5,10 @@ import { Game } from '../shared/game/game';
 import { Match } from '../shared/match/match';
 import { Tournament } from '../shared/tournament/tournament';
 
+import { Aggregator } from '../util/iterator/aggregator';
+import { IndexIterator } from '../util/iterator/indexIterator';
+import { Iterator } from '../util/iterator/iterator';
+
 export class Memory implements BD
 {
 	private static instance: Memory;
@@ -64,4 +68,14 @@ export class Memory implements BD
 	sizeGame(): number {
 		return this.mapGame.size;
 	}
+
+	getMapUser(): Map<string, User> {
+		return this.mapUser;
+	}
+
+	getMapGame(): Map<string, Game> {
+		return this.mapGame;
+	}
+
+
 }
