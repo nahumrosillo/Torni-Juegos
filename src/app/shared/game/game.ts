@@ -3,13 +3,21 @@ import { Iterator } from './../../util/iterator/iterator';
 import { IndexIterator} from './../../util/iterator/indexIterator';
 import { Aggregator } from './../../util/iterator/aggregator';
 
+export enum Category {
+	ACTION,
+	SPORT,
+	BOARD_GAME
+}
+
+
 export class Game implements Aggregator {
 
 	private name: string;
 	private description: string;
-	private tournament: Array<Tournament>
+	private category: Category;
+	private tournament: Array<Tournament>;
 
-	constructor(name?: string) {
+	constructor(name: string, description: string, category: Category) {
 		
 		if (name == null) {
 			this.name = 'null';
@@ -17,7 +25,8 @@ export class Game implements Aggregator {
 			this.name = name;
 		}
 
-		this.description = 'Empty description';
+		this.description = description;
+		this.category = category;
 		this.tournament = new Array<Tournament>();
 	}
 
@@ -29,6 +38,15 @@ export class Game implements Aggregator {
 		return this.description;
 	}
 
+	get getCategory(): Category {
+		return this.category;
+	}
+
+	get lengthTournament(): number {
+		return this.tournament.length;
+	}
+
+
 	addTournament(tournament: Tournament) {
 
 		let item = this.tournament.indexOf(tournament);
@@ -37,13 +55,9 @@ export class Game implements Aggregator {
 			this.tournament.push(tournament);
 		}
 	}
-
-	get lengthTournament(): number {
-		return this.tournament.length;
-	}
-
 	// iterator
     iterator(): Iterator {
         return new IndexIterator(this.tournament);
     }
 }
+
