@@ -17,6 +17,8 @@ import { NewSponsorComponent } from './manager/user-manager/new-sponsor/new-spon
 import { DeleteSponsorComponent } from './manager/user-manager/delete-sponsor/delete-sponsor.component';
 import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-profile.component';
 
+import { GameManagerComponent } from './manager/game-manager/game-manager.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,8 @@ import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-p
     DeleteAdminComponent,
     NewSponsorComponent,
     DeleteSponsorComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    GameManagerComponent
   ],
   imports: [
     BrowserModule,
