@@ -4,7 +4,7 @@ import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Game } from '../../shared/game/game';
+import { Game, Category } from '../../shared/game/game';
 
 @Component({
   selector: 'app-game-manager',
@@ -17,6 +17,7 @@ import { Game } from '../../shared/game/game';
 export class GameManagerComponent extends SystemManager implements OnInit 
 {
   private games: Array<Game>;
+  private activeGame: Game;
   private mapGame: Map<string, Game>;
 
 
@@ -26,10 +27,27 @@ export class GameManagerComponent extends SystemManager implements OnInit
 
     SystemManager.dataBase = dataBaseService.connect;
     this.mapGame = SystemManager.dataBase.getMapGame();
-    console.log(this.mapGame);
+    this.games = new Array<Game>();
+
+    let game: Game;
+    game = new Game('Juego1', 'Mundo', Category.ACTION);
+
+    SystemManager.dataBase.add(game);
+    let g: Game;
+    g = new Game('Juego 2', 'Los Mejores 2', Category.BOARD_GAME);
+    SystemManager.dataBase.add(g);
+    
+    this.mapGame.forEach((value: Game, key: string) => {
+        this.games.push(value);
+    });
   }
 
 	ngOnInit() { }
+
+  selectGame(game: Game) {
+    this.activeGame = game;
+    console.log(this.activeGame);
+  }
 
 
 }

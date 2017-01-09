@@ -1,5 +1,12 @@
 
 
 <div class="col-sm-4">
+<ul class="list-group users-list">
+        	<li class="list-group-item"
+              *ngFor="let game of games"
+                    (click)="selectGame(game)"  [class.active]="game===activeGame">>
+              {{ game.getName }}
+        	</li>
+        </ul>
 
 </div>
