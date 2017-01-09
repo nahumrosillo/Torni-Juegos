@@ -6,8 +6,8 @@ import { DebugElement } from '@angular/core';
 import { GameManagerComponent } from './game-manager.component';
 
 describe('GameManagerComponent', () => {
-  let component: RegisterUserManagerComponent;
-  let fixture: ComponentFixture<RegisterUserManagerComponent>;
+  let component: GameManagerComponent;
+  let fixture: ComponentFixture<GameManagerComponent>;
 
   beforeEach(async(() => {
     /*TestBed.configureTestingModule({

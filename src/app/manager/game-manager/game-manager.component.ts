@@ -4,6 +4,7 @@ import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Game } from '../../shared/game/game';
 
 @Component({
   selector: 'app-game-manager',
@@ -13,33 +14,21 @@ import { Router } from '@angular/router';
 })
 
 
-export class GameManagerComponent extends SystemManager implements OnInit {
+export class GameManagerComponent extends SystemManager implements OnInit 
+{
+  private games: Array<Game>;
 
-	private newUser: User;
 
   constructor(dataBaseService: BDService, private router: Router) 
   {
   	super();
+
+    SystemManager.dataBase = dataBaseService.connect;
+   
     
-  	SystemManager.dataBase = dataBaseService.connect;
-    this.newUser = new User();
   }
 
 	ngOnInit() { }
 
 
-	onSubmit() 
-	{
-    let userBD = SystemManager.dataBase.getUser(this.newUser);
-
-    if (userBD === null || userBD === undefined) 
-    {
-      SystemManager.dataBase.add(this.newUser);
-    	console.log("Agregado a la BD");
-    } 
-    else 
-    {
-     		console.log("Usuario ya existe en la BD");
-    }
-  }
 }

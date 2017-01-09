@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { LoginManagerComponent } from './manager/login-manager/login-manager.component';
 import { UserManagerComponent } from './manager/user-manager/user-manager.component';
+import { GameManagerComponent } from './manager/game-manager/game-manager.component';
 import { RegisterUserManagerComponent } from './manager/register-user-manager/register-user-manager.component';
 import { NewAdminComponent } from './manager/user-manager/new-admin/new-admin.component';
 import { DeleteAdminComponent } from './manager/user-manager/delete-admin/delete-admin.component';
@@ -24,6 +25,8 @@ export const routes: Routes = [
   {path: 'usermanager/deletesponsor', component: DeleteSponsorComponent },
   {path: 'usermanager/editprofile', component: EditProfileComponent },
   {path: 'registeruser', component: RegisterUserManagerComponent },
+
+  {path: 'gamemanager', component: GameManagerComponent },
 
 ];
 
