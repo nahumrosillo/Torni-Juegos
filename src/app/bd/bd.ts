@@ -11,4 +11,6 @@ export interface BD {
 	sizeGame(): number;
 	getMapUser(): Map<string, User>;
 	getMapGame(): Map<string, Game>;
+	getArrayUsers(): Array<User>;
+	getArrayGames(): Array<Game>;
 }

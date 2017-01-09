@@ -27,19 +27,16 @@ export class GameManagerComponent extends SystemManager implements OnInit
 
     SystemManager.dataBase = dataBaseService.connect;
     this.mapGame = SystemManager.dataBase.getMapGame();
-    this.games = new Array<Game>();
 
     let game: Game;
-    game = new Game('Juego1', 'Mundo', Category.ACTION);
+    game = new Game('Juego 1', 'Mundo', Category.ACTION);
 
     SystemManager.dataBase.add(game);
     let g: Game;
     g = new Game('Juego 2', 'Los Mejores 2', Category.BOARD_GAME);
     SystemManager.dataBase.add(g);
     
-    this.mapGame.forEach((value: Game, key: string) => {
-        this.games.push(value);
-    });
+    this.games = SystemManager.dataBase.getArrayGames();
   }
 
 	ngOnInit() { }

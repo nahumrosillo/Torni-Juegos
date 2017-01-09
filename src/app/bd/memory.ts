@@ -77,5 +77,26 @@ export class Memory implements BD
 		return this.mapGame;
 	}
 
+	getArrayUsers(): Array<User> {
+		let array: Array<User>;
+		array = new Array<User>();
 
+		this.mapUser.forEach( (value: User, key: string) => {
+			array.push(value);
+		});
+
+		return array;
+	}
+
+	getArrayGames(): Array<Game> {
+
+		let array: Array<Game>;
+		array = new Array<Game>();
+
+		this.mapGame.forEach( (value: Game, key: string) => {
+			array.push(value);
+		});
+
+		return array;
+	}
 }
