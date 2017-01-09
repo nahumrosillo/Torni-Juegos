@@ -16,6 +16,8 @@ import { DeleteAdminComponent } from './manager/user-manager/delete-admin/delete
 import { NewSponsorComponent } from './manager/user-manager/new-sponsor/new-sponsor.component';
 import { DeleteSponsorComponent } from './manager/user-manager/delete-sponsor/delete-sponsor.component';
 import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-profile.component';
+import { NewGameComponent } from './manager/user-manager/new-game/new-game.component';
+import { DeleteGameComponent } from './manager/user-manager/delete-game/delete-game.component';
 
 import { GameManagerComponent } from './manager/game-manager/game-manager.component';
 
@@ -30,7 +32,9 @@ import { GameManagerComponent } from './manager/game-manager/game-manager.compon
     NewSponsorComponent,
     DeleteSponsorComponent,
     EditProfileComponent,
-    GameManagerComponent
+    GameManagerComponent,
+    NewGameComponent,
+    DeleteGameComponent
   ],
   imports: [
     BrowserModule,

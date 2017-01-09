@@ -13,6 +13,8 @@ import { DeleteAdminComponent } from './manager/user-manager/delete-admin/delete
 import { NewSponsorComponent } from './manager/user-manager/new-sponsor/new-sponsor.component';
 import { DeleteSponsorComponent } from './manager/user-manager/delete-sponsor/delete-sponsor.component';
 import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-profile.component';
+import { NewGameComponent } from './manager/user-manager/new-game/new-game.component';
+import { DeleteGameComponent } from './manager/user-manager/delete-game/delete-game.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -25,6 +27,8 @@ export const routes: Routes = [
   {path: 'usermanager/deletesponsor', component: DeleteSponsorComponent },
   {path: 'usermanager/editprofile', component: EditProfileComponent },
   {path: 'registeruser', component: RegisterUserManagerComponent },
+  {path: 'usermanager/newgame', component: NewGameComponent },
+  {path: 'usermanager/deletegame', component: DeleteGameComponent },
 
   {path: 'gamemanager', component: GameManagerComponent },
 
