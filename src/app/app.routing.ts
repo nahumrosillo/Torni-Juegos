@@ -16,6 +16,9 @@ import { EditProfileComponent } from './manager/user-manager/edit-profile/edit-p
 import { NewGameComponent } from './manager/user-manager/new-game/new-game.component';
 import { DeleteGameComponent } from './manager/user-manager/delete-game/delete-game.component';
 
+import { TournamentManagerComponent } from './manager/tournament-manager/tournament-manager.component';
+import { NewTournamentComponent } from './manager/tournament-manager/new-tournament/new-tournament.component';
+
 // Route Configuration
 export const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: ''},
@@ -31,6 +34,8 @@ export const routes: Routes = [
   {path: 'usermanager/deletegame', component: DeleteGameComponent },
 
   {path: 'gamemanager', component: GameManagerComponent },
+  {path: 'tournamentmanager', component: TournamentManagerComponent },
+  {path: 'tournamentmanager/newtournament', component: NewTournamentComponent }
 
 ];
 
