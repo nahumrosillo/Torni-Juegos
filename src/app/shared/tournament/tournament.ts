@@ -216,6 +216,10 @@ export class Tournament implements Aggregator, Observer {
 			this.award = award
 	}
 
+	getMatchs(): Array<Match> {
+		return this.Matchs;
+	}
+
 
 	iterator(): Iterator {
 		return new IndexIterator(this.Matchs);

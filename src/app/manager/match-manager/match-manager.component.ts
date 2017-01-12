@@ -7,23 +7,24 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Game, Category } from '../../shared/game/game';
 import { Tournament } from '../../shared/tournament/tournament';
+import { Match } from '../../shared/match/match';
 import { IndexIterator } from '../../util/iterator/indexIterator';
 import { Iterator } from '../../util/iterator/iterator';
 
 @Component({
-  selector: 'app-tournament-manager',
-  templateUrl: './tournament-manager.component.html',
-  styleUrls: ['./tournament-manager.component.css'],
+  selector: 'app-match-manager',
+  templateUrl: './match-manager.component.html',
+  styleUrls: ['./match-manager.component.css'],
   providers: [BDService, UserLoggedService]
 })
 
 
-export class TournamentManagerComponent extends SystemManager implements OnInit 
+export class MatchManagerComponent extends SystemManager implements OnInit 
 {
   private userLogged: User;
-  private gameSelected: Game;
-  private tournaments: Array<Tournament>;
-  private activeTournament: Tournament;
+  private tournamentSelected: Tournament;
+  private matchs: Array<Match>;
+  private activeMatch: Match;
 
 
   constructor(private dataBaseService: BDService, private userLoggedServ: UserLoggedService, 
@@ -34,25 +35,21 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
     this.userLogged = userLoggedServ.getUserLogged().getUser();
     SystemManager.dataBase = dataBaseService.connect;
 
-    this.gameSelected = userLoggedServ.getUserLogged().getGame();
-    this.tournaments = this.gameSelected.getTournaments();
+    this.tournamentSelected = userLoggedServ.getUserLogged().getTournament();
+    this.matchs = this.tournamentSelected.getMatchs();
+
+    console.log(this.matchs);
   }
 
 	ngOnInit() { }
 
-  selectTournament(tour: Tournament) {
-    this.activeTournament = tour;
-  }
-
-  deleteTournament(event) {
-    console.log("Torneo borrado.");
-    //SystemManager.dataBase.remove(this.activeGame);
+  selectMatch(match: Match) {
+    this.activeMatch = match;
   }
 
   viewMatchs(event) {
     console.log("Viendo partidas...");
-    this.userLoggedServ.getUserLogged().setTournament(this.activeTournament);
-    this.router.navigate(['/matchmanager']);
+    //this.dataBaseService.gameSelected = this.activeGame;
   }
 
 
