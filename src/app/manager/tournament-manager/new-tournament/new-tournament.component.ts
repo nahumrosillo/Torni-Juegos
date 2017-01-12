@@ -24,8 +24,10 @@ export class NewTournamentComponent implements OnInit {
   private startTour: string;
   private endTour: string;
 
+
   private teams: Array<Team>;
   private maxPlayer: number;
+  private maxTeams: number;
 
   constructor(private userLoggedServ: UserLoggedService) {
     this.gameSelected = userLoggedServ.getUserLogged().getGame();
@@ -57,7 +59,7 @@ export class NewTournamentComponent implements OnInit {
   onSubmit() {
 
     this.teams = new Array<Team>();
-    for (let i = 0; i < this.maxPlayer; i++) 
+    for (let i = 0; i < this.maxTeams; i++) 
       this.teams.push(new Team(i, this.maxPlayer));
 
    

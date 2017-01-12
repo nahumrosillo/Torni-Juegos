@@ -1,9 +1,15 @@
 
-<div class="jumbotron" *ngIf="match">
-	<h2> <small></small></h2>
+<div *ngIf="match">
+	<div class="panel panel-primary">
+      <div class="panel-heading">Match Report</div>
+      <div class="panel-body"> Finished: {{ match.isFinished }}</div>
+      <div class="panel-body"> ID Local Team: {{ match.getLocalTeam.getId }}  Local Score: {{ match.getScoreLocal }}</div>
+      <div class="panel-body"> ID Visitor Team: {{ match.getVisitorTeam.getId}} Visitor Score: {{  match.getScoreVisitor}} </div>
+      <div class="panel-body"> Start Date : {{ match.getStartDate }}</div>
+    </div>
 
-		<button class="btn btn-lg btn-block btn-primary" (click)="viewMatchs()">
-			View Matchs
-		</button>
+	<button class="btn btn-lg btn-block btn-primary" (click)="viewMatchs()">
+		View Matchs
+	</button>
 </div>
 

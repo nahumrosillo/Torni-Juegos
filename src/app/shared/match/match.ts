@@ -85,6 +85,10 @@ export class Match implements Subject {
 		if(!this.finishedMatch)
 			this.scoreV = score;
 	}
+
+	get isFinished() {
+		return this.finishedMatch;
+	}
 	
 
 	private observers: Set<Observer>;

@@ -71,8 +71,8 @@ export class BDService implements OnInit {
         g = new Game("Super Mario Bros", "Version Multiplayer", Category.ACTION);
 
         let teams = new Array<Team>();
-        for (let i = 0; i < 12; i++) 
-             teams.push(new Team(i, 12));
+        for (let i = 0; i < 4; i++) 
+             teams.push(new Team(i, 2));
 
         g.addTournament(new Tournament("Torneo UCA 2017", 
             new Date(2016, 8, 5, 0, 0, 0, 0),

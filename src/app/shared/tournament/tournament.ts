@@ -32,8 +32,17 @@ export class Tournament implements Aggregator, Observer {
 	private ranking: Ranking;
 
 	private MatchIterator;
-	private numMaxUsers;
-	private numCurrentUsers;
+	private numMaxUsers: number;
+	private numCurrentUsers: number;
+	private numTeams: number;
+
+	get getNumMaxUsers(): number {
+		return this.numMaxUsers;
+	}
+
+	get getCurrentUsers(): number {
+		return this.numCurrentUsers;
+	}
 
 
 	constructor(name: string, startIns: Date, endIns: Date, startTour: Date,  endTour: Date, teams: Array<Team>) 
@@ -51,6 +60,7 @@ export class Tournament implements Aggregator, Observer {
 		this.Matchs = new Array<Match>();
 		this.currentMatchs = 0;
 		this.noEndMatchs = 0;
+		this.numTeams = teams.length;
 
 		this.numCurrentUsers = 0;
 		this.numMaxUsers = teams.length * teams[0].getMaxPlayers;
@@ -189,6 +199,10 @@ export class Tournament implements Aggregator, Observer {
 	get getAward(): string {
 
 		return this.award;
+	}
+
+	get getNumTeams(): number {
+		return this.numTeams;
 	}
 
 	get getNumMatch(): number {

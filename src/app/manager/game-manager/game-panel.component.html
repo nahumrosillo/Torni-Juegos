@@ -1,15 +1,19 @@
 
-<div class="jumbotron" *ngIf="game">
-	<h2>{{ game.getName }} <small>{{ game.getDescription }}</small></h2>
+<div *ngIf="game">
+	<div class="panel panel-primary">
+      <div class="panel-heading">Tournament selected:</div>
+      <div class="panel-body"> Nombre: {{ game.getName }}</div>
+      <div class="panel-body"> Description: {{ game.getDescription }} </div>
+    </div>
 
 
-		<button class="btn btn-lg btn-block btn-primary" *ngIf="userLogged.getRol === 1"
+
+	<button class="btn btn-lg btn-block btn-primary" *ngIf="userLogged.getRol === 1"
 		(click)="deleteGame()">
 			Delete Game
-		</button>
+	</button>
 
-		<button class="btn btn-lg btn-block btn-primary" (click)="viewTournaments()">
+	<button class="btn btn-lg btn-block btn-primary" (click)="viewTournaments()">
 			View Tournaments
-		</button>
-
+	</button>
 </div>

@@ -22,9 +22,13 @@
     <input type="date" class="form-control" placeholder="End Ins" 
         [(ngModel)]="endTour" [ngModelOptions]="{standalone: true}">
 
-  <label> Max Players:</label>
+  <label> Max Players by Team:</label>
   <input type="number" name="Max teams" required min="2" max="12"
   [(ngModel)]="maxPlayer" [ngModelOptions]="{standalone: true}">
+
+    <label> Number of Teams:</label>
+  <input type="number" name="Max teams" required min="2" max="12"
+  [(ngModel)]="maxTeams" [ngModelOptions]="{standalone: true}">
 </div>
 	
 
