@@ -6,21 +6,24 @@ export class IndexIterator implements Iterator
     private collection: any;
 
     constructor(collection: any) {
+
         this.collection = collection;
     }
 
     begin(): any {
         return this.collection[0];
     }
+    
     next(): any {
        return this.collection[this.index++]; 
     }
+
     prev(): any {
         return this.collection[this.index--];
     }
 
     hasNext(): boolean {
-        return this.index < this.collection.length-1;
+        return this.index < this.collection.length;
     } 
 
     hasPrev(): boolean {

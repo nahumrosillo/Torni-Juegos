@@ -15,7 +15,7 @@ export class Game implements Aggregator {
 	private name: string;
 	private description: string;
 	private category: Category;
-	private tournament: Array<Tournament>;
+	private tournaments: Array<Tournament>;
 
 	constructor(name: string, description: string, category: Category) {
 		
@@ -27,7 +27,7 @@ export class Game implements Aggregator {
 
 		this.description = description;
 		this.category = category;
-		this.tournament = new Array<Tournament>();
+		this.tournaments = new Array<Tournament>();
 	}
 
 	get getName(): string {
@@ -43,21 +43,21 @@ export class Game implements Aggregator {
 	}
 
 	get lengthTournament(): number {
-		return this.tournament.length;
+		return this.tournaments.length;
 	}
 
 
 	addTournament(tournament: Tournament) {
 
-		let item = this.tournament.indexOf(tournament);
+		let item = this.tournaments.indexOf(tournament);
 
-		if (item == -1) {
-			this.tournament.push(tournament);
+		if (item === -1) {
+			this.tournaments.push(tournament);
 		}
 	}
 	// iterator
     iterator(): Iterator {
-        return new IndexIterator(this.tournament);
+        return new IndexIterator(this.tournaments);
     }
 }
 

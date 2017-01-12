@@ -2,6 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { Tournament } from './tournament';
 import { Match } from './../match/match';
 import { Team } from './../team/team';
+import { User } from './../user/user';
 import { Iterator } from './../../util/iterator/iterator';
 
 let tournament: Tournament;
@@ -122,6 +123,7 @@ describe('Tournament', () => {
         expect(iterador.hasNext()).toEqual(true); 
 
         iterador.next();
+        iterador.next();
         //Testing hasNext when false 
         expect(iterador.hasNext()).toEqual(false);       
     }));
@@ -159,7 +161,7 @@ describe('Tournament', () => {
 
     }));
 
-        it('Torneo genera partidas cuando están finalizadas y finaliza el torneo', async(() => {
+    it('Torneo genera partidas cuando están finalizadas y finaliza el torneo', async(() => {
         
         inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
         findate = new Date(2016, 9, 5, 0, 0, 0, 0);
@@ -192,6 +194,44 @@ describe('Tournament', () => {
 
         expect(tournament.getWinnerTournament).toEqual(new Team(0, 5));
 
+    }));
+
+    it('Torneo introduce y elimina usuarios', async(() => {
+        inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
+        findate = new Date(2016, 9, 5, 0, 0, 0, 0);
+        iniTdate = new Date(2016, 10, 5, 0, 0, 0, 0);
+        finTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
+
+        let teams: Array<Team> =  new Array<Team>();
+
+        teams.push(new Team(0, 1));
+        teams.push(new Team(1, 1));
+        teams.push(new Team(2, 1));
+        teams.push(new Team(3, 1));
+
+        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+
+        let user1: User = new User('user1');
+        let user2: User = new User('user2');
+        let user3: User = new User('user3');
+        let user4: User = new User('user4');
+        let user5: User = new User('user5');
+
+        expect(tournament.searchUserTournament(user1)).toEqual(false);
+
+        tournament.addUserTournament(user1);
+
+        expect(tournament.searchUserTournament(user1)).toEqual(true);
+
+        tournament.removeUserTournament(user1);
+
+        expect(tournament.searchUserTournament(user1)).toEqual(false);
+
+        tournament.addUserTournament(user1);        
+        tournament.addUserTournament(user2);
+        tournament.addUserTournament(user3);
+        expect(tournament.addUserTournament(user4)).toEqual(true);
+        expect(tournament.addUserTournament(user5)).toEqual(false);
     }));
 
 });

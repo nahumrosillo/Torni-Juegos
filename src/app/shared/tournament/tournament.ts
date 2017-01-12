@@ -5,6 +5,7 @@ import { Observer } from './../../util/observer/observer';
 import { BTreeImpl } from './../../util/BTree/BTreeImpl'
 import { Match } from './../match/match';
 import { Team } from './../team/team';
+import { User } from './../user/user';
 import { Ranking } from './../ranking/ranking';
 
 export class Tournament implements Aggregator, Observer {
@@ -30,6 +31,9 @@ export class Tournament implements Aggregator, Observer {
 
 	private MatchIterator;
 
+	private numMaxUsers;
+	private numCurrentUsers;
+
 	constructor(startIns: Date, endIns: Date, startTour: Date,  endTour: Date, teams: Array<Team>) {
 
 		this.startIns = startIns;
@@ -42,6 +46,9 @@ export class Tournament implements Aggregator, Observer {
 		this.Matchs = new Array<Match>();
 		this.currentMatchs = 0;
 		this.noEndMatchs = 0;
+
+		this.numCurrentUsers = 0;
+		this.numMaxUsers = teams.length * teams[0].getMaxPlayers;
 
 		this.difDateMatchs = (endTour.getTime() - startTour.getTime()) / teams.length-1;
 
@@ -65,6 +72,77 @@ export class Tournament implements Aggregator, Observer {
 			this.currentDateMatch.setTime(this.currentDateMatch.getTime() + this.difDateMatchs);
 		}
 	}
+
+	addUserTournament(user: User): boolean {
+
+		let added: boolean = false;
+		if(this.numCurrentUsers < this.numMaxUsers)
+		{
+			let currentMatch: Iterator = this.iterator();
+			while(!added && currentMatch.hasNext()) {
+
+				let currentTeam: Team = currentMatch.current().getLocalTeam;
+
+				for(let j = 0 ; j < 2 ; j++) {
+
+					if(!added && currentTeam.getNumPlayers < currentTeam.getMaxPlayers) {					
+						currentTeam.addPlayerIntoTeam(user);
+						added = true;
+					}
+					currentTeam = currentMatch.current().getVisitorTeam;
+				}
+				currentMatch.next();
+			}
+		}
+		return added;
+	}
+
+	removeUserTournament(user: User): boolean {
+
+		let removed: boolean = false;
+
+		if(this.numCurrentUsers === 0)
+		{
+			let currentMatch: Iterator = this.iterator();
+			while(!removed && currentMatch.hasNext()) {
+
+				let currentTeam: Team = currentMatch.current().getLocalTeam;
+
+				for(let j = 0 ; j < 2 ; j++) {
+									
+					if(!removed && currentTeam.searchPlayerIntoTeam(user)) {					
+							
+						currentTeam.removePlayerIntoTeam(user);
+						removed = true;
+					}
+					currentTeam = currentMatch.current().getVisitorTeam;
+				}
+				currentMatch.next();
+			}
+		}
+		return removed;
+	}
+
+	searchUserTournament(user: User): boolean {
+		
+		let found: boolean = false;
+		
+		let currentMatch: Iterator = this.iterator();
+		while(!found && currentMatch.hasNext()) {
+
+			let currentTeam: Team = currentMatch.current().getLocalTeam;
+
+			for(let j = 0 ; j < 2 ; j++) {
+								
+				if(!found && currentTeam.searchPlayerIntoTeam(user)) {					
+					found = true;
+				}
+				currentTeam = currentMatch.current().getVisitorTeam;
+			}
+			currentMatch.next();
+		}
+		return found;
+	} 
 
 	//Getters
 

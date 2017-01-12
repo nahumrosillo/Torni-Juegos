@@ -7,6 +7,7 @@ import { Game } from './game';
 import { Tournament } from '../tournament/tournament';
 import { Team } from '../team/team';
 import { Category } from './game';
+import { Iterator } from './../../util/iterator/iterator';
 
 let game: Game;
 
@@ -97,19 +98,19 @@ describe('Game', () => {
         let t1 = new Tournament(inidate, findate, iniTdate, finTdate, teams); 
         let t2 = new Tournament(inidate, findate, iniTdate, finTdate, teams); 
 
-
-        let i = game.iterator();
         game.addTournament(t1);
         game.addTournament(t1);
         game.addTournament(t2);
         game.addTournament(t2);
 
-        expect(game.lengthTournament).toEqual(2)
+        let iterador = game.iterator();
+        
+        expect(game.lengthTournament).toEqual(2);
 
-        expect(i.current()).toEqual(t1);
-        i.next();
-        expect(i.current()).toEqual(t2);
-        i.next();
+        expect(iterador.current()).toEqual(t1);
+        iterador.next();
+        expect(iterador.current()).toEqual(t2);
+
     }));
 
 
