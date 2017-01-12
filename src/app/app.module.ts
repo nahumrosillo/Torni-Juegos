@@ -24,6 +24,8 @@ import { GamePanelComponent } from './manager/game-manager/game-panel.component'
 import { TournamentManagerComponent } from './manager/tournament-manager/tournament-manager.component';
 import { TournamentPanelComponent } from './manager/tournament-manager/tournament-panel.component';
 import { NewTournamentComponent } from './manager/tournament-manager/new-tournament/new-tournament.component';
+import { MatchManagerComponent } from './manager/match-manager/match-manager.component';
+import { MatchPanelComponent } from './manager/match-manager/match-panel.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { NewTournamentComponent } from './manager/tournament-manager/new-tournam
     GamePanelComponent,
     TournamentManagerComponent,
     TournamentPanelComponent,
-    NewTournamentComponent
+    NewTournamentComponent,
+    MatchManagerComponent,
+    MatchPanelComponent
   ],
   imports: [
     BrowserModule,

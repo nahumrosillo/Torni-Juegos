@@ -61,7 +61,6 @@ export class NewTournamentComponent implements OnInit {
       this.teams.push(new Team(i, this.maxPlayer));
 
    
-   //  Hacer las comprobaciones de las fechas aqui
    let sIns: Date  = this.getDateHTML(this.startIns);
    let eIns: Date  = this.getDateHTML(this.endIns);
    let sTour: Date = this.getDateHTML(this.startTour);
@@ -72,40 +71,9 @@ export class NewTournamentComponent implements OnInit {
      console.log("Torneo agregado.");
      this.newTournament = new Tournament(this.nameTour, sIns, eIns, sTour, eTour, this.teams);
      this.userLoggedServ.getUserLogged().getGame().addTournament(this.newTournament);
-
-     console.log(this.userLoggedServ.getUserLogged().getGame().lengthTournament);
    }
    else {
      console.log("Fechas incorrectas");
    }
-
-
-   console.log(this.newTournament);
-
-/*
-   this.newTournament = new Tournament(this.startIns, this.endIns,
-     this.startTour, this.endTour2, this.teams);
-
-    */
-
-    
-    //to do
-    /*
-      Buscar en el game si ya existe el torneo. Si existe no lo anade.
-    */
-
-    /*let gameBD = this.db.getGame(this.newGame);
-
-    if (gameBD === null || gameBD === undefined) 
-    {
-      //this.db.add(this.newGame);
-      console.log("Torneo agregado al juego");
-    } 
-    else 
-    {
-      console.log("Torneo ya existe en el juego");
-    }
-    */
-
   }
 }

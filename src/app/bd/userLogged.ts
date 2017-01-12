@@ -45,4 +45,20 @@ export class UserLogged
        return this.gameSelected;
    }
 
+   setTournament(tour: Tournament) {
+     this.tournamentSelected = tour;
+   }
+
+   getTournament(): Tournament {
+     return this.tournamentSelected;
+   }
+
+   setMatch(match: Match) {
+     this.matchSelected = match;
+   }
+
+   getMatch(): Match {
+     return this.matchSelected;
+   }
+
 }
