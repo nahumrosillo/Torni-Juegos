@@ -4,7 +4,7 @@ var mongojs = require('mongojs');
 var db = mongoose.connect('mongodb://localhost:27017/Mean'); 
  
 /* GET All Todos */
-router.get('/user', function(req, res, next) {
+router.get('/User', function(req, res, next) {
     db.todos.find(function(err, todos) {
         if (err) {
             res.send(err);
@@ -15,7 +15,7 @@ router.get('/user', function(req, res, next) {
 });
  
 /* GET One Todo with the provided ID */
-router.get('/user/:id', function(req, res, next) {
+router.get('/User/:id', function(req, res, next) {
     db.todos.findOne({
         _id: mongojs.ObjectId(req.params.id)
     }, function(err, todos) {
@@ -28,7 +28,7 @@ router.get('/user/:id', function(req, res, next) {
 });
  
 /* POST/SAVE a Todo */
-router.post('/user', function(req, res, next) {
+router.post('/User', function(req, res, next) {
     var todo = req.body;
     if (!todo.text || !(todo.isCompleted + '')) {
         res.status(400);
@@ -47,7 +47,7 @@ router.post('/user', function(req, res, next) {
 });
  
 /* PUT/UPDATE a Todo */
-router.put('/user/:id', function(req, res, next) {
+router.put('/User/:id', function(req, res, next) {
     var todo = req.body;
     var updObj = {};
  
@@ -79,7 +79,7 @@ router.put('/user/:id', function(req, res, next) {
 });
  
 /* DELETE a Todo */
-router.delete('/user/:id', function(req, res) {
+router.delete('/User/:id', function(req, res) {
     db.todos.remove({
         _id: mongojs.ObjectId(req.params.id)
     }, '', function(err, result) {
@@ -92,7 +92,7 @@ router.delete('/user/:id', function(req, res) {
  
 });
 
-router.get('/game', function(req, res, next) {
+router.get('/Game', function(req, res, next) {
     db.todos.find(function(err, todos) {
         if (err) {
             res.send(err);
@@ -103,7 +103,7 @@ router.get('/game', function(req, res, next) {
 });
  
 /* GET One Todo with the provided ID */
-router.get('/game/:id', function(req, res, next) {
+router.get('/Game/:id', function(req, res, next) {
     db.todos.findOne({
         _id: mongojs.ObjectId(req.params.id)
     }, function(err, todos) {
@@ -116,7 +116,7 @@ router.get('/game/:id', function(req, res, next) {
 });
  
 /* POST/SAVE a Todo */
-router.post('/game', function(req, res, next) {
+router.post('/Game', function(req, res, next) {
     var todo = req.body;
     if (!todo.text || !(todo.isCompleted + '')) {
         res.status(400);
@@ -135,7 +135,7 @@ router.post('/game', function(req, res, next) {
 });
  
 /* PUT/UPDATE a Todo */
-router.put('/game/:id', function(req, res, next) {
+router.put('/Game/:id', function(req, res, next) {
     var todo = req.body;
     var updObj = {};
  
@@ -167,7 +167,7 @@ router.put('/game/:id', function(req, res, next) {
 });
  
 /* DELETE a Todo */
-router.delete('/game/:id', function(req, res) {
+router.delete('/Game/:id', function(req, res) {
     db.todos.remove({
         _id: mongojs.ObjectId(req.params.id)
     }, '', function(err, result) {

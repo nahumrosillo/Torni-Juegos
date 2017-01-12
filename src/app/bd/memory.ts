@@ -12,7 +12,7 @@ import { Iterator } from '../util/iterator/iterator';
 export class Memory implements BD
 {
 	private static instance: Memory;
-
+	API = 'http://localhost:4200';
 	private mapUser: Map<string, User>;
 	private mapGame: Map<string, Game>;
 
@@ -105,33 +105,41 @@ export class Memory implements BD
 	add(item: User | Game) {
 
 		if (item instanceof User) {
-			this.http.post(/api/User+item);
+			this.http.post('${this.API}/api/User',{item});
 		}
 
 		if (item instanceof Game) {
-			this.http.post(/api/Game+item);
+			this.http.post('${this.API}/api/Game',{item});
 		}
 	}
 	
 	remove(item: User | Game) {
 
 		if (item instanceof User) {
-			this.http.delete(/api/User+item);
+			this.http.delete('${this.API}/api/User',{item});
 		}
 
 		if (item instanceof Game) {
-			this.http.delete(/api/Game+item);
+			this.http.delete('${this.API}/api/Game',{item});
 		}
 	}
 
 	getUser(item: User): User {
 
-		return this.mapUser.get(item.getNick);
+		return this.http.get('${this.API}/api/User',{item});
 	}
 
 	getGame(item: Game): Game {
 
-		return this.mapGame.get(item.getName);
+		return this.http.get('${this.API}/api/Game',{item});
+	}
+
+	updateUser(item: User){
+		return this.http.put('${this.API}/api/User',{item});
+	}
+
+	updateGame(item: Game){
+		return this.http.put('${this.API}/api/Game',{item});
 	}
 
 	sizeUser(): number {
