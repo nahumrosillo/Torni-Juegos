@@ -105,22 +105,22 @@ export class Memory implements BD
 	add(item: User | Game) {
 
 		if (item instanceof User) {
-			this.mapUser.set(item.getNick, item);
+			this.http.post(/api/User+item);
 		}
 
 		if (item instanceof Game) {
-			this.mapGame.set(item.getName, item);
+			this.http.post(/api/Game+item);
 		}
 	}
-
+	
 	remove(item: User | Game) {
 
 		if (item instanceof User) {
-			this.mapUser.delete(item.getNick);
+			this.http.delete(/api/User+item);
 		}
 
 		if (item instanceof Game) {
-			this.mapGame.delete(item.getName);
+			this.http.delete(/api/Game+item);
 		}
 	}
 
