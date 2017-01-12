@@ -17,13 +17,14 @@ import { Match } from '../../shared/match/match';
 
 export class MatchPanelComponent
 {
+
   @Output() eventDelete = new EventEmitter();
   @Output() eventMatch = new EventEmitter();
 
   @Input() match: Match;
   @Input() userLogged: User;
 
-  deleteTournament() {
+  deleteMatch() {
     this.eventDelete.emit();
   }
 
