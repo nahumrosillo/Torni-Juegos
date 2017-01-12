@@ -40,6 +40,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
+app.use('/',index);
 app.use('/routes', api);
 
 // Catch all other routes and return the index file
