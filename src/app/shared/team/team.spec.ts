@@ -36,7 +36,7 @@ describe('Team', () => {
         expect(team.getMaxPlayers).toEqual(maxPlayers);
     }));
 
-    it('equipo está o no lleno', async(() => {
+    it('equipo está o no lleno y se encuentra el usuario dentro del equipo', async(() => {
         
         let maxPlayers = 3;
         let team = new Team(0, maxPlayers);
@@ -46,12 +46,16 @@ describe('Team', () => {
         let user1: User = new User();
         let user2: User = new User();
         let user3: User = new User();
+        let user4: User = new User();
 
-        team.setPlayerIntoTeam = user1;
-        team.setPlayerIntoTeam = user2;
-        team.setPlayerIntoTeam = user3;
+        expect(team.searchPlayerIntoTeam(user1)).toEqual(false);
+
+        team.addPlayerIntoTeam(user1);
+        team.addPlayerIntoTeam(user2);
+        team.addPlayerIntoTeam(user3);
 
         //Testing isFull when true
+        expect(team.searchPlayerIntoTeam(user1)).toEqual(true);
         expect(team.isFull).toEqual(true);
     }));
 
@@ -64,13 +68,13 @@ describe('Team', () => {
         expect(team.isFull).toEqual(false);
         let user1: User = new User();
         let user2: User = new User();
-        team.setPlayerIntoTeam = user1;
-        team.setPlayerIntoTeam = user2;
+        team.addPlayerIntoTeam(user1);
+        team.addPlayerIntoTeam(user2);
         
         expect(team.getNumPlayers).toEqual(2);
 
         let user3: User = new User();
-        team.setPlayerIntoTeam = user3;
+        team.addPlayerIntoTeam(user3);
 
         expect(team.getNumPlayers).toEqual(2);
     }));
@@ -85,10 +89,10 @@ describe('Team', () => {
         let user3: User = new User('usuario3');
         let user4: User = new User('usuario4');
 
-        teamFour.setPlayerIntoTeam = user1;
-        teamFour.setPlayerIntoTeam = user2;
-        teamFour.setPlayerIntoTeam = user3;
-        teamFour.setPlayerIntoTeam = user4;
+        teamFour.addPlayerIntoTeam(user1);
+        teamFour.addPlayerIntoTeam(user2);
+        teamFour.addPlayerIntoTeam(user3);
+        teamFour.addPlayerIntoTeam(user4);
 
 
         let iterador = teamFour.iterator();
@@ -110,7 +114,12 @@ describe('Team', () => {
         expect(iterador.current().getNick).toEqual('usuario4');
 
         //Testing hasNext when false 
-        expect(iterador.hasNext()).toEqual(false); 
+        expect(iterador.hasNext()).toEqual(true); 
+        
+        iterador.next();
+
+        expect(iterador.hasNext()).toEqual(false);         
+
         
 
         let iterador2 = teamFour.iterator();

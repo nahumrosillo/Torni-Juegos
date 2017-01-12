@@ -36,16 +36,26 @@ export class Team implements Aggregator
     }
     
     //sets
-    set setPlayerIntoTeam(user: User) { //UT
+    addPlayerIntoTeam(user: User) { //UT
         if(this.Users.length != this.maxPlayers)
             this.Users.push(user);
     }
 
-    set removePlayerIntoTeam(user: User) 
-    {
+    removePlayerIntoTeam(user: User) {
         let userToRemove = this.Users.indexOf(user);
 
         this.Users.splice(userToRemove);
+    }
+
+    searchPlayerIntoTeam(user: User): boolean {
+
+        let exist: boolean = false;
+        let userToSearch = this.Users.indexOf(user);
+
+        if(userToSearch !== -1)
+            exist = true;
+
+        return exist;
     }
 
     //iterator
