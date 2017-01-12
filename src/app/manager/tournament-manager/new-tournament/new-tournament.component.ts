@@ -20,11 +20,15 @@ export class NewTournamentComponent implements OnInit {
   private startIns: Date;
   private endIns: Date;
   private startTour: Date;
-  private endTour: Date;
-  private teams: Team[];
+  private endTour2: Date;
+
+  private teams: Array<Team>;
+  private maxPlayer: number;
 
   constructor(private userLoggedServ: UserLoggedService) {
     this.gameSelected = userLoggedServ.getUserLogged().getGame;
+
+    
   }
 
   ngOnInit() {
@@ -32,6 +36,23 @@ export class NewTournamentComponent implements OnInit {
   }
 
   onSubmit() {
+
+
+    this.teams = new Array<Team>();
+    for (let i = 0; i < this.maxPlayer; i++) 
+      this.teams.push(new Team(i, this.maxPlayer));
+   
+   //  Hacer las comprobaciones de las fechas aqui
+   this.startIns = new Date(2016, 8, 5, 0, 0, 0, 0)
+   this.endIns = new Date(2016, 8, 5, 0, 0, 0, 0)
+   console.log(this.startIns);
+   console.log(this.endIns);
+
+/*
+   this.newTournament = new Tournament(this.startIns, this.endIns,
+     this.startTour, this.endTour2, this.teams);
+
+    */
 
     
     //to do

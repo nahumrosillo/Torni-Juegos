@@ -43,6 +43,7 @@ export class Tournament implements Aggregator, Observer {
 		this.currentMatchs = 0;
 		this.noEndMatchs = 0;
 
+
 		this.difDateMatchs = (endTour.getTime() - startTour.getTime()) / teams.length-1;
 
 		this.createMatchs(teams);
