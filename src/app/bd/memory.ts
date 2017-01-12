@@ -77,5 +77,100 @@ export class Memory implements BD
 		return this.mapGame;
 	}
 
+	getArrayUsers(): Array<User> {
+		let array: Array<User>;
+		array = new Array<User>();
 
+		this.mapUser.forEach( (value: User, key: string) => {
+			array.push(value);
+		});
+
+		return array;
+	}
+
+	getArrayGames(): Array<Game> {
+
+		let array: Array<Game>;
+		array = new Array<Game>();
+
+		this.mapGame.forEach( (value: Game, key: string) => {
+			array.push(value);
+		});
+
+		return array;
+	}
+	/*
+	private constructor(http:Http) {}
+
+	add(item: User | Game) {
+
+		if (item instanceof User) {
+			this.mapUser.set(item.getNick, item);
+		}
+
+		if (item instanceof Game) {
+			this.mapGame.set(item.getName, item);
+		}
+	}
+
+	remove(item: User | Game) {
+
+		if (item instanceof User) {
+			this.mapUser.delete(item.getNick);
+		}
+
+		if (item instanceof Game) {
+			this.mapGame.delete(item.getName);
+		}
+	}
+
+	getUser(item: User): User {
+
+		return this.mapUser.get(item.getNick);
+	}
+
+	getGame(item: Game): Game {
+
+		return this.mapGame.get(item.getName);
+	}
+
+	sizeUser(): number {
+		return this.mapUser.size;
+	}
+
+	sizeGame(): number {
+		return this.mapGame.size;
+	}
+
+	getMapUser(): Map<string, User> {
+		return this.mapUser;
+	}
+
+	getMapGame(): Map<string, Game> {
+		return this.mapGame;
+	}
+
+	getArrayUsers(): Array<User> {
+		let array: Array<User>;
+		array = new Array<User>();
+
+		this.mapUser.forEach( (value: User, key: string) => {
+			array.push(value);
+		});
+
+		return array;
+	}
+
+	getArrayGames(): Array<Game> {
+
+		let array: Array<Game>;
+		array = new Array<Game>();
+
+		this.mapGame.forEach( (value: Game, key: string) => {
+			array.push(value);
+		});
+
+		return array;
+	}
+	*/
 }

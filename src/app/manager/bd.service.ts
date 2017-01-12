@@ -6,7 +6,6 @@ import { User, Rol, Genre } from '../shared/user/user';
 @Injectable()
 export class BDService {
 
-
   constructor() {
 
     let date = new Date();

@@ -1,10 +1,16 @@
 <div class="col-sm-4">
-<ul class="list-group users-list">
-        	<li class="list-group-item"
-              *ngFor="let game of games"
-                    (click)="selectGame(game)"  [class.active]="game===activeGame">>
-              {{ game.getName }}
-        	</li>
-        </ul>
+	<ul class="list-group users-list">
+        <li class="list-group-item" *ngFor="let game of games"
+            (click)="selectGame(game)"  [class.active]="game === activeGame">>
+            {{ game.getName }}
+        </li>
+	</ul>
+</div>
 
-</div> 
+<div class="col-sm-2">
+</div>
+
+<div class="col-sm-4">
+		<app-game-panel (eventDelete)="deleteGame()" (eventTournament)="viewTournaments()" [game]="activeGame" [userLogged]="userLogged"></app-game-panel>
+
+</div>

@@ -55,6 +55,11 @@ export class Game implements Aggregator {
 			this.tournaments.push(tournament);
 		}
 	}
+
+	getTournaments(): Array<Tournament> {
+		return this.tournament;
+	}
+
 	// iterator
     iterator(): Iterator {
         return new IndexIterator(this.tournaments);

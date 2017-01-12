@@ -35,6 +35,8 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
+        inidate.getTime();
+
         tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
 
         expect(tournament).toBeDefined();

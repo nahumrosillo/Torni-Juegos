@@ -1,0 +1,24 @@
+<div class="col-sm-4">
+<form #f="ngForm" validate>
+<div class="form-group">
+
+	<label >Start Inscription:</label>
+  	<input type="date" class="form-control" placeholder="Start Ins" 
+  			[(ngModel)]="startIns" [ngModelOptions]="{standalone: true}">
+
+	<label >End Inscription:</label>
+  	<input type="date" class="form-control" placeholder="End Ins" 
+  			[(ngModel)]="endIns" [ngModelOptions]="{standalone: true}">
+
+  <label> Max Players:</label>
+  <input type="number" name="Max teams" required min="2" max="12"
+  [(ngModel)]="maxPlayer" [ngModelOptions]="{standalone: true}">
+</div>
+	
+
+
+	<button type="submit" class="btn btn-lg btn-block btn-primary" 
+  (click)="onSubmit()"> Create Tournament
+	</button>
+</form>
+</div>
