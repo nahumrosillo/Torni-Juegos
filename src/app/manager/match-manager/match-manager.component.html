@@ -4,12 +4,15 @@
 </div>
 
 <div class="col-sm-4">
+	<div class="panel panel-primary">
+    <div class="panel-heading">List of Matchs:</div>
 	<ul class="list-group users-list">
         <li class="list-group-item" *ngFor="let match of matchs let i = index;"
             (click)="selectMatch(match)"  
-            [class.active]="match === activeMatch"> > Partida {{i}}
+            [class.active]="match === activeMatch"> > Round {{i}}
         </li>
 	</ul>
+	</div>
 </div>
 
 <div class="col-sm-5">

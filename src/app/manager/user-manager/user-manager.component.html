@@ -1,5 +1,5 @@
 
-<div class="col-sm-4" *ngIf="userLogged.getRol === 1">
+<div class="col-sm-4" *ngIf="userLogged.getRol === 1" >
 	<p align="center"> SuperAdmin </p>
 	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/newadmin">
 		New Admin
@@ -12,14 +12,6 @@
 
 <div class="col-sm-4" *ngIf="userLogged.getRol === 1 || userLogged.getRol === 2 ">
 	<p align="center"> SuperAdmin | Admin</p>
-	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/newgame">
-		New Game
-	</button>
-
-	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/deletegame">
-		Delete Game
-	</button>
-
 	<button class="btn btn-lg btn-block btn-primary" routerLink="/usermanager/newsponsor">
 		New Sponsor
 	</button>
