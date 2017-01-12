@@ -5,9 +5,9 @@
 
 <div class="col-sm-4">
 	<ul class="list-group users-list">
-        <li class="list-group-item" *ngFor="let match of matchs"
+        <li class="list-group-item" *ngFor="let match of matchs let i = index;"
             (click)="selectMatch(match)"  
-            [class.active]="match === activeMatch"> >{{ match.getStartDate }}
+            [class.active]="match === activeMatch"> > Partida {{i}}
         </li>
 	</ul>
 </div>

@@ -21,6 +21,11 @@ export class BDService implements OnInit {
     {
         BDService.isCreate = true;
 
+        /*
+            Hard-Code
+            Inicializa la BD con datos por defectos
+        */
+
         console.log("Memory: Constructor");
 
         let date = new Date();
@@ -28,7 +33,7 @@ export class BDService implements OnInit {
 
         let userSuperAdmin = new User();
         userSuperAdmin.setBirthDate = date;
-        userSuperAdmin.setDni = '32079329H';
+        userSuperAdmin.setDni = '3207070707H';
         userSuperAdmin.setName = 'Nahum';
         userSuperAdmin.setPassword = 'root';
         userSuperAdmin.setRol = Rol.SUPERADMIN;
@@ -37,7 +42,7 @@ export class BDService implements OnInit {
 
         let admin = new User();
         admin.setBirthDate = date;
-        admin.setDni = '32079426H';
+        admin.setDni = '32070707H';
         admin.setName = 'Nahum';
         admin.setPassword = 'admin';
         admin.setRol = Rol.ADMINISTRATOR;
@@ -46,7 +51,7 @@ export class BDService implements OnInit {
 
         let sponsor = new User();
         sponsor.setBirthDate = date;
-        sponsor.setDni = '32079323H';
+        sponsor.setDni = '32070707H';
         sponsor.setName = 'Nahum';
         sponsor.setPassword = 'sponsor';
         sponsor.setRol = Rol.SPONSOR;
@@ -55,7 +60,7 @@ export class BDService implements OnInit {
 
         let player = new User();
         player.setBirthDate = date;
-        player.setDni = '32070000H';
+        player.setDni = '32070707H';
         player.setName = 'Nahum';
         player.setPassword = 'player';
         player.setRol = Rol.PLAYER;
@@ -63,7 +68,7 @@ export class BDService implements OnInit {
         player.setNick = 'player';
 
         let g: Game;
-        g = new Game("Super Mario Bros", "El Juegazo de Nintendo", Category.ACTION);
+        g = new Game("Super Mario Bros", "Version Multiplayer", Category.ACTION);
 
         let teams = new Array<Team>();
         for (let i = 0; i < 12; i++) 
@@ -81,7 +86,7 @@ export class BDService implements OnInit {
 
         
         let g2: Game;
-        g2 = new Game("Ajedrez", "Un juego de Mesa", Category.BOARD_GAME);
+        g2 = new Game("Ajedrez", "Ajedrez Online", Category.BOARD_GAME);
         Memory.getInstance.add(g2);
 
         Memory.getInstance.add(userSuperAdmin);
