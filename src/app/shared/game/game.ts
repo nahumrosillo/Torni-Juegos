@@ -57,7 +57,7 @@ export class Game implements Aggregator {
 	}
 
 	getTournaments(): Array<Tournament> {
-		return this.tournament;
+		return this.tournaments;
 	}
 
 	// iterator
