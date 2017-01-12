@@ -37,11 +37,11 @@ export class UserLogged
 		this.user = undefined;
 	}
 
-	set setGame(game: Game) {
+	setGame(game: Game) {
        this.gameSelected = game;
     }
 
-   get getGame(): Game {
+   getGame(): Game {
        return this.gameSelected;
    }
 

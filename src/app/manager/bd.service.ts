@@ -1,12 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Memory } from '../bd/memory';
 import { BD } from '../bd/bd';
 import { User, Rol, Genre } from '../shared/user/user';
+import { Game, Category } from '../shared/game/game';
 
 @Injectable()
-export class BDService {
+export class BDService implements OnInit {
+
+    static isCreate: boolean = false;
+
+    ngOnInit() {
+        console.log("Memory: OnInit");
+    }
 
   constructor() {
+
+      if (!BDService.isCreate) 
+      {
+          BDService.isCreate = true;
+
+
+
+     console.log("Memory: Constructor");
 
     let date = new Date();
     date.setFullYear(1992, 6, 2);
@@ -47,10 +62,19 @@ export class BDService {
     player.setGenre = Genre.FEMALE;
     player.setNick = 'player';
 
+    let g: Game;
+    g = new Game("Super Mario Bros", "El Juegazo de Nintendo", Category.ACTION);
+    Memory.getInstance.add(g);
+    
+    let g2: Game;
+    g2 = new Game("Ajedrez", "Un juego de Mesa", Category.BOARD_GAME);
+    Memory.getInstance.add(g2);
+
     Memory.getInstance.add(userSuperAdmin);
     Memory.getInstance.add(admin);
     Memory.getInstance.add(sponsor);
     Memory.getInstance.add(player);
+}
 
   }
 

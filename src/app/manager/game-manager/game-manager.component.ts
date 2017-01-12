@@ -30,16 +30,6 @@ export class GameManagerComponent extends SystemManager implements OnInit
 
     this.userLogged = userLoggedServ.getUserLogged().getUser();
     SystemManager.dataBase = dataBaseService.connect;
-    
-    //  Anadimos un par de juegos de prueba
-    let g: Game;
-    g = new Game("Super Mario Bros", "El Juegazo de Nintendo", Category.ACTION);
-    SystemManager.dataBase.add(g);
-    
-    let g2: Game;
-    g2 = new Game("Ajedrez", "Un juego de Mesa", Category.BOARD_GAME);
-    SystemManager.dataBase.add(g2);
-    // -------
 
     this.mapGame = SystemManager.dataBase.getMapGame();    
     this.games = SystemManager.dataBase.getArrayGames();
@@ -58,7 +48,7 @@ export class GameManagerComponent extends SystemManager implements OnInit
 
   viewTournaments(event) {
     console.log("Viendo torneo.");
-    this.userLoggedServ.getUserLogged().setGame = this.activeGame;
+    this.userLoggedServ.getUserLogged().setGame( this.activeGame);
 
     this.router.navigate(['/tournamentmanager']);
   }

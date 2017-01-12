@@ -2,6 +2,10 @@
 <form #f="ngForm" validate>
 <div class="form-group">
 
+
+  <input type="text" class="form-control" placeholder="Name Tournament" required minlength="5" 
+        [(ngModel)]="nameTour" [ngModelOptions]="{standalone: true}">
+
 	<label >Start Inscription:</label>
   	<input type="date" class="form-control" placeholder="Start Ins" 
   			[(ngModel)]="startIns" [ngModelOptions]="{standalone: true}">
@@ -9,6 +13,14 @@
 	<label >End Inscription:</label>
   	<input type="date" class="form-control" placeholder="End Ins" 
   			[(ngModel)]="endIns" [ngModelOptions]="{standalone: true}">
+
+  <label >Start Tournament:</label>
+    <input type="date" class="form-control" placeholder="End Ins" 
+        [(ngModel)]="startTour" [ngModelOptions]="{standalone: true}">
+
+  <label >End Tournament:</label>
+    <input type="date" class="form-control" placeholder="End Ins" 
+        [(ngModel)]="endTour" [ngModelOptions]="{standalone: true}">
 
   <label> Max Players:</label>
   <input type="number" name="Max teams" required min="2" max="12"

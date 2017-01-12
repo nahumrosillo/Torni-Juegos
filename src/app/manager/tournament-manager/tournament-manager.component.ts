@@ -34,7 +34,7 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
     this.userLogged = userLoggedServ.getUserLogged().getUser();
     SystemManager.dataBase = dataBaseService.connect;
 
-    this.gameSelected = userLoggedServ.getUserLogged().getGame;
+    this.gameSelected = userLoggedServ.getUserLogged().getGame();
     this.tournaments = this.gameSelected.getTournaments();
   }
 
@@ -44,7 +44,7 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
     this.activeTournament = tour;
   }
 
-  deleteGame(event) {
+  deleteTournament(event) {
     console.log("Torneo borrado.");
     //SystemManager.dataBase.remove(this.activeGame);
   }

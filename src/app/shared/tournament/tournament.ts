@@ -8,6 +8,8 @@ import { Team } from './../team/team';
 import { Ranking } from './../ranking/ranking';
 
 export class Tournament implements Aggregator, Observer {
+
+	private name: string;
 	
 	private finishedTournament: boolean = false;
 
@@ -30,8 +32,9 @@ export class Tournament implements Aggregator, Observer {
 
 	private MatchIterator;
 
-	constructor(startIns: Date, endIns: Date, startTour: Date,  endTour: Date, teams: Array<Team>) {
+	constructor(name: string, startIns: Date, endIns: Date, startTour: Date,  endTour: Date, teams: Array<Team>) {
 
+		this.name = name;
 		this.startIns = startIns;
 		this.endIns = endIns;
 		this.startTour = startTour;
@@ -71,6 +74,10 @@ export class Tournament implements Aggregator, Observer {
 
 	get getFinishedTournament(): boolean {
 		return this.finishedTournament;
+	}
+
+	get getName(): string {
+		return this.name;
 	}
 
 	get getWinnerTournament(): Team  {

@@ -17,16 +17,18 @@ export class NewTournamentComponent implements OnInit {
   private newTournament: Tournament;
   private gameSelected: Game;
 
-  private startIns: Date;
-  private endIns: Date;
-  private startTour: Date;
-  private endTour2: Date;
+
+  private nameTour: string;
+  private startIns: string;
+  private endIns: string;
+  private startTour: string;
+  private endTour: string;
 
   private teams: Array<Team>;
   private maxPlayer: number;
 
   constructor(private userLoggedServ: UserLoggedService) {
-    this.gameSelected = userLoggedServ.getUserLogged().getGame;
+    this.gameSelected = userLoggedServ.getUserLogged().getGame();
 
     
   }
@@ -35,18 +37,50 @@ export class NewTournamentComponent implements OnInit {
 
   }
 
-  onSubmit() {
+  private getDateHTML(cad: string): Date {
 
+      let date: Date;
+
+      let anno: number;
+      anno = parseInt(cad[0]+cad[1]+cad[2]+cad[3]+cad[4]);
+
+      let month: number;
+      month = parseInt(cad[6]+cad[7]);
+
+      let day: number;
+      day = parseInt(cad[9]+cad[10]);
+
+      return new Date(anno, month, day, 0, 0, 0, 0);
+
+  }
+
+  onSubmit() {
 
     this.teams = new Array<Team>();
     for (let i = 0; i < this.maxPlayer; i++) 
       this.teams.push(new Team(i, this.maxPlayer));
+
    
    //  Hacer las comprobaciones de las fechas aqui
-   this.startIns = new Date(2016, 8, 5, 0, 0, 0, 0)
-   this.endIns = new Date(2016, 8, 5, 0, 0, 0, 0)
-   console.log(this.startIns);
-   console.log(this.endIns);
+   let sIns: Date  = this.getDateHTML(this.startIns);
+   let eIns: Date  = this.getDateHTML(this.endIns);
+   let sTour: Date = this.getDateHTML(this.startTour);
+   let eTour: Date = this.getDateHTML(this.endTour);
+
+   if (((sIns < eIns) && ( eIns < sTour) && (sTour < eTour))) {
+
+     console.log("Torneo agregado.");
+     this.newTournament = new Tournament(this.nameTour, sIns, eIns, sTour, eTour, this.teams);
+     this.userLoggedServ.getUserLogged().getGame().addTournament(this.newTournament);
+
+     console.log(this.userLoggedServ.getUserLogged().getGame().lengthTournament);
+   }
+   else {
+     console.log("Fechas incorrectas");
+   }
+
+
+   console.log(this.newTournament);
 
 /*
    this.newTournament = new Tournament(this.startIns, this.endIns,

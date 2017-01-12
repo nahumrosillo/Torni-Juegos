@@ -4,6 +4,7 @@ import { BDService } from '../bd.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Game, Category } from '../../shared/game/game';
+import { Tournament } from '../../shared/tournament/tournament';
 
 @Component({
   selector: 'app-tournament-panel',
@@ -18,14 +19,14 @@ export class TournamentPanelComponent
   @Output() eventDelete = new EventEmitter();
   @Output() eventTournament = new EventEmitter();
 
-  @Input() game: Game;
+  @Input() tournament: Tournament;
   @Input() userLogged: User;
 
-  deleteGame() {
+  deleteTournament() {
     this.eventDelete.emit();
   }
 
-  viewTournaments() {
+  viewMatchs() {
     this.eventTournament.emit();
   }
 }

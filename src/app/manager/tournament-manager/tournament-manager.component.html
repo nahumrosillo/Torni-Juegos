@@ -17,6 +17,7 @@
 
 <div class="col-sm-5">
 
-		<app-game-panel (eventDelete)="deleteGame()" (eventTournament)="viewTournament()" [game]="activeGame" [userLogged]="userLogged"></app-game-panel>
+		<app-tournament-panel (eventDelete)="deleteTournament()" 
+		(eventTournament)="viewMatchs()" [tournament]="activeTournament" [userLogged]="userLogged"></app-tournament-panel>
 
 </div>

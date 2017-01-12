@@ -1,16 +1,14 @@
 
-<div class="jumbotron" *ngIf="game">
+<div class="jumbotron" *ngIf="tournament">
 	<h2>{{ tournament.getName }} <small></small></h2>
-	<div class="col-sm-4">
 
 		<button class="btn btn-lg btn-block btn-primary" *ngIf="userLogged.getRol === 1"
-		(click)="deleteGame()">
+		(click)="deleteTournament()">
 			Delete Tournament
 		</button>
 
-		<button class="btn btn-lg btn-block btn-primary" (click)="viewTournaments()">
+		<button class="btn btn-lg btn-block btn-primary" (click)="viewMatchs()">
 			View Matchs
 		</button>
-	</div>
 </div>
 
