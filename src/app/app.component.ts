@@ -15,17 +15,20 @@ export class AppComponent
   title = 'Torni-Juegos';
   private userLogged: User;
   private loginTerminated: boolean;
+  name: string;
 
 
   constructor(private router: Router, private userLog: UserLoggedService) {
     this.loginTerminated = false;
+
   }
 
   onUserLogged(user) {
     this.loginTerminated = true;
     this.userLogged = user;
     this.userLog.getUserLogged().setUser = user;
-    this.router.navigate(['/usermanager']);
+    this.name = this.userLog.getUserLogged().getUser().getName;
+    this.router.navigate(['/gamemanager']);
   }
 
   onLogout() {

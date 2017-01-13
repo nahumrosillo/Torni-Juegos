@@ -8,26 +8,37 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" *ngIf="loginTerminated">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" *ngIf="loginTerminated">
         <li><a routerLink="/usermanager"> User Control </a></li>
         <li><a routerLink="/gamemanager"> Game Control </a></li>
       </ul>
 
-    <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" *ngIf="loginTerminated">
+        <li><a> Hello {{name}}!</a></li>
     </ul>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="col-sm-4" *ngIf="!loginTerminated">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Welcome to Torni-Juegos</div>
+    <div class="panel-body"> Hola a Todo el mundo </div>
+  </div>
+</div>
 
-<app-login-manager (userLogged)="onUserLogged($event)"  *ngIf="!loginTerminated">
-</app-login-manager>
+<div class="col-sm-8" *ngIf="!loginTerminated">
+  <app-login-manager (userLogged)="onUserLogged($event)"  *ngIf="!loginTerminated">
+  </app-login-manager>
+
 
 <app-register-user-manager *ngIf="!loginTerminated">
 </app-register-user-manager>
+</div>
+
 
 
 <router-outlet></router-outlet>

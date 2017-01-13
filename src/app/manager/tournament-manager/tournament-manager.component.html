@@ -1,3 +1,12 @@
+
+<div class="panel panel-primary" 
+	style="margin-top: 50px;
+	margin-right: 200px;
+	margin-left: 200px;">
+    <div class="panel-heading">Welcome to Torni-Juegos</div>
+    <div class="panel-body"> Hola a Todo el mundo </div>
+  </div>
+
 <div class="col-sm-3" >
 	<button class="btn btn-lg btn-block btn-primary" *ngIf="userLogged.getRol === 1"
 	routerLink="/tournamentmanager/newtournament">
@@ -6,7 +15,7 @@
 
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-3">
 	<div class="panel panel-primary">
     <div class="panel-heading">List of Tournaments:</div>
 	<ul class="list-group users-list">
@@ -18,7 +27,7 @@
 	</div>
 </div>
 
-<div class="col-sm-5">
+<div class="col-sm-3">
 
 		<app-tournament-panel (eventDelete)="deleteTournament()" 
 		(eventTournament)="viewMatchs()" [tournament]="activeTournament" [userLogged]="userLogged"></app-tournament-panel>
