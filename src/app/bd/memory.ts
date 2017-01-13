@@ -5,6 +5,7 @@ import { Game } from '../shared/game/game';
 import { Match } from '../shared/match/match';
 import { Tournament } from '../shared/tournament/tournament';
 
+import { Observable } from 'rxjs';
 import { Aggregator } from '../util/iterator/aggregator';
 import { IndexIterator } from '../util/iterator/indexIterator';
 import { Iterator } from '../util/iterator/iterator';
@@ -116,30 +117,42 @@ export class Memory implements BD
 	remove(item: User | Game) {
 
 		if (item instanceof User) {
-			this.http.delete('${this.API}/api/User',{item});
+			return this.http.delete('/api/user/'+id)
+            .map(res => res.json());
 		}
 
 		if (item instanceof Game) {
-			this.http.delete('${this.API}/api/Game',{item});
+			return this.http.delete('/api/game/'+id)
+            .map(res => res.json());
 		}
 	}
 
 	getUser(item: User): User {
-
-		return this.http.get('${this.API}/api/User',{item});
+		return this.http.get('${this.API}/api/User',{item})
+				.map(res=>res.json());
 	}
 
 	getGame(item: Game): Game {
+		return this.http.get('${this.API}/api/Game',{item})
+				.map(res=>res.json());
+	}
 
-		return this.http.get('${this.API}/api/Game',{item});
+	getUsers(){
+		return this.http.get('${this.API}/api/User')
+				.map(res=>res.json());
+	}
+
+	getGames(){
+		return this.http.get('${this.API}/api/Game')
+				.map(res=>res.json());
 	}
 
 	updateUser(item: User){
-		return this.http.put('${this.API}/api/User',{item});
+		this.http.put('${this.API}/api/User',{item});
 	}
 
 	updateGame(item: Game){
-		return this.http.put('${this.API}/api/Game',{item});
+		this.http.put('${this.API}/api/Game',{item});
 	}
 
 	sizeUser(): number {

@@ -1,11 +1,15 @@
+
+import {Category} from '../app/shared/game/game';
+import {Rol, Genre} from '../app/shared/user/user';
+import {Tournament} from '../app/shared/tournament/tournament';
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongoose.connect('mongodb://localhost:27017/Mean'); 
- 
-/* GET All Todos */
+var db = mongoose.connect('mongodb://localhost:27017/Mean',['user','game']);
+
+/* GET All Users */
 router.get('/User', function(req, res, next) {
-    db.todos.find(function(err, todos) {
+    db.user.find(function(err, todos) {
         if (err) {
             res.send(err);
         } else {
@@ -14,29 +18,29 @@ router.get('/User', function(req, res, next) {
     });
 });
  
-/* GET One Todo with the provided ID */
+/* GET One User with the provided ID */
 router.get('/User/:id', function(req, res, next) {
-    db.todos.findOne({
+    db.user.findOne({
         _id: mongojs.ObjectId(req.params.id)
-    }, function(err, todos) {
+    }, function(err, result) {
         if (err) {
             res.send(err);
         } else {
-            res.json(todos);
+            res.json(result);
         }
     });
 });
  
-/* POST/SAVE a Todo */
+/* POST/SAVE a User */
 router.post('/User', function(req, res, next) {
-    var todo = req.body;
-    if (!todo.text || !(todo.isCompleted + '')) {
+    var PostUser = req.body;
+    if (!PostUser.nick || !PostUser.name || !PostUser.dni || !PostUser.birthdate || !PostUser.password || PostUser.rol===NULL) {
         res.status(400);
         res.json({
             "error": "Invalid Data"
         });
     } else {
-        db.todos.save(todo, function(err, result) {
+        db.user.save(todo, function(err, result) {
             if (err) {
                 res.send(err);
             } else {
@@ -48,23 +52,42 @@ router.post('/User', function(req, res, next) {
  
 /* PUT/UPDATE a Todo */
 router.put('/User/:id', function(req, res, next) {
-    var todo = req.body;
+    var UpdatedUser = req.body;
     var updObj = {};
  
-    if (todo.isCompleted) {
-        updObj.isCompleted = todo.isCompleted;
+    if (UpdatedUser.name) {
+        updObj.name = UpdatedUser.name;
     }
-    if (todo.text) {
-        updObj.text = todo.text;
+    if (UpdatedUser.nick) {
+        updObj.nick = UpdatedUser.nick;
     }
- 
+    if(UpdatedUser.dni){
+        updObj.dni = UpdatedUser.dni;
+    }
+    
+    if(UpdatedUser.birthdate){
+        updObj.birthdate = UpdatedUser.birthdate;
+    }
+
+    if(UpdatedUser.rol){
+        updObj.dni = UpdatedUser.dni;
+    }
+
+    if(UpdatedUser.genre){
+        updObj.dni = UpdatedUser.dni;
+    }
+
+    if(UpdatedUser.password){
+        updObj.password = UpdatedUser.password;
+    }
+
     if (!updObj) {
         res.status(400);
         res.json({
             "error": "Invalid Data"
         });
     } else {
-        db.todos.update({
+        db.user.update({
             _id: mongojs.ObjectId(req.params.id)
         }, updObj, {}, function(err, result) {
             if (err) {
@@ -80,7 +103,7 @@ router.put('/User/:id', function(req, res, next) {
  
 /* DELETE a Todo */
 router.delete('/User/:id', function(req, res) {
-    db.todos.remove({
+    db.user.remove({
         _id: mongojs.ObjectId(req.params.id)
     }, '', function(err, result) {
         if (err) {
@@ -92,8 +115,9 @@ router.delete('/User/:id', function(req, res) {
  
 });
 
+/* GET All Games */
 router.get('/Game', function(req, res, next) {
-    db.todos.find(function(err, todos) {
+    db.game.find(function(err, todos) {
         if (err) {
             res.send(err);
         } else {
@@ -102,29 +126,29 @@ router.get('/Game', function(req, res, next) {
     });
 });
  
-/* GET One Todo with the provided ID */
+/* GET One Game with the provided ID */
 router.get('/Game/:id', function(req, res, next) {
-    db.todos.findOne({
+    db.game.findOne({
         _id: mongojs.ObjectId(req.params.id)
-    }, function(err, todos) {
+    }, function(err, result) {
         if (err) {
             res.send(err);
         } else {
-            res.json(todos);
+            res.json(result);
         }
     });
 });
  
-/* POST/SAVE a Todo */
+/* POST/SAVE a Game */
 router.post('/Game', function(req, res, next) {
-    var todo = req.body;
-    if (!todo.text || !(todo.isCompleted + '')) {
+    var PostGame = req.body;
+    if (!PostGame.name || !PostGame.description || !PostGame.category || !PostGame.tournaments) {
         res.status(400);
         res.json({
             "error": "Invalid Data"
         });
     } else {
-        db.todos.save(todo, function(err, result) {
+        db.game.save(PostGame, function(err, result) {
             if (err) {
                 res.send(err);
             } else {
@@ -134,25 +158,34 @@ router.post('/Game', function(req, res, next) {
     }
 });
  
-/* PUT/UPDATE a Todo */
+/* PUT/UPDATE a Game */
 router.put('/Game/:id', function(req, res, next) {
-    var todo = req.body;
+    var UpdatedGame = req.body;
     var updObj = {};
  
-    if (todo.isCompleted) {
-        updObj.isCompleted = todo.isCompleted;
+    if (UpdatedGame.name) {
+        updObj.name = UpdatedGame.name;
     }
-    if (todo.text) {
-        updObj.text = todo.text;
+
+    if (UpdatedGame.description) {
+        updObj.description = UpdatedGame.description;
     }
- 
+
+    if (UpdatedGame.category) {
+        updObj.category = UpdatedGame.category;
+    }
+
+    if (UpdatedGame.description) {
+        updObj.tournaments = UpdatedGame.tournaments;
+    }
+
     if (!updObj) {
         res.status(400);
         res.json({
             "error": "Invalid Data"
         });
     } else {
-        db.todos.update({
+        db.game.update({
             _id: mongojs.ObjectId(req.params.id)
         }, updObj, {}, function(err, result) {
             if (err) {
@@ -166,9 +199,9 @@ router.put('/Game/:id', function(req, res, next) {
  
 });
  
-/* DELETE a Todo */
+/* DELETE a Game */
 router.delete('/Game/:id', function(req, res) {
-    db.todos.remove({
+    db.game.remove({
         _id: mongojs.ObjectId(req.params.id)
     }, '', function(err, result) {
         if (err) {
