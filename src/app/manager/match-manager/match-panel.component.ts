@@ -28,7 +28,17 @@ export class MatchPanelComponent
     this.eventDelete.emit();
   }
 
-  viewMatchs() {
-    this.eventMatch.emit();
+  increaseLocalScore() {
+    this.match.setScoreLocal(1 + this.match.getScoreLocal);
+  }  
+
+  increaseVisitorScore() {
+    this.match.setScoreVisitor(1 + this.match.getScoreVisitor);
+  }
+
+
+
+  finishMatch() {
+    this.match.endMatch();
   }
 }

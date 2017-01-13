@@ -71,7 +71,7 @@ export class Match implements Subject {
 
 
 	// Setters
-	set setScoreLocal(score: number) {  //OK
+	setScoreLocal(score: number) {  //OK
 
 		if(!this.finishedMatch)
 		{
@@ -80,7 +80,7 @@ export class Match implements Subject {
 		}
 	}
 
-	set setScoreVisitor(score: number) { //OK
+	setScoreVisitor(score: number) { //OK
 		
 		if(!this.finishedMatch)
 			this.scoreV = score;
@@ -110,8 +110,8 @@ export class Match implements Subject {
 		
 		if(this.observer !== null)
 			this.observer.update(this.LocalTeam, this.VisitorTeam, this.scoreL, this.scoreV);
-
-		if(this.endMatch)
+		
+		if(this.isFinished)
 			this.tournament.update(this.LocalTeam);
 	}
 }

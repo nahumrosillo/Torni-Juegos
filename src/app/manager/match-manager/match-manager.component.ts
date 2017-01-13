@@ -37,8 +37,6 @@ export class MatchManagerComponent extends SystemManager implements OnInit
 
     this.tournamentSelected = userLoggedServ.getUserLogged().getTournament();
     this.matchs = this.tournamentSelected.getMatchs();
-
-    console.log(this.matchs);
   }
 
 	ngOnInit() { }
@@ -46,11 +44,4 @@ export class MatchManagerComponent extends SystemManager implements OnInit
   selectMatch(match: Match) {
     this.activeMatch = match;
   }
-
-  viewMatchs(event) {
-    console.log("Viendo partidas...");
-    //this.dataBaseService.gameSelected = this.activeGame;
-  }
-
-
 }

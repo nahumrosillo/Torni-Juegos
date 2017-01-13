@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Game, Category } from '../../shared/game/game';
 import { Tournament } from '../../shared/tournament/tournament';
+import { Ranking } from '../../shared/ranking/ranking';
 
 @Component({
   selector: 'app-tournament-panel',
@@ -28,5 +29,10 @@ export class TournamentPanelComponent
 
   viewMatchs() {
     this.eventTournament.emit();
+  }
+
+  viewRanking() {
+    console.log("Ranking");
+    console.log(this.tournament.getRanking);
   }
 }

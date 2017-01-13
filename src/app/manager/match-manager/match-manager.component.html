@@ -1,11 +1,11 @@
-<div class="col-sm-3" >
+<div class="col-sm-3" style="margin-left: 200px;">
 
 
 </div>
 
 <div class="col-sm-3">
 	<div class="panel panel-primary">
-    <div class="panel-heading">List of Matchs:</div>
+    <div class="panel-heading">Matchs List of {{tournamentSelected.getName}}:</div>
 	<ul class="list-group users-list">
         <li class="list-group-item" *ngFor="let match of matchs let i = index;"
             (click)="selectMatch(match)"  
@@ -16,8 +16,7 @@
 </div>
 
 <div class="col-sm-3">
-
-		<app-match-panel (eventDelete)="deleteMatch()" 
-		(eventMatch)="viewMatchs()" [match]="activeMatch" [userLogged]="userLogged"></app-match-panel>
-
+	<app-match-panel (eventDelete)="deleteMatch()" 
+		(eventMatch)="viewMatchs()" [match]="activeMatch" [userLogged]="userLogged">
+	</app-match-panel>
 </div>
