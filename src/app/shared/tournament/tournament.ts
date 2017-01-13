@@ -44,6 +44,10 @@ export class Tournament implements Aggregator, Observer {
 		return this.numCurrentUsers;
 	}
 
+	get getRanking(): Ranking {
+		return this.ranking;
+	}
+
 
 	constructor(name: string, startIns: Date, endIns: Date, startTour: Date,  endTour: Date, teams: Array<Team>) 
 	{

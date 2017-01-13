@@ -46,7 +46,7 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
 
   deleteTournament(event) {
     console.log("Torneo borrado.");
-    //SystemManager.dataBase.remove(this.activeGame);
+
   }
 
   viewMatchs(event) {

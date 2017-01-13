@@ -1,16 +1,20 @@
 
 
-<div class="col-sm-2" >
-	<button class="btn btn-lg btn-block btn-primary" *ngIf="userLogged.getRol === 1"
+<div class="col-sm-3" style="margin-left: 200px;">
+<div class="panel panel-primary">
+    <div class="panel-heading">Task:</div>
+    <div class="panel-body"> Here you will found differents options for it administration.</div>
+	<button class="btn btn-lg btn-block btn-primary" 
+	*ngIf="userLogged.getRol === 1 || userLogged.getRol === 2 "
 	routerLink="/usermanager/newgame">
 		New Game
 	</button>
-
+	</div>
 </div>
 
 <div class="col-sm-3">
 	<div class="panel panel-primary">
-    <div class="panel-heading">List of Games:</div>
+    <div class="panel-heading">Games List:</div>
 	<ul class="list-group users-list">
         <li class="list-group-item" *ngFor="let game of games"
             (click)="selectGame(game)"  [class.active]="game === activeGame">>
