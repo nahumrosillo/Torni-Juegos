@@ -35,4 +35,8 @@ export class TournamentPanelComponent
     console.log("Ranking");
     console.log(this.tournament.getRanking);
   }
+
+  addPlayer() {
+    this.tournament.addUserTournament(this.userLogged);
+  }
 }

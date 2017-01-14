@@ -23,14 +23,14 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="col-sm-2" *ngIf="!loginTerminated" style="margin-left: 200px;">
+<div class="col-sm-3" *ngIf="!loginTerminated" style="margin-left: 200px;">
   <div class="panel panel-primary">
-    <div class="panel-heading">Welcome to Torni-Juegos</div>
-    <div class="panel-body"> <p>Esto es un panel de prueba.<br/><br/>  Bienvenidos a la Web de Torni-Juegos. Aqui encontraras los mejores torneos para tus juegos favoritos. No te decepcionará.<br/><br/> Rajoy cabron !!</p> </div>
+    <div class="panel-heading">Home Panel</div>
+    <div class="panel-body"> <p>Welcome to the Torni-Juegos web. <br/><br/>Here you will find the best tournaments for your favorite games. It will not disappoint you!</p> </div>
   </div>
 </div>
 
-<div class="col-sm-8" *ngIf="!loginTerminated">
+<div class="col-sm-7" *ngIf="!loginTerminated">
   <app-login-manager (userLogged)="onUserLogged($event)"  *ngIf="!loginTerminated">
   </app-login-manager>
 

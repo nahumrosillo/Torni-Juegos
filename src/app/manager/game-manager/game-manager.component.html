@@ -2,12 +2,12 @@
 
 <div class="col-sm-3" style="margin-left: 200px;">
 <div class="panel panel-primary">
-    <div class="panel-heading">Task:</div>
-    <div class="panel-body"> Here you will found differents options for it administration.</div>
+    <div class="panel-heading">Admin Tasks:</div>
+    <div class="panel-body"> You are a admin, so you can do the following tasks:</div>
 	<button class="btn btn-lg btn-block btn-primary" 
 	*ngIf="userLogged.getRol === 1 || userLogged.getRol === 2 "
 	routerLink="/usermanager/newgame">
-		New Game
+		Create Game
 	</button>
 	</div>
 </div>

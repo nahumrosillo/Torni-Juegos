@@ -2,11 +2,11 @@
 
 <div *ngIf="match">
 	<div class="panel panel-primary">
-      <div class="panel-heading">Info Match</div>
-      <div class="panel-body"> Finished: {{ match.isFinished }}</div>
+      <div class="panel-heading">Match Info</div>
       <div class="panel-body"> ID Local Team: {{ match.getLocalTeam.getId }}  Local Score: {{ match.getScoreLocal }}</div>
       <div class="panel-body"> ID Visitor Team: {{ match.getVisitorTeam.getId}} Visitor Score: {{  match.getScoreVisitor}} </div>
       <div class="panel-body"> Start Date : {{ match.getStartDate }}</div>
+      <div class="panel-body"> Finished: {{ match.isFinished }}</div>
     </div>
 
   <div *ngIf="!match.isFinished ">

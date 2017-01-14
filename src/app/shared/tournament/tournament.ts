@@ -48,6 +48,10 @@ export class Tournament implements Aggregator, Observer {
 		return this.ranking;
 	}
 
+	get isFullTournament() {
+		return this.numCurrentUsers === this.numMaxUsers;
+	}
+
 
 	constructor(name: string, startIns: Date, endIns: Date, startTour: Date,  endTour: Date, teams: Array<Team>) 
 	{
@@ -107,6 +111,7 @@ export class Tournament implements Aggregator, Observer {
 					if(!added && currentTeam.getNumPlayers < currentTeam.getMaxPlayers) {					
 						currentTeam.addPlayerIntoTeam(user);
 						added = true;
+						this.numCurrentUsers++;
 					}
 					currentTeam = currentMatch.current().getVisitorTeam;
 				}
@@ -133,6 +138,7 @@ export class Tournament implements Aggregator, Observer {
 							
 						currentTeam.removePlayerIntoTeam(user);
 						removed = true;
+						this.numCurrentUsers--;
 					}
 					currentTeam = currentMatch.current().getVisitorTeam;
 				}
