@@ -68,13 +68,13 @@ export class BDService implements OnInit {
         player.setNick = 'player';
 
         let g: Game;
-        g = new Game("Super Mario Bros", "Version Multiplayer", Category.ACTION);
+        g = new Game("FIFA 17", "El fútbol ha cambiado. FIFA 17 redefine la forma de jugar, competir y vivir el fútbol.", Category.SPORT);
 
         let teams = new Array<Team>();
         for (let i = 0; i < 4; i++) 
              teams.push(new Team(i, 2));
 
-        g.addTournament(new Tournament("Torneo UCA 2017", 
+        g.addTournament(new Tournament("FIFA World Cup 2017", 
             new Date(2016, 8, 5, 0, 0, 0, 0),
             new Date(2016, 8, 6, 0, 0, 0, 0),
             new Date(2016, 8, 7, 0, 0, 0, 0),
@@ -86,7 +86,7 @@ export class BDService implements OnInit {
 
         
         let g2: Game;
-        g2 = new Game("Ajedrez", "Ajedrez Online", Category.BOARD_GAME);
+        g2 = new Game("Parchis", "El apasionado y popular juego.", Category.BOARD_GAME);
         Memory.getInstance.add(g2);
 
         Memory.getInstance.add(userSuperAdmin);

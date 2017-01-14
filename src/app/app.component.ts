@@ -27,7 +27,7 @@ export class AppComponent
     this.loginTerminated = true;
     this.userLogged = user;
     this.userLog.getUserLogged().setUser = user;
-    this.name = this.userLog.getUserLogged().getUser().getName;
+    this.name = this.userLog.getUserLogged().getUser().getNick;
     this.router.navigate(['/gamemanager']);
   }
 

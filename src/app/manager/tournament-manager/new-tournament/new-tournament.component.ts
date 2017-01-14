@@ -53,7 +53,6 @@ export class NewTournamentComponent implements OnInit {
       day = parseInt(cad[9]+cad[10]);
 
       return new Date(anno, month, day, 0, 0, 0, 0);
-
   }
 
   onSubmit() {
