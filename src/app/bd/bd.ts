@@ -7,10 +7,10 @@ export interface BD {
 	remove(item: User | Game);
 	getUser(item: User): User;
 	getGame(item: Game): Game;
-	sizeUser(): number;
+	/*sizeUser(): number;
 	sizeGame(): number;
 	getMapUser(): Map<string, User>;
 	getMapGame(): Map<string, Game>;
 	getArrayUsers(): Array<User>;
-	getArrayGames(): Array<Game>;
+	getArrayGames(): Array<Game>;*/
 }

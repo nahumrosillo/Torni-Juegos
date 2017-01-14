@@ -5,6 +5,8 @@ import { User, Rol, Genre } from '../shared/user/user';
 import { Game, Category } from '../shared/game/game';
 import { Tournament } from '../shared/tournament/tournament';
 import { Team } from '../shared/team/team';
+import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class BDService implements OnInit {
@@ -15,7 +17,7 @@ export class BDService implements OnInit {
         console.log("Memory: OnInit");
     }
 
-  constructor() {
+  constructor(private http:Http) {
 
     if (!BDService.isCreate) 
     {
@@ -100,4 +102,66 @@ export class BDService implements OnInit {
   get connect(): BD {  	
   	return Memory.getInstance;
   }
+//Parte de api rest
+	add(item: User | Game) {
+		var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+		if (item instanceof User) {
+			return this.http.post('/api/User',JSON.stringify(item),{headers:headers})
+					.map(res=>res.json());
+		}
+
+		if (item instanceof Game) {
+			return this.http.post('/api/Game',JSON.stringify(item),{headers:headers})
+					.map(res=>res.json());
+		}
+	}
+	
+	remove(item: User | Game) {
+
+		if (item instanceof User) {
+			return this.http.delete('/api/User/'+item)
+            		.map(res => res.json());
+		}
+
+		if (item instanceof Game) {
+			return this.http.delete('/api/Game/'+item)
+            		.map(res => res.json());
+		}
+	}
+
+	getUser(item: User){
+		return this.http.get('/api/User'+item)
+				.map(res=>res.json());
+	}
+
+	getGame(item: Game){
+		return this.http.get('/api/Game'+item)
+				.map(res=>res.json());
+	}
+
+	getUsers(){
+		return this.http.get('/api/User')
+				.map(res=>res.json());
+	}
+
+	getGames(){
+		return this.http.get('/api/Game')
+				.map(res=>res.json());
+	}
+
+	updateUser(item: User){
+		var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+		return this.http.post('/api/User',JSON.stringify(item),{headers:headers})
+				.map(res=>res.json());
+	}
+
+	updateGame(item: Game){
+		var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+		return this.http.post('/api/Game',JSON.stringify(item),{headers:headers})
+				.map(res=>res.json());
+	}
 }
