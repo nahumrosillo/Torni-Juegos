@@ -12,6 +12,10 @@ import { Iterator } from '../util/iterator/iterator';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 
+//	Hay que anadir esto, de lo contrario no reconoce .map()
+import 'rxjs/add/operator/map'
+import 'rxjs/Rx';
+
 
 /*
 	La clase Memory ya no existe. 
@@ -115,12 +119,14 @@ export class Mongo implements BD
 	}
 
 	//	Mongo
-	//	Devuelve un Observable<any>
-	//	Mal, debe devolver un User. Hay que tratar eso
-	//	para que ese return this.http devuelva un User;
 	getUserMongo(item: User) {
+
+		//	Deberia imprimirme todos los usuarios
+		//	que cree en mLab. Solo 1.
 		return this.http.get('/api/User'+item)
-				.map(res=>res.json());
+				.map(res=>res.json()).subscribe(user => {
+                console.log(user);
+            });
 	}
 
 	//	Memory

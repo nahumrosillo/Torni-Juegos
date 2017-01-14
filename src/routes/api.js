@@ -5,7 +5,14 @@ import {Tournament} from '../app/shared/tournament/tournament';
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongoose.connect('mongodb://localhost:27017/Mean',['user','game']);
+
+//var db = mongoose.connect('mongodb://localhost:27017/Mean',['user','game']);
+
+//  Conexion con mLab.
+//  Te he ocultado la sentencia anterior
+//  Dejate de game, probemos con solo user
+var db = mongojs('mongodb://rootDB:rootDB@ds111559.mlab.com:11559/tornijuegos', ['user']);
+
 
 /* GET All Users */
 router.get('/User', function(req, res, next) {
