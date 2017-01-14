@@ -26,7 +26,7 @@ export class Memory implements BD
             return this.instance;
     }
 
-	//private constructor() {}
+	private constructor() {}
 
 	add(item: User | Game) {
 
@@ -58,33 +58,6 @@ export class Memory implements BD
 	getGame(item: Game): Game {
 
 		return this.mapGame.get(item.getName);
-	}
-
-	sizeUser(): number {
-		return this.mapUser.size;
-	}
-
-	sizeGame(): number {
-		return this.mapGame.size;
-	}
-
-	getMapUser(): Map<string, User> {
-		return this.mapUser;
-	}
-
-	getMapGame(): Map<string, Game> {
-		return this.mapGame;
-	}
-
-	getArrayUsers(): Array<User> {
-		let array: Array<User>;
-		array = new Array<User>();
-
-		this.mapUser.forEach( (value: User, key: string) => {
-			array.push(value);
-		});
-
-		return array;
 	}
 
 	getArrayGames(): Array<Game> {

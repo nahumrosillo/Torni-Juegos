@@ -8,8 +8,12 @@ import { Team } from '../shared/team/team';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 
+import { Mongo } from '../bd/mongo';
+
 @Injectable()
 export class BDService implements OnInit {
+
+    mongodb: Mongo;
 
     static isCreate: boolean = false;
 
@@ -21,6 +25,7 @@ export class BDService implements OnInit {
 
     if (!BDService.isCreate) 
     {
+        Mongo.getInstance.setHTTP = http;
         BDService.isCreate = true;
 
         /*
@@ -84,23 +89,32 @@ export class BDService implements OnInit {
             teams));
 
         Memory.getInstance.add(g);
-
+        Mongo.getInstance.add(g);
 
         
         let g2: Game;
         g2 = new Game("Parchis", "El apasionado y popular juego.", Category.BOARD_GAME);
+        
         Memory.getInstance.add(g2);
+        Mongo.getInstance.add(g2);
 
         Memory.getInstance.add(userSuperAdmin);
+        Mongo.getInstance.add(userSuperAdmin);
+
         Memory.getInstance.add(admin);
+        Mongo.getInstance.add(userSuperAdmin);
+
         Memory.getInstance.add(sponsor);
+        Mongo.getInstance.add(sponsor);
+
         Memory.getInstance.add(player);
+        Mongo.getInstance.add(player);
     }
 
   }
 
   get connect(): BD {  	
-  	return Memory.getInstance;
+  	return Mongo.getInstance;
   }
 //Parte de api rest
 	add(item: User | Game) {
@@ -129,8 +143,8 @@ export class BDService implements OnInit {
 			return this.http.delete('/api/Game/'+item)
             		.map(res => res.json());
 		}
-	}
-
+	
+    }
 	getUser(item: User){
 		return this.http.get('/api/User'+item)
 				.map(res=>res.json());

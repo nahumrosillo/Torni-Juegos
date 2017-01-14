@@ -20,7 +20,6 @@ export class GameManagerComponent extends SystemManager implements OnInit
   private userLogged: User;
   private games: Array<Game>;
   private activeGame: Game;
-  private mapGame: Map<string, Game>;
 
 
   constructor(dataBaseService: BDService, private userLoggedServ: UserLoggedService, 
@@ -30,8 +29,7 @@ export class GameManagerComponent extends SystemManager implements OnInit
 
     this.userLogged = userLoggedServ.getUserLogged().getUser();
     SystemManager.dataBase = dataBaseService.connect;
-
-    this.mapGame = SystemManager.dataBase.getMapGame();    
+  
     this.games = SystemManager.dataBase.getArrayGames();
   }
 

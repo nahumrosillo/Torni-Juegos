@@ -5,12 +5,7 @@ export interface BD {
 
 	add(item: User | Game);
 	remove(item: User | Game);
-	getUser(item: User): User;
-	getGame(item: Game): Game;
-	sizeUser(): number;
-	sizeGame(): number;
-	getMapUser(): Map<string, User>;
-	getMapGame(): Map<string, Game>;
-	getArrayUsers(): Array<User>;
+	getUser(item: User) : User;
+	getGame(item: Game) : Game;
 	getArrayGames(): Array<Game>;
 }
