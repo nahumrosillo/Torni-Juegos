@@ -16,6 +16,7 @@ export enum Genre {
 }
 
 export class User {
+    private _id: number;
     private nick: string;
     private name: string;
     private dni: string;
@@ -32,6 +33,10 @@ export class User {
             this.nick = 'null';
         this.rol = Rol.NULL;
         this.genre = Genre.MALE;
+    }
+
+    set setId(id: number) {
+        this._id = id;
     }
 
     set setNick(nick: string) {

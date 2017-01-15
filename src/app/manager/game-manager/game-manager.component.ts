@@ -31,6 +31,8 @@ export class GameManagerComponent extends SystemManager implements OnInit
     SystemManager.dataBase = dataBaseService.connect;
   
     this.games = SystemManager.dataBase.getArrayGames();
+
+    console.log(this.userLogged);
   }
 
 	ngOnInit() { }

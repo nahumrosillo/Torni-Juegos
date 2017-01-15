@@ -16,30 +16,25 @@ export class MongoAPIService {
 	//	Esta es mi API KEY. Es privada y ser ve en mi cuenta de mLab
 	private apiKey: string = "aLJE3ELMrsgvIGzXJ5sx_AWmvZ9myEeq";
 
-	users: Array<User>;
-	totFiles = 0;	//	Ni puta idea pa que sirve esto
-
-	get getUsers()  {
-		return this.users;
-	}
-
-	devUsers() {
-		return this.users;
-	}
+	users = [];
+	games = [];
 
 	constructor(private http: Http) {
 
-		this.users = new Array<User>();
 
 		//	Dentro del get tiene que ir la URL completa. Al final se le anade la apikey
 		//	Construye el vector de usuarios
 		this.http.get(this.mongoURL + "User" + '?apiKey=' + this.apiKey).map(res => res.json()).subscribe(
-			data => this.users.push(data),
+			data => this.users = data,
 			error => console.log("Error loading users."),
 			() => console.log("Users loaded.")
 		);
 
-		console.log(this.users);
+		this.http.get(this.mongoURL + "Game" + '?apiKey=' + this.apiKey).map(res => res.json()).subscribe(
+			data => this.games = data,
+			error => console.log("Error loading users."),
+			() => console.log("Games loaded.")
+		);
 	}
 
 
@@ -64,13 +59,6 @@ export class MongoAPIService {
 		return this.http.get(this.mongoURL + collection + '?q=' + query + '&c=true&apiKey=' + this.apiKey)
 			.map(res => res.json());
 	}
-
-	// sk: results to skip
-	// l: limit
-	/*mongoSelectSkip(collection: string, query: string, sk: number, l: number) {
-		return this.http.get(this.mongoURL + collection + '?q=' + query + '&sk=' + sk + '&l=' + l + '&apiKey=' + this.apiKey)
-			.map(res => res.json());
-	}*/
 
 	mongoInsert(collection: string, fileObj) {
 		var headers = new Headers();

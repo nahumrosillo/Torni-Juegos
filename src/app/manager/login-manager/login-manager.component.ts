@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
+import { MongoAPIService } from '../../bd/mongoapi.service';
 import { UserLoggedService } from '../userLogged.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,7 +20,8 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
   private isUserLogged: boolean;
   @Output() userLogged = new EventEmitter();
 
-  constructor(private dataBaseService: BDService, private userLog: UserLoggedService, private router: Router) 
+  constructor(private dataBaseService: BDService, private userLog: UserLoggedService, private router: Router,
+    private service: MongoAPIService) 
   {
   	super();
   	SystemManager.dataBase = dataBaseService.connect;
@@ -29,7 +31,41 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
 
   ngOnInit() { }
 
-  onSubmit() 
+  //  Login con Mongo
+  onSubmit() {
+
+    this.service.mongoSelect("User", "{nick:'" + this.loginUser.getNick + "'}").subscribe(
+      data => {
+        let u: User = new User();
+
+        console.log(data[0]);
+
+        if (data[0] === undefined || data[0] === null) {
+          console.log("Usuario no existe en la BD");
+        }
+        else {
+
+          //  data[0] devuelve un Object. lo convertimos a User
+          u.setName = data[0].name;
+          u.setNick = data[0].nick;
+          u.setPassword = data[0].password;
+          u.setRol = data[0].rol;
+          u.setGenre = data[0].genre;
+          u.setBirthDate = data[0].birthdate;
+          u.setDni = data[0].dni;
+
+          if (this.loginUser.getNick == u.getNick && this.loginUser.getPassword == u.getPassword) {
+            console.log("Usuario Logeado");
+            this.userLog.getUserLogged().setUser(u);
+            this.isUserLogged = true;
+            this.userLogged.emit( {user: u});
+          }
+        }
+      });
+  }
+
+  //  Login con Memory
+  onSubmit2() 
   {
     this.userBD = SystemManager.dataBase.getUser(this.loginUser);
 
