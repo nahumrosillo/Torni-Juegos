@@ -15,6 +15,7 @@ var db = mongoose.connect('mongodb://rootDB:rootDB@ds111559.mlab.com:11559/torni
 
 // GET All Users 
 router.get('/User', function(req, res, next) {
+    console.log("Llego");
     db.user.find(function(err, todos) {
         if (err) {
             res.send(err);
