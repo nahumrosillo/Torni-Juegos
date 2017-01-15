@@ -19,21 +19,22 @@ import 'rxjs/Rx';
 export class BDService implements OnInit {
 
     mongodb: Mongo;
-
+    http:Http;
     static isCreate: boolean = false;
 
     ngOnInit() {
         console.log("Memory: OnInit");
     }
 
-  constructor(private http:Http) {
+  constructor(http:Http) {
 
+    this.http=http;
     if (!BDService.isCreate) 
     {
         Mongo.getInstance.setHTTP = http;
         BDService.isCreate = true;
 
-        if (Mongo.getInstance !== undefined ||
+        /*if (Mongo.getInstance !== undefined ||
                 Mongo.getInstance !== null)
         {
             console.log("Mongo esta inicializado");
@@ -43,7 +44,7 @@ export class BDService implements OnInit {
             Debe imprimirme el rootDB que hay almacenado, por consola
             Mira el getUserMongo de mongo.ts
         */
-        Mongo.getInstance.getUserMongo(new User());
+        //Mongo.getInstance.getUserMongo(new User());
 
 
 
@@ -136,18 +137,21 @@ export class BDService implements OnInit {
   	return Mongo.getInstance;
   }
 //Parte de api rest
-	add(item: User | Game) {
+	add(item: User | Game):Promise<any> {
 		var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-
+        console.log("ADD: User o Game");
 		if (item instanceof User) {
-			return this.http.post('/api/User',JSON.stringify(item),{headers:headers})
-					.map(res=>res.json());
+            console.log("ADD: User");
+			var newUser=this.http.post('/api/User',JSON.stringify(item),{headers:headers})
+					.map(res=>res.json()).toPromise();
+            console.log("ADD: User" + JSON.stringify(newUser));
+            return newUser;
 		}
 
 		if (item instanceof Game) {
 			return this.http.post('/api/Game',JSON.stringify(item),{headers:headers})
-					.map(res=>res.json());
+					.map(res=>res.json()).toPromise();
 		}
 	}
 	
@@ -165,6 +169,7 @@ export class BDService implements OnInit {
 	
     }
 	getUser(item: User){
+        console.log("get user" + JSON.stringify(item));
 		return this.http.get('/api/User'+item)
 				.map(res=>res.json());
 	}

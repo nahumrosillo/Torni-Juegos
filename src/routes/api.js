@@ -16,6 +16,7 @@ var db = mongojs('mongodb://rootDB:rootDB@ds111559.mlab.com:11559/tornijuegos', 
 
 /* GET All Users */
 router.get('/User', function(req, res, next) {
+    console.log("Llego");
     db.user.find(function(err, todos) {
         if (err) {
             res.send(err);
