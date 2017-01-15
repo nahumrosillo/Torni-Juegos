@@ -16,7 +16,6 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 import 'rxjs/Rx';
 
-
 /*
 	La clase Memory ya no existe. 
 	En lugar de eso existen
@@ -30,7 +29,7 @@ export class Mongo implements BD
 	private mapUser: Map<string, User>;
 	private mapGame: Map<string, Game>;
 
-	private http: Http;
+	http: Http;
 
 	private constructor() {}
 
@@ -123,10 +122,13 @@ export class Mongo implements BD
 
 		//	Deberia imprimirme todos los usuarios
 		//	que cree en mLab. Solo 1.
-		return this.http.get('/api/User'+item)
-				.map(res=>res.json()).subscribe(user => {
-                console.log(user);
-            });
+
+ 		
+		this.http.get('/databases')
+				.map(res=>res.json()).subscribe(value => {
+					console.log("Hola desde mLab");
+				});
+            
 	}
 
 	//	Memory

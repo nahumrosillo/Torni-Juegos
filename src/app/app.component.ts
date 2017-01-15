@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { User, Rol, Genre } from './shared/user/user';
 import { Router } from '@angular/router';
 import { UserLoggedService } from './manager/userLogged.service';
+import { MongoAPIService } from './bd/mongoapi.service';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [UserLoggedService]
+  providers: [UserLoggedService, MongoAPIService]
 })
 export class AppComponent
 {
@@ -18,8 +19,11 @@ export class AppComponent
   name: string;
 
 
-  constructor(private router: Router, private userLog: UserLoggedService) {
+  constructor(private router: Router, private userLog: UserLoggedService, private service: MongoAPIService) {
     this.loginTerminated = false;
+
+    console.log("Constructor de App Component. Se acaba de llamar al constructor de mongodb.service");
+
 
   }
 

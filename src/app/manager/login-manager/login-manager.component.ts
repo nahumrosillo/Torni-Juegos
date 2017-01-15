@@ -22,8 +22,6 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
   constructor(private dataBaseService: BDService, private userLog: UserLoggedService, private router: Router) 
   {
   	super();
-    console.log("HOLA");
-    console.log(dataBaseService.connect);
   	SystemManager.dataBase = dataBaseService.connect;
     this.isUserLogged = false;
     this.loginUser = new User();
