@@ -33,17 +33,10 @@ export class BDService implements OnInit {
         Mongo.getInstance.setHTTP = http;
         BDService.isCreate = true;
 
-        if (Mongo.getInstance !== undefined ||
-                Mongo.getInstance !== null)
-        {
-            console.log("Mongo esta inicializado");
-        }
-
         /*  Intento de conexion con mLab.
             Debe imprimirme el rootDB que hay almacenado, por consola
             Mira el getUserMongo de mongo.ts
         */
-        Mongo.getInstance.getUserMongo(new User());
 
 
 

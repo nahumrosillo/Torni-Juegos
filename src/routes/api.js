@@ -6,15 +6,14 @@ var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
 
-//var db = mongoose.connect('mongodb://localhost:27017/Mean',['user','game']);
 
 //  Conexion con mLab.
 //  Te he ocultado la sentencia anterior
 //  Dejate de game, probemos con solo user
-var db = mongojs('mongodb://rootDB:rootDB@ds111559.mlab.com:11559/tornijuegos', ['user']);
+//var db = mongojs('mongodb://rootDB:rootDB@ds111559.mlab.com:11559/tornijuegos', ['user']);
+var db = mongoose.connect('mongodb://rootDB:rootDB@ds111559.mlab.com:11559/tornijuegos');
 
-
-/* GET All Users */
+// GET All Users 
 router.get('/User', function(req, res, next) {
     db.user.find(function(err, todos) {
         if (err) {
@@ -24,8 +23,9 @@ router.get('/User', function(req, res, next) {
         }
     });
 });
+
  
-/* GET One User with the provided ID */
+//GET One User with the provided ID 
 router.get('/User/:id', function(req, res, next) {
     db.user.findOne({
         _id: mongojs.ObjectId(req.params.id)
@@ -38,7 +38,7 @@ router.get('/User/:id', function(req, res, next) {
     });
 });
  
-/* POST/SAVE a User */
+//POST/SAVE a User 
 router.post('/User', function(req, res, next) {
     var PostUser = req.body;
     if (!PostUser.nick || !PostUser.name || !PostUser.dni || !PostUser.birthdate || !PostUser.password || PostUser.rol===NULL) {
@@ -57,7 +57,7 @@ router.post('/User', function(req, res, next) {
     }
 });
  
-/* PUT/UPDATE a Todo */
+// PUT/UPDATE a Todo 
 router.put('/User/:id', function(req, res, next) {
     var UpdatedUser = req.body;
     var updObj = {};
@@ -108,7 +108,7 @@ router.put('/User/:id', function(req, res, next) {
  
 });
  
-/* DELETE a Todo */
+// DELETE a Todo 
 router.delete('/User/:id', function(req, res) {
     db.user.remove({
         _id: mongojs.ObjectId(req.params.id)
@@ -122,7 +122,7 @@ router.delete('/User/:id', function(req, res) {
  
 });
 
-/* GET All Games */
+// GET All Games 
 router.get('/Game', function(req, res, next) {
     db.game.find(function(err, todos) {
         if (err) {
@@ -133,7 +133,7 @@ router.get('/Game', function(req, res, next) {
     });
 });
  
-/* GET One Game with the provided ID */
+// GET One Game with the provided ID 
 router.get('/Game/:id', function(req, res, next) {
     db.game.findOne({
         _id: mongojs.ObjectId(req.params.id)
@@ -146,7 +146,7 @@ router.get('/Game/:id', function(req, res, next) {
     });
 });
  
-/* POST/SAVE a Game */
+// POST/SAVE a Game 
 router.post('/Game', function(req, res, next) {
     var PostGame = req.body;
     if (!PostGame.name || !PostGame.description || !PostGame.category || !PostGame.tournaments) {
@@ -165,7 +165,7 @@ router.post('/Game', function(req, res, next) {
     }
 });
  
-/* PUT/UPDATE a Game */
+// PUT/UPDATE a Game 
 router.put('/Game/:id', function(req, res, next) {
     var UpdatedGame = req.body;
     var updObj = {};
@@ -206,7 +206,7 @@ router.put('/Game/:id', function(req, res, next) {
  
 });
  
-/* DELETE a Game */
+// DELETE a Game 
 router.delete('/Game/:id', function(req, res) {
     db.game.remove({
         _id: mongojs.ObjectId(req.params.id)
@@ -219,5 +219,6 @@ router.delete('/Game/:id', function(req, res) {
     });
  
 });
+
 
 module.exports = router;

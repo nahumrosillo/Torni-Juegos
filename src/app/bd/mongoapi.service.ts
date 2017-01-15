@@ -1,0 +1,96 @@
+import {Injectable} from '@angular/core';
+
+import {Http} from '@angular/http';
+import {Headers} from '@angular/http';
+import {User} from '../shared/user/user';
+
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class MongoAPIService {
+
+
+	//	La direccion de la BD. No esta completa
+	private mongoURL: string = "https://api.mlab.com/api/1/databases/tornijuegos/collections/";
+
+	//	Esta es mi API KEY. Es privada y ser ve en mi cuenta de mLab
+	private apiKey: string = "aLJE3ELMrsgvIGzXJ5sx_AWmvZ9myEeq";
+
+	users: Array<User>;
+	totFiles = 0;	//	Ni puta idea pa que sirve esto
+
+	get getUsers()  {
+		return this.users;
+	}
+
+	devUsers() {
+		return this.users;
+	}
+
+	constructor(private http: Http) {
+
+		this.users = new Array<User>();
+
+		//	Dentro del get tiene que ir la URL completa. Al final se le anade la apikey
+		//	Construye el vector de usuarios
+		this.http.get(this.mongoURL + "User" + '?apiKey=' + this.apiKey).map(res => res.json()).subscribe(
+			data => this.users.push(data),
+			error => console.log("Error loading users."),
+			() => console.log("Users loaded.")
+		);
+
+		console.log(this.users);
+	}
+
+
+	/*	A partir de aqui son metodos copias y pegados de un tio. Imagino que debe funcionar. El problema
+		es entender como usar esos metodos porque devuelven un Observable<any>
+	*/
+
+
+	// f: fields to include: {id:1}  1 yes, 0 no
+	// s: sort direction: {id:-1}    1 ASC -1 DESC
+	mongoSelectOne(collection: string, field: string, sort: string) {
+		return this.http.get(this.mongoURL + collection + '?f=' + field + '&s=' + sort + '&l=1&apiKey=' + this.apiKey)
+			.map(res => res.json());
+	}
+
+	mongoSelect(collection: string, query: string) {
+		return this.http.get(this.mongoURL + collection + '?q=' + query + '&apiKey=' + this.apiKey)
+			.map(res => res.json());
+	}
+
+	mongoCount(collection: string, query: string) {
+		return this.http.get(this.mongoURL + collection + '?q=' + query + '&c=true&apiKey=' + this.apiKey)
+			.map(res => res.json());
+	}
+
+	// sk: results to skip
+	// l: limit
+	/*mongoSelectSkip(collection: string, query: string, sk: number, l: number) {
+		return this.http.get(this.mongoURL + collection + '?q=' + query + '&sk=' + sk + '&l=' + l + '&apiKey=' + this.apiKey)
+			.map(res => res.json());
+	}*/
+
+	mongoInsert(collection: string, fileObj) {
+		var headers = new Headers();
+		headers.append("Content-Type", "application/json");
+		return this.http.post(this.mongoURL + collection + "?apiKey=" + this.apiKey,
+			JSON.stringify(fileObj), // {"x":1, "y":2}
+			{ headers: headers }
+		).map(res => res.json());
+	}
+
+	mongoUpdate(collection: string, fileID: string, newValueObj) {
+		var headers = new Headers();
+		headers.append("Content-Type", "application/json");
+		return this.http.put(this.mongoURL + collection + '?q=' + fileID + '&apiKey=' + this.apiKey, //{"_id":123}
+			JSON.stringify({ "$set": newValueObj }), //{ "x": 3 }
+			{ headers: headers }
+		).map(res => res.json());
+	}
+	
+	mongoDelete(collection: string, mongoID) {
+		return this.http.delete(this.mongoURL + collection + "/" + mongoID + '?apiKey=' + this.apiKey).map(res => res.json());
+	}
+}
