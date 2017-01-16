@@ -82,8 +82,10 @@ export class Match implements Subject {
 
 	setScoreVisitor(score: number) { //OK
 		
-		if(!this.finishedMatch)
+		if(!this.finishedMatch) {
 			this.scoreV = score;
+			this.notify();
+		}
 	}
 
 	get isFinished() {

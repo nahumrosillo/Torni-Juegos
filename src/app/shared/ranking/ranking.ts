@@ -21,6 +21,10 @@ export class Ranking implements Observer, Aggregator {
 		this.scoreTeams.push(new ScoreTeam(team));
 	}
 
+	get getScoreTeams() : Array<ScoreTeam> {
+		return this.scoreTeams;
+	}
+
 	update(localTeam: Team, visitorTeam: Team, localScore: number, visitorScore: number) {
 
 		let iterator = this.iterator();

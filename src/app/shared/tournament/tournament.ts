@@ -257,10 +257,9 @@ export class Tournament implements Aggregator, Observer, Subject {
 
 		if(match.isFinished) {
 			this.noEndMatchs--;
+			this.hideMatch = match;
+			this.notify();
 		}
-
-		this.hideMatch = match;
-		this.notify();
 
 		if(this.noEndMatchs === 0)
 		{

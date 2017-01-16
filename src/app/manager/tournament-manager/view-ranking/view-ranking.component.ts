@@ -38,11 +38,12 @@ export class ViewRankingComponent extends SystemManager implements OnInit
     SystemManager.dataBase = dataBaseService.connect;
 
     this.ranking = userLoggedServ.getUserLogged().getTournament().getRanking;
-    this.teams = new Array<ScoreTeam>();
+    /*this.teams = new Array<ScoreTeam>();
 
     for(let iterator: Iterator = this.ranking.iterator() ; iterator.hasNext() ; iterator.next()) {
       this.teams.push(iterator.current());
-    }
+    }*/
+    this.teams = this.ranking.getScoreTeams;
 
   }
 
