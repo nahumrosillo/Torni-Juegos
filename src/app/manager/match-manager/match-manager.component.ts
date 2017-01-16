@@ -36,7 +36,12 @@ export class MatchManagerComponent extends SystemManager implements OnInit
     SystemManager.dataBase = dataBaseService.connect;
 
     this.tournamentSelected = userLoggedServ.getUserLogged().getTournament();
-    this.matchs = this.tournamentSelected.getMatchs();
+    //this.matchs = new Array<Match>();
+    this.matchs = this.tournamentSelected.getMatchs;
+
+    /*for(let i: Iterator = this.tournamentSelected.iterator() ; i.hasNext() ; i.next()) {
+      this.matchs.push(i.current());
+    }*/
   }
 
 	ngOnInit() { }

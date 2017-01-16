@@ -19,6 +19,7 @@ export class TournamentPanelComponent
 {
   @Output() eventDelete = new EventEmitter();
   @Output() eventTournament = new EventEmitter();
+  @Output() eventRanking = new EventEmitter();
 
   @Input() tournament: Tournament;
   @Input() userLogged: User;
@@ -32,6 +33,7 @@ export class TournamentPanelComponent
   }
 
   viewRanking() {
+    this.eventRanking.emit();
     console.log("Ranking");
     console.log(this.tournament.getRanking);
   }

@@ -36,8 +36,6 @@ export class MatchPanelComponent
     this.match.setScoreVisitor(1 + this.match.getScoreVisitor);
   }
 
-
-
   finishMatch() {
     this.match.endMatch();
   }

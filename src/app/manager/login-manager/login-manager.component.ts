@@ -33,7 +33,7 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
 
   //  Login con Mongo
   onSubmit() {
-
+    
     this.service.mongoSelect("User", "{nick:'" + this.loginUser.getNick + "'}").subscribe(
       data => {
         let u: User = new User();

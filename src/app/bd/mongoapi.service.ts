@@ -32,7 +32,7 @@ export class MongoAPIService {
 
 		this.http.get(this.mongoURL + "Game" + '?apiKey=' + this.apiKey).map(res => res.json()).subscribe(
 			data => this.games = data,
-			error => console.log("Error loading users."),
+			error => console.log("Error loading games."),
 			() => console.log("Games loaded.")
 		);
 	}

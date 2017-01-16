@@ -24,7 +24,7 @@ export class Match implements Subject {
 		this.scoreL = 0;
 		this.scoreV = 0;
 
-		this.observer = null;
+		this.registerObserver(tournament);
 	}
 
 	endMatch() { //OK
@@ -82,21 +82,16 @@ export class Match implements Subject {
 
 	setScoreVisitor(score: number) { //OK
 		
-		if(!this.finishedMatch)
+		if(!this.finishedMatch) {
 			this.scoreV = score;
+			this.notify();
+		}
 	}
 
 	get isFinished() {
 		return this.finishedMatch;
 	}
 	
-
-	private observers: Set<Observer>;
-
-//	constructor() {
-//		this.observers = new Set<Observer>();
-//	}
-
 	registerObserver(observer: Observer) {
 		
 		this.observer = observer;
@@ -108,10 +103,6 @@ export class Match implements Subject {
 
 	notify() {
 		
-		if(this.observer !== null)
-			this.observer.update(this.LocalTeam, this.VisitorTeam, this.scoreL, this.scoreV);
-		
-		if(this.isFinished)
-			this.tournament.update(this.LocalTeam);
+		this.observer.update(this);
 	}
 }

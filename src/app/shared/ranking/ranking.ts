@@ -7,16 +7,27 @@ import { Aggregator } from './../../util/iterator/aggregator';
 
 export class Ranking implements Observer, Aggregator {
 
-	private scoreTeams: Array<ScoreTeam>;
+	private scoreTeams: Array<ScoreTeam> = new Array<ScoreTeam>();
 
-	addTeam(team: Team)
+	constructor(teams: Array<Team>) {
+
+		for(let i: number = 0 ; i < teams.length ; ++i) {
+			this.addTeam(teams[i]);
+		}
+	}
+
+	private addTeam(team: Team)
 	{
 		this.scoreTeams.push(new ScoreTeam(team));
 	}
 
+	get getScoreTeams() : Array<ScoreTeam> {
+		return this.scoreTeams;
+	}
+
 	update(localTeam: Team, visitorTeam: Team, localScore: number, visitorScore: number) {
 
-		let iterator = this.iterator().begin();
+		let iterator = this.iterator();
 
 		let LocalFound: boolean = false;
 		let VisitorFound: boolean = false;
@@ -38,7 +49,7 @@ export class Ranking implements Observer, Aggregator {
 
 			if(iterator.current().getTeam === visitorTeam) {
 				VisitorFound = true;
-				iterator.current().setNumScore = iterator.current().getNumScore + localScore;
+				iterator.current().setNumScore = iterator.current().getNumScore + visitorScore;
 
 				if(localScore < visitorScore)
 				{
@@ -61,7 +72,7 @@ export class Ranking implements Observer, Aggregator {
 
 }
 
-class ScoreTeam {
+export class ScoreTeam {
 
 	private team: Team;
 	private numScore: number;
