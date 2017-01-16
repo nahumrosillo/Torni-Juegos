@@ -38,8 +38,6 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
       data => {
         let u: User = new User();
 
-        console.log(data[0]);
-
         if (data[0] === undefined || data[0] === null) {
           console.log("Usuario no existe en la BD");
         }

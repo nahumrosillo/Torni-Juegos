@@ -4,6 +4,7 @@ import { SystemManager } from '../../systemManager';
 import { BDService } from '../bd.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MongoAPIService } from '../../bd/mongoapi.service';
 
 @Component({
   selector: 'app-register-user-manager',
@@ -17,41 +18,57 @@ export class RegisterUserManagerComponent extends SystemManager implements OnIni
 
 	private newUser: User;
   private db;
-  constructor(dataBaseService: BDService, private router: Router) 
+  constructor(dataBaseService: BDService, private router: Router, private service: MongoAPIService) 
   {
   	super();
     
-  	//SystemManager.dataBase = dataBaseService.connect;
+  	SystemManager.dataBase = dataBaseService.connect;
     this.db=dataBaseService;
     this.newUser = new User();
-    console.log("constructor registeruser" + this.db);
   }
 
 	ngOnInit() { }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	onSubmit() 
 	{
-    //let userBD = SystemManager.dataBase.getUser(this.newUser);
-    var userBD=this.db.getUser(this.newUser);
-    userBD.then(function(res){
-      if (/*(userBD === null || userBD === undefined)*/res === null || res === undefined) 
-    {
-      //SystemManager.dataBase.add(this.newUser);
-      this.db.add(this.newUser).then(function(res){
-          console.log("Agregado a la BD");
-      }, function(err){
-        console.log("Error al introducir en la bd");
-      });
-    	
-    } 
-    else 
-    {
-     		console.log("Usuario ya existe en la BD");
-    }
-      
-    });
-    console.log("userdb" + JSON.stringify(userBD));
-    
+    this.service.mongoSelect("User", "{nick:'" + this.newUser.getNick + "'}").subscribe(
+      data => {
+
+        if (data[0] === undefined || data[0] === null) {
+            this.newUser.setRol = Rol.PLAYER;
+            console.log("Creado el nuevo Jugador en la BD");
+            this.service.users.push(this.newUser);
+            this.service.mongoInsert("User", this.newUser).subscribe();
+        }
+        else {
+          console.log("Ese nick ya existe en la BD");
+        }
+        
+      }
+    );    
   }
 }
