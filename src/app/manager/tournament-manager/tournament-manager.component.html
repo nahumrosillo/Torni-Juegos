@@ -28,6 +28,7 @@
 <div class="col-sm-3">
 
 		<app-tournament-panel (eventDelete)="deleteTournament()" 
-		(eventTournament)="viewMatchs()" [tournament]="activeTournament" [userLogged]="userLogged"></app-tournament-panel>
+		(eventTournament)="viewMatchs()" (eventRanking)="viewRanking()" 
+		[tournament]="activeTournament" [userLogged]="userLogged"></app-tournament-panel>
 
 </div>

@@ -1,0 +1,38 @@
+<div class="col-sm-3" style="margin-left: 200px;">
+<div class="panel panel-primary">
+    <div class="panel-heading">Player Tasks:</div>
+    <div class="panel-body"> You are a admin, so you can do the following tasks:</div>
+	
+	</div>
+</div>
+
+<div class="col-sm-11">
+	<div class="panel panel-primary">
+    <div class="panel-heading">Ranking List of {{tournamentSelected.getName}}:</div>
+    <div class="table-responsive">
+    	<table class="table">
+    		<thead>
+    			<tr>
+    				<th>Team Name</th>
+    				<th>Score</th>
+    				<th>Number Winner</th>
+    				<th>Number Loser</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr *ngFor="let team of teams">
+            		<td>Team {{ team.getTeam.getId }}</td>
+            		<td>{{ team.getNumScore }}</td>
+            		<td>{{ team.getNumWinner }}</td>
+            		<td>{{ team.getNumLoser }}</td>
+    			</tr>
+    		</tbody>
+    	</table>
+	<ul class="list-group users-list">
+        <li class="list-group-item" *ngFor="let match of matchs; let i = index"
+            (click)="selectMatch(match)"  
+            [class.active]="match === activeMatch"> > Round {{i}}
+        </li>
+	</ul>
+	</div>
+</div>
