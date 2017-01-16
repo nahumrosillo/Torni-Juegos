@@ -101,10 +101,6 @@ export class Match implements Subject {
 
 	notify() {
 		
-		if(this.observer !== null)
-			this.observer.update(this.LocalTeam, this.VisitorTeam, this.scoreL, this.scoreV);
-		
-		if(this.isFinished)
-			this.tournament.update(this);
+		this.observer.update(this);
 	}
 }
