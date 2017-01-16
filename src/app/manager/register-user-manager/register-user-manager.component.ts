@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../../systemManager';
-import { BDService } from '../bd.service';
+import { MongoAPIService } from '../../bd/mongoapi.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -9,22 +9,19 @@ import { Router } from '@angular/router';
   selector: 'app-register-user-manager',
   templateUrl: './register-user-manager.component.html',
   styleUrls: ['./register-user-manager.component.css'],
-  providers: [BDService]
+  providers: [MongoAPIService]
 })
 
 
 export class RegisterUserManagerComponent extends SystemManager implements OnInit {
 
 	private newUser: User;
-  private db;
-  constructor(dataBaseService: BDService, private router: Router) 
+  constructor(private dataBaseService: MongoAPIService, private router: Router) 
   {
   	super();
     
   	//SystemManager.dataBase = dataBaseService.connect;
-    this.db=dataBaseService;
     this.newUser = new User();
-    console.log("constructor registeruser" + this.db);
   }
 
 	ngOnInit() { }
@@ -32,10 +29,29 @@ export class RegisterUserManagerComponent extends SystemManager implements OnIni
 
 	onSubmit() 
 	{
+    var u: User;
+    this.dataBaseService.mongoSelect("User", "{nick:'" + this.newUser.getNick + "'}").subscribe
+      (data => {
+        u=data;
+        if(u[0]!=this.newUser)
+          this.dataBaseService.mongoInsert("User", this.newUser).subscribe(data =>{
+            console.log("Archivo añadido");
+          });
+    });
+    /*
     //let userBD = SystemManager.dataBase.getUser(this.newUser);
-    var userBD=this.db.getUser(this.newUser);
+    var userBD;
+    this.db.getUser(this.newUser).then(function(res,err){
+      if(err){
+        console.log("Hubo un error");
+      }
+      else{
+        userBD=res;
+      }
+    });
+    console.log("Llamando a añadir");
     userBD.then(function(res){
-      if (/*(userBD === null || userBD === undefined)*/res === null || res === undefined) 
+      if ((userBD === null || userBD === undefined)res === null || res === undefined) 
     {
       //SystemManager.dataBase.add(this.newUser);
       this.db.add(this.newUser).then(function(res){
@@ -52,6 +68,6 @@ export class RegisterUserManagerComponent extends SystemManager implements OnIni
       
     });
     console.log("userdb" + JSON.stringify(userBD));
-    
+    */
   }
 }
