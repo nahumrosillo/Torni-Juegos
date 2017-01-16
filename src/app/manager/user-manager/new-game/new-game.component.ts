@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BDService } from '../../bd.service';
 import { UserLoggedService } from '../../userLogged.service';
 import { Game, Category } from '../../../shared/game/game';
+import { MongoAPIService } from '../../../bd/mongoapi.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class NewGameComponent implements OnInit {
   private newGame: Game;
   private db: any;
 
-  constructor(private dataBase: BDService) {
+  constructor(private dataBase: BDService, private bdMongo: MongoAPIService) {
     this.db = dataBase.connect;
   }
 
@@ -28,7 +29,26 @@ export class NewGameComponent implements OnInit {
   onSubmit() {
 
     this.newGame = new Game(this.name, this.description, this.category);
-    
+    /*
+
+    this.bdMongo.mongoSelect("Game", "{name:'" + this.newGame.getName + "'}").subscribe(
+      data => {
+
+        console.log(data[0]);
+
+        if (data[0] === undefined || data[0] === null) {
+            console.log("Creado el juego en la BD");
+            this.bdMongo.games.push(this.newGame);
+            this.bdMongo.mongoInsert("Game", this.newGame).subscribe();
+        }
+        else {
+          console.log("Ese juego ya existe en la BD");
+        }
+        
+      }
+    );
+    */
+
     let gameBD = this.db.getGame(this.newGame);
 
     if (gameBD === null || gameBD === undefined) 
@@ -40,6 +60,7 @@ export class NewGameComponent implements OnInit {
     {
       console.log("Juego ya existe en la BD");
     }
+   
 
   }
 }

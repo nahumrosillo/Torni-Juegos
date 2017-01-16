@@ -6,6 +6,7 @@ import { UserLoggedService } from '../userLogged.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Game, Category } from '../../shared/game/game';
+import { MongoAPIService } from '../../bd/mongoapi.service';
 
 @Component({
   selector: 'app-game-manager',
@@ -23,16 +24,28 @@ export class GameManagerComponent extends SystemManager implements OnInit
 
 
   constructor(dataBaseService: BDService, private userLoggedServ: UserLoggedService, 
-      private router: Router) 
+      private router: Router, private service: MongoAPIService) 
   {
   	super();
+
 
     this.userLogged = userLoggedServ.getUserLogged().getUser();
     SystemManager.dataBase = dataBaseService.connect;
   
     this.games = SystemManager.dataBase.getArrayGames();
 
-    console.log(this.userLogged);
+    /*
+    this.games = new Array<Game>();
+    for (let i = 0; i < service.games.length; i++){
+      let u: Game = new Game(service.games[i].name, 
+                  service.games[i].description,
+                  service.games[i].getCategory);
+
+      u.setTournament = service.games[i].tournaments;
+
+      this.games.push(u);
+    }
+    */
   }
 
 	ngOnInit() { }

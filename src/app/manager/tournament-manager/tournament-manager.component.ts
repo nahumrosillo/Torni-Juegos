@@ -9,6 +9,7 @@ import { Game, Category } from '../../shared/game/game';
 import { Tournament } from '../../shared/tournament/tournament';
 import { IndexIterator } from '../../util/iterator/indexIterator';
 import { Iterator } from '../../util/iterator/iterator';
+import { MongoAPIService } from '../../bd/mongoapi.service';
 
 @Component({
   selector: 'app-tournament-manager',
@@ -27,7 +28,7 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
 
 
   constructor(private dataBaseService: BDService, private userLoggedServ: UserLoggedService, 
-      private router: Router) 
+      private router: Router, private service: MongoAPIService) 
   {
   	super();
 
@@ -36,6 +37,19 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
 
     this.gameSelected = userLoggedServ.getUserLogged().getGame();
     this.tournaments = this.gameSelected.getTournaments();
+
+/*
+    this.tournaments = new Array<Tournament>();
+    for (let i = 0; i < service.games.length; i++){
+      let u: Tournament = new Game(service.games[i].name, 
+                  service.games[i].description,
+                  service.games[i].getCategory);
+
+      u.setTournament = service.games[i].tournaments;
+
+      this.games.push(u);
+    }
+    */
   }
 
 	ngOnInit() { }

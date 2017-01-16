@@ -1,18 +1,12 @@
 <div class="col-sm-4" style="margin-left: 200px;">
-<form validate>
+<form #f="ngForm" (ngSubmit)="onSubmit()" validate>
+	<div class="form-group">
+  		<input type="text" class="form-control" placeholder="{{userLogged.getName}}" minlength="1" required
+  			[(ngModel)]="userLogged.setName" [ngModelOptions]="{standalone: true}">
 
- 	<div class="form-group">
   		<input type="password" class="form-control" placeholder="{{userLogged.getPassword}}" required minlength="1"
 			[(ngModel)]="userLogged.setPassword" [ngModelOptions]="{standalone: true}">
-	</div>
-
-	<div class="form-group">
-  		<input type="text" class="form-control" placeholder="{{userLogged.getName}}" minlength="1"
-  			[(ngModel)]="userLogged.setName" [ngModelOptions]="{standalone: true}">
-	</div>
-
-	<div class="form-group">
-  		<input type="text" class="form-control" placeholder="{{userLogged.getDni}}" minlength="9" maxlength="9" 
+		<input type="text" class="form-control" placeholder="{{userLogged.getDni}}" minlength="9" maxlength="9"  required
   			[(ngModel)]="userLogged.setDni" [ngModelOptions]="{standalone: true}">
 	</div>
 

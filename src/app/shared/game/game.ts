@@ -30,6 +30,10 @@ export class Game implements Aggregator {
 		this.tournaments = new Array<Tournament>();
 	}
 
+	set setTournament(array: Array<Tournament>) {
+		this.tournaments = array;
+	}
+
 	get getName(): string {
 		return this.name;
 	}
@@ -46,7 +50,14 @@ export class Game implements Aggregator {
 		return this.tournaments.length;
 	}
 
+	set addTour(tour: Tournament) {
+		let item = this.tournaments.indexOf(tour);
 
+		if (item === -1) {
+			this.tournaments.push(tour);
+		}
+	}
+	
 	addTournament(tournament: Tournament) {
 
 		let item = this.tournaments.indexOf(tournament);
