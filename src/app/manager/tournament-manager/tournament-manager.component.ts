@@ -7,7 +7,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Game, Category } from '../../shared/game/game';
 import { Tournament } from '../../shared/tournament/tournament';
-import { IndexIterator } from '../../util/iterator/indexIterator';
 import { Iterator } from '../../util/iterator/iterator';
 import { MongoAPIService } from '../../bd/mongoapi.service';
 
@@ -36,7 +35,7 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
     SystemManager.dataBase = dataBaseService.connect;
 
     this.gameSelected = userLoggedServ.getUserLogged().getGame();
-    this.tournaments = this.gameSelected.getTournaments();
+
 
 /*
     this.tournaments = new Array<Tournament>();
@@ -50,6 +49,14 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
       this.games.push(u);
     }
     */
+    
+    this.tournaments = this.gameSelected.getTournaments;
+    /*this.tournaments = new Array<Tournament>();
+
+    for(let i: Iterator = this.gameSelected.iterator() ; i.hasNext() ; i.next()) {
+      this.tournaments.push(i.current());
+    }*/
+
   }
 
 	ngOnInit() { }
@@ -69,5 +76,9 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
     this.router.navigate(['/matchmanager']);
   }
 
-
+  viewRanking(event) {
+    console.log("Viendo ranking...");
+    this.userLoggedServ.getUserLogged().setTournament(this.activeTournament);
+    this.router.navigate(['/viewranking']);
+  }
 }

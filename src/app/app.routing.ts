@@ -19,6 +19,7 @@ import { DeleteGameComponent } from './manager/user-manager/delete-game/delete-g
 import { TournamentManagerComponent } from './manager/tournament-manager/tournament-manager.component';
 import { NewTournamentComponent } from './manager/tournament-manager/new-tournament/new-tournament.component';
 import { MatchManagerComponent } from './manager/match-manager/match-manager.component';
+import { ViewRankingComponent } from './manager/tournament-manager/view-ranking/view-ranking.component';
 
 // Route Configuration
 export const routes: Routes = [
@@ -37,7 +38,8 @@ export const routes: Routes = [
   {path: 'gamemanager', component: GameManagerComponent },
   {path: 'tournamentmanager', component: TournamentManagerComponent },
   {path: 'tournamentmanager/newtournament', component: NewTournamentComponent },
-  {path: 'matchmanager', component: MatchManagerComponent}
+  {path: 'matchmanager', component: MatchManagerComponent},
+  {path: 'viewranking', component: ViewRankingComponent }
 
 
 ];

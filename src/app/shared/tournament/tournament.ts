@@ -2,13 +2,14 @@ import { Iterator } from './../../util/iterator/iterator';
 import { IndexIterator } from './../../util/iterator/indexIterator';
 import { Aggregator } from './../../util/iterator/aggregator';
 import { Observer } from './../../util/observer/observer';
-import { BTreeImpl } from './../../util/BTree/BTreeImpl'
+import { Subject } from './../../util/observer/subject';
+import { BTreeImpl } from './../../util/BTree/BTreeImpl';
 import { Match } from './../match/match';
 import { Team } from './../team/team';
 import { User } from './../user/user';
 import { Ranking } from './../ranking/ranking';
 
-export class Tournament implements Aggregator, Observer {
+export class Tournament implements Aggregator, Observer, Subject {
 
 	private name: string;
 	
@@ -29,12 +30,14 @@ export class Tournament implements Aggregator, Observer {
 	private award: string;
 	private Matchs: Array<Match>;
 
-	private ranking: Ranking;
+	private observer: Observer;
 
 	private MatchIterator;
 	private numMaxUsers: number;
 	private numCurrentUsers: number;
 	private numTeams: number;
+
+	private hideMatch: Match;
 
 	get getNumMaxUsers(): number {
 		return this.numMaxUsers;
@@ -45,7 +48,7 @@ export class Tournament implements Aggregator, Observer {
 	}
 
 	get getRanking(): Ranking {
-		return this.ranking;
+		return <Ranking> this.observer;
 	}
 
 	get isFullTournament() {
@@ -74,6 +77,8 @@ export class Tournament implements Aggregator, Observer {
 		this.numMaxUsers = teams.length * teams[0].getMaxPlayers;
 
 		this.difDateMatchs = (endTour.getTime() - startTour.getTime()) / teams.length-1;
+
+		this.registerObserver(new Ranking(teams));
 
 		this.createMatchs(teams);
 	}
@@ -240,18 +245,22 @@ export class Tournament implements Aggregator, Observer {
 			this.award = award
 	}
 
-	getMatchs(): Array<Match> {
+	get getMatchs() : Array<Match> {
 		return this.Matchs;
 	}
-
 
 	iterator(): Iterator {
 		return new IndexIterator(this.Matchs);
 	}
 
-	update(teamwinner: Team)
-	{
-		this.noEndMatchs--;
+	update(match: Match) {
+
+		if(match.isFinished) {
+			this.noEndMatchs--;
+		}
+
+		this.hideMatch = match;
+		this.notify();
 
 		if(this.noEndMatchs === 0)
 		{
@@ -277,5 +286,20 @@ export class Tournament implements Aggregator, Observer {
 				this.createMatchs(teams);
 			}
 		}
+	}
+
+	registerObserver(observer: Observer) {
+		
+		this.observer = observer;
+	}
+
+
+	removeObserver(observer: Observer) {
+		this.observer = null;
+	}
+
+	notify() {
+		
+		this.observer.update(this.hideMatch.getLocalTeam, this.hideMatch.getVisitorTeam, this.hideMatch.getScoreLocal, this.hideMatch.getScoreVisitor);
 	}
 }

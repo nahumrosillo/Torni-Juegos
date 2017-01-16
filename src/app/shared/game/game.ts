@@ -67,7 +67,7 @@ export class Game implements Aggregator {
 		}
 	}
 
-	getTournaments(): Array<Tournament> {
+	get getTournaments(): Array<Tournament> {
 		return this.tournaments;
 	}
 
