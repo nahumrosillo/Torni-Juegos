@@ -30,8 +30,6 @@
   </div>
 </div>
 
-<button (click)="botonMongo()" >MONGO DB</button>
-
 <div class="col-sm-7" *ngIf="!loginTerminated">
   <app-login-manager (userLogged)="onUserLogged($event)"  *ngIf="!loginTerminated">
   </app-login-manager>

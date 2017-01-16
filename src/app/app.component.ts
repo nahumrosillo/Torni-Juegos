@@ -28,7 +28,7 @@ export class AppComponent
     this.userLogged = user;
     this.userLog.getUserLogged().setUser = user;
     this.name = this.userLog.getUserLogged().getUser().getNick;
-    this.router.navigate(['/gamemanager']);
+    this.router.navigate(['/usermanager']);
   }
 
   onLogout() {

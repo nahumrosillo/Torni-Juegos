@@ -33,6 +33,10 @@ export class UserLogged
 		this.user = item;
 	}
 
+  set sUser(item: User) {
+    this.user = item;
+  }
+
 	clear() {
 		this.user = undefined;
 	}
