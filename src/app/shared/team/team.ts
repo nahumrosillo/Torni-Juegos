@@ -23,6 +23,10 @@ export class Team implements Aggregator
         return this.id;
     }
 
+    get getUsers(): Array<User> {
+        return this.Users;
+    }
+
     get getMaxPlayers(): number { //UT
         return this.maxPlayers;
     }

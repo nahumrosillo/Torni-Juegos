@@ -28,12 +28,17 @@ export class ViewRankingComponent extends SystemManager implements OnInit
   private ranking: Ranking;
   private teams: Array<ScoreTeam>;
 
+  private totalUsers: Array<User>;
+  private totalTeam: Array<Team>;
+  private teamSelected: Team;
+
 
   constructor(private dataBaseService: BDService, private userLoggedServ: UserLoggedService, 
       private router: Router) 
   {
   	super();
-
+    this.totalUsers = new Array<User>();
+    this.totalTeam = new Array<Team>();
     this.userLogged = userLoggedServ.getUserLogged().getUser();
     SystemManager.dataBase = dataBaseService.connect;
 
@@ -45,7 +50,24 @@ export class ViewRankingComponent extends SystemManager implements OnInit
     }*/
     this.teams = this.ranking.getScoreTeams;
 
+    for (let i = 0; i < this.teams.length; i++)
+    {
+      let t: Team = this.teams[i].getTeam;
+      this.totalTeam.push(this.teams[i].getTeam);
+
+      for (let j = 0; j < t.getUsers.length; j++)
+      {
+        this.totalUsers.push (t.getUsers[j]);
+      }
+    }
+    console.log(this.totalUsers);
+
+
   }
 
 	ngOnInit() { }
+
+  activeTeam() {
+    console.log(this.teamSelected);
+  }
 }

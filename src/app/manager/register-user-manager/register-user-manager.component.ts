@@ -1,22 +1,23 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User, Rol, Genre } from '../../shared/user/user';
 import { SystemManager } from '../../systemManager';
+import { MongoAPIService } from '../../bd/mongoapi.service';
 import { BDService } from '../bd.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MongoAPIService } from '../../bd/mongoapi.service';
 
 @Component({
   selector: 'app-register-user-manager',
   templateUrl: './register-user-manager.component.html',
   styleUrls: ['./register-user-manager.component.css'],
-  providers: [BDService]
+  providers: [MongoAPIService, BDService]
 })
 
 
 export class RegisterUserManagerComponent extends SystemManager implements OnInit {
 
 	private newUser: User;
+
   private db;
   constructor(dataBaseService: BDService, private router: Router, private service: MongoAPIService) 
   {
@@ -27,30 +28,8 @@ export class RegisterUserManagerComponent extends SystemManager implements OnIni
     this.newUser = new User();
   }
 
+
 	ngOnInit() { }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	onSubmit() 

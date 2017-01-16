@@ -1,12 +1,23 @@
 <div class="col-sm-3" style="margin-left: 200px;">
 <div class="panel panel-primary">
-    <div class="panel-heading">Info:</div>
-    <div class="panel-body"> You can see the ranking of the selected tournament. </div>
-	
-	</div>
+    <div class="panel-heading">Players:</div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let team of totalTeam let i = index;">
+                    <td *ngFor="let user of team.getUsers let j = index;">
+                        {{user.getNick}} <br/>Team: {{i}} <br/> Nº: {{j}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
 </div>
 
-<div class="col-sm-5">
+<div class="col-sm-4">
 	<div class="panel panel-primary">
     <div class="panel-heading">Ranking List of Tournament:</div>
     <div class="table-responsive">
@@ -28,11 +39,6 @@
     			</tr>
     		</tbody>
     	</table>
-	<ul class="list-group users-list">
-        <li class="list-group-item" *ngFor="let match of matchs; let i = index"
-            (click)="selectMatch(match)"  
-            [class.active]="match === activeMatch"> > Round {{i}}
-        </li>
-	</ul>
 	</div>
+    </div>
 </div>
