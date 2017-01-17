@@ -13,10 +13,5 @@ npm install
 
 Lanzar el servidor en localhost:4200
 ```
-ng serve
-```
-
-Ejecutar los Tests Unitarios con karma
-```
-ng test
+npm start
 ```
