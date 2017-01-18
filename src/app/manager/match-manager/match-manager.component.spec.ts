@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { TournamentManagerComponent } from './tournament-manager.component';
+import { TournamentManagerComponent } from '../tournament-manager/tournament-manager.component';
 
 describe('TournamentManagerComponent', () => {
   let component: TournamentManagerComponent;

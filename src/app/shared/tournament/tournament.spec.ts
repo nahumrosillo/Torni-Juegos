@@ -23,6 +23,7 @@ describe('Tournament', () => {
 
     it('Se construye llamando al constructor', async(() => {
 
+        let name = 'Mario Bross Competition';
         inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
         findate = new Date(2016, 9, 5, 0, 0, 0, 0);
         iniTdate = new Date(2016, 10, 5, 0, 0, 0, 0);
@@ -37,7 +38,7 @@ describe('Tournament', () => {
 
         inidate.getTime();
 
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
 
         expect(tournament).toBeDefined();
     }));
@@ -56,7 +57,7 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
 
         expect(tournament.getStartInscription).toEqual(inidate);
         expect(tournament.getEndInscription).toEqual(findate);
@@ -79,7 +80,7 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
 
 
         let iniInsc: Date = new Date(2017, 9, 5, 0, 0, 0, 0);
@@ -115,7 +116,7 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
 
         let iterador = tournament.iterator();
 
@@ -144,7 +145,7 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
 
         let iterador = tournament.iterator();
 
@@ -177,12 +178,12 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
 
         let iterador = tournament.iterator();
 
-        iterador.current().setScoreLocal = 5;
-        iterador.end().setScoreVisitor = 5;
+        iterador.current().setScoreLocal(5);
+        iterador.end().setScoreVisitor(5);
 
         iterador.current().endMatch();
         iterador.end().endMatch();
@@ -211,7 +212,7 @@ describe('Tournament', () => {
         teams.push(new Team(2, 1));
         teams.push(new Team(3, 1));
 
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
 
         let user1: User = new User('user1');
         let user2: User = new User('user2');

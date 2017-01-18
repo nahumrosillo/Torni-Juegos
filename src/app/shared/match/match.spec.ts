@@ -17,6 +17,8 @@ let team2: Team;
 let team3: Team;
 let team4: Team;
 
+let teams: Array<Team>;
+
 let ranking: Ranking;
 
 describe('Match', () => {
@@ -27,19 +29,21 @@ describe('Match', () => {
             ],
         });
 
+        let name = 'Tournament World';
+
         inidate = new Date(2016, 9, 5, 0, 0, 0, 0);
         findate = new Date(2016, 10, 5, 0, 0, 0, 0);
         iniTdate = new Date(2016, 11, 5, 0, 0, 0, 0);
         finTdate = new Date(2016, 12, 5, 0, 0, 0, 0);
 
-        let teams: Array<Team> = new Array<Team>();
+        teams = new Array<Team>();
 
         teams.push(team1 = new Team(0, 5));
         teams.push(team2 = new Team(1, 5));
         teams.push(team3 = new Team(2, 5));
         teams.push(team4 = new Team(3, 5));
 
-        tournament = new Tournament(inidate, findate, iniTdate, finTdate, teams);
+        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
     });
 
     it('se construye llamando al constructor', async(() => {
@@ -102,10 +106,10 @@ describe('Match', () => {
         let teamvisitor = new Team(1, 5);
 
         let match = new Match(tournament, date, teamlocal, teamvisitor);
-        ranking = new Ranking();
+        ranking = new Ranking(teams);
 
-        match.setScoreLocal = scoreLocal;
-        match.setScoreVisitor = scoreVisitor;
+        match.setScoreLocal(scoreLocal);
+        match.setScoreVisitor(scoreVisitor);
 
         expect(match.getScoreLocal).toEqual(scoreLocal);
         expect(match.getScoreVisitor).toEqual(scoreVisitor);
@@ -126,13 +130,13 @@ describe('Match', () => {
 
         let match = new Match(tournament, date, teamlocal, teamvisitor);
 
-        match.setScoreLocal = scoreLocal;
-        match.setScoreVisitor = scoreVisitor;
+        match.setScoreLocal(scoreLocal);
+        match.setScoreVisitor(scoreVisitor);
 
         match.endMatch();
 
-        match.setScoreLocal = scoreLocalFalse;
-        match.setScoreVisitor = scoreVisitorFalse;
+        match.setScoreLocal(scoreLocalFalse);
+        match.setScoreVisitor(scoreVisitorFalse);
 
         expect(match.getScoreLocal).toEqual(scoreLocal);
         expect(match.getScoreVisitor).toEqual(scoreVisitor);

@@ -32,7 +32,6 @@ export class Tournament implements Aggregator, Observer, Subject {
 
 	private observer: Observer;
 
-	private MatchIterator;
 	private numMaxUsers: number;
 	private numCurrentUsers: number;
 	private numTeams: number;
@@ -58,8 +57,6 @@ export class Tournament implements Aggregator, Observer, Subject {
 
 	constructor(name: string, startIns: Date, endIns: Date, startTour: Date,  endTour: Date, teams: Array<Team>) 
 	{
-
-
 		this.name = name;
 		this.startIns = startIns;
 		this.endIns = endIns;
@@ -130,9 +127,10 @@ export class Tournament implements Aggregator, Observer, Subject {
 
 		let removed: boolean = false;
 
-		if(this.numCurrentUsers === 0)
+		if(this.numCurrentUsers !== 0)
 		{
-			let currentMatch: Iterator = this.iterator();
+			let currentMatch: Iterator = this.iterator();		
+
 			while(!removed && currentMatch.hasNext()) {
 
 				let currentTeam: Team = currentMatch.current().getLocalTeam;
