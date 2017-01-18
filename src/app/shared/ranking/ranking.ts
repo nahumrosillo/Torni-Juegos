@@ -27,41 +27,41 @@ export class Ranking implements Observer, Aggregator {
 
 	update(localTeam: Team, visitorTeam: Team, localScore: number, visitorScore: number) {
 
-		let iterator = this.iterator();
+		let i = 0;
 
 		let LocalFound: boolean = false;
 		let VisitorFound: boolean = false;
-		while(iterator.hasNext() && (!LocalFound || !VisitorFound))
+		while(i < this.scoreTeams.length && (!LocalFound || !VisitorFound))
 		{
-			if(iterator.current().getTeam === localTeam) {
+			if(this.scoreTeams[i].getTeam === localTeam) {
 				LocalFound = true;
-				iterator.current().setNumScore = iterator.current().getNumScore + localScore;
+				this.scoreTeams[i].setNumScore = this.scoreTeams[i].getNumScore + localScore;
 
 				if(localScore > visitorScore)
 				{
-					iterator.current().setWinner = iterator.current().getWinner + 1;
+					this.scoreTeams[i].setNumWinner = this.scoreTeams[i].getNumWinner + 1;
 				}
 				else
 				{
-					iterator.current().setLoser = iterator.current().getLoser + 1;	
+					this.scoreTeams[i].setNumLoser = this.scoreTeams[i].getNumLoser + 1;	
 				}
 			}
 
-			if(iterator.current().getTeam === visitorTeam) {
+			if(this.scoreTeams[i].getTeam === visitorTeam) {
 				VisitorFound = true;
-				iterator.current().setNumScore = iterator.current().getNumScore + visitorScore;
+				this.scoreTeams[i].setNumScore = this.scoreTeams[i].getNumScore + visitorScore;
 
 				if(localScore < visitorScore)
 				{
-					iterator.current().setWinner = iterator.current().getWinner + 1;
+					this.scoreTeams[i].setNumWinner = this.scoreTeams[i].getNumWinner + 1;
 				}
 				else
 				{
-					iterator.current().setLoser = iterator.current().getLoser + 1;	
+					this.scoreTeams[i].setNumLoser = this.scoreTeams[i].getNumLoser + 1;	
 				}
 			}
 
-			iterator.next();
+			i++
 		}
 	}
 
