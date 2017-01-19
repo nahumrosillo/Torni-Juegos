@@ -2,8 +2,9 @@ import { Team } from './../team/team';
 import { Subject } from './../../util/observer/subject';
 import { Observer } from './../../util/observer/observer';
 import { Tournament } from './../tournament/tournament';
+import { Match } from './match.interface';
 
-export class Match implements Subject {
+export class NormalMatch implements Match, Subject {
 	private startDate: Date;
 	private scoreL: number;
 	private scoreV: number;
@@ -36,7 +37,7 @@ export class Match implements Subject {
 	}
 
 	// Getters
-	get getWinner(): Team { //OK
+	getWinner(): Team { //OK
 		
 		if(this.scoreL > this.scoreV)
 			return this.LocalTeam;
@@ -44,27 +45,27 @@ export class Match implements Subject {
 			return this.VisitorTeam;
 	}
 
-	get getLocalTeam(): Team {		//OK
+	getLocalTeam(): Team {		//OK
 		
 		return this.LocalTeam;
 	}
-
-	get getVisitorTeam(): Team {	//OK
+	
+	getVisitorTeam(): Team {	//OK
 		
 		return this.VisitorTeam;
 	}
 
-	get getScoreLocal(): number {	//OK
+	getScoreLocal(): number {	//OK
 
 		return this.scoreL;
 	}
 
-	get getScoreVisitor(): number {	//OK
+	getScoreVisitor(): number {	//OK
 
 		return this.scoreV;
 	}
 
-	get getStartDate(): Date {		//OK
+	getStartDate(): Date {		//OK
 
 		return this.startDate;
 	}
@@ -88,7 +89,7 @@ export class Match implements Subject {
 		}
 	}
 
-	get isFinished() {
+	isFinished(): boolean {
 		return this.finishedMatch;
 	}
 	
