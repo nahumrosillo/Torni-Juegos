@@ -185,7 +185,7 @@ export class Tournament implements Aggregator, Observer, Subject {
 	get getWinnerTournament(): Team  {
 
 		if(this.finishedTournament)
-			return this.Matchs[this.Matchs.length-1].getWinner;
+			return this.Matchs[this.Matchs.length-1].getWinner();
 		else
 			return null;
 	}
@@ -268,7 +268,7 @@ export class Tournament implements Aggregator, Observer, Subject {
 
 			while(currentMatch < this.currentMatchs) {
 
-				teams.push(this.Matchs[iterador].getWinner);
+				teams.push(this.Matchs[iterador].getWinner());
 
 				currentMatch++;
 				iterador--;
@@ -297,6 +297,6 @@ export class Tournament implements Aggregator, Observer, Subject {
 
 	notify() {
 		
-		this.observer.update(this.hideMatch.getLocalTeam, this.hideMatch.getVisitorTeam, this.hideMatch.getScoreLocal, this.hideMatch.getScoreVisitor);
+		this.observer.update(this.hideMatch.getLocalTeam(), this.hideMatch.getVisitorTeam(), this.hideMatch.getScoreLocal(), this.hideMatch.getScoreVisitor());
 	}
 }
