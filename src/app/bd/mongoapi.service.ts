@@ -9,9 +9,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class MongoAPIService {
 
+
+	//	La direccion de la BD. No esta completa
 	private mongoURL: string = "https://api.mlab.com/api/1/databases/tornijuegos/collections/";
 
-
+	//	Esta es mi API KEY. Es privada y ser ve en mi cuenta de mLab
 	private apiKey: string = "aLJE3ELMrsgvIGzXJ5sx_AWmvZ9myEeq";
 
 	users = [];
@@ -20,6 +22,8 @@ export class MongoAPIService {
 	constructor(private http: Http) {
 
 
+		//	Dentro del get tiene que ir la URL completa. Al final se le anade la apikey
+		//	Construye el vector de usuarios
 		this.http.get(this.mongoURL + "User" + '?apiKey=' + this.apiKey).map(res => res.json()).subscribe(
 			data => this.users = data,
 			error => console.log("Error loading users."),
@@ -32,6 +36,11 @@ export class MongoAPIService {
 			() => console.log("Games loaded.")
 		);
 	}
+
+
+	/*	A partir de aqui son metodos copias y pegados de un tio. Imagino que debe funcionar. El problema
+		es entender como usar esos metodos porque devuelven un Observable<any>
+	*/
 
 
 	// f: fields to include: {id:1}  1 yes, 0 no

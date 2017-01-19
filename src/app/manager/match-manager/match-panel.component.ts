@@ -29,11 +29,11 @@ export class MatchPanelComponent
   }
 
   increaseLocalScore() {
-    this.match.setScoreLocal(1 + this.match.getScoreLocal());
+    this.match.setScoreLocal(1 + this.match.getScoreLocal);
   }  
 
   increaseVisitorScore() {
-    this.match.setScoreVisitor(1 + this.match.getScoreVisitor());
+    this.match.setScoreVisitor(1 + this.match.getScoreVisitor);
   }
 
   finishMatch() {

@@ -30,6 +30,10 @@ export class Game implements Aggregator {
 		this.tournaments = new Array<Tournament>();
 	}
 
+	set setTournament(array: Array<Tournament>) {
+		this.tournaments = array;
+	}
+
 	get getName(): string {
 		return this.name;
 	}
