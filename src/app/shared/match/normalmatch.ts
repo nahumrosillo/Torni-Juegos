@@ -2,7 +2,7 @@ import { Team } from './../team/team';
 import { Subject } from './../../util/observer/subject';
 import { Observer } from './../../util/observer/observer';
 import { Tournament } from './../tournament/tournament';
-import { Match } from './match.interface';
+import { Match } from './match';
 
 export class NormalMatch implements Match, Subject {
 	private startDate: Date;
