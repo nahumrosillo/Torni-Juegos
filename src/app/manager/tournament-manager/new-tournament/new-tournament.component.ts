@@ -30,9 +30,7 @@ export class NewTournamentComponent implements OnInit {
   private maxTeams: number;
 
   constructor(private userLoggedServ: UserLoggedService) {
-    this.gameSelected = userLoggedServ.getUserLogged().getGame();
-
-    
+    this.gameSelected = userLoggedServ.getUserLogged().getGame(); 
   }
 
   ngOnInit() {
@@ -42,15 +40,15 @@ export class NewTournamentComponent implements OnInit {
   private getDateHTML(cad: string): Date {
 
       let date: Date;
-
+      console.log(cad);
       let anno: number;
       anno = parseInt(cad[0]+cad[1]+cad[2]+cad[3]+cad[4]);
 
       let month: number;
-      month = parseInt(cad[6]+cad[7]);
+      month = parseInt(cad[5]+cad[6]);
 
       let day: number;
-      day = parseInt(cad[9]+cad[10]);
+      day = parseInt(cad[8]+cad[9]);
 
       return new Date(anno, month, day, 0, 0, 0, 0);
   }
@@ -67,8 +65,9 @@ export class NewTournamentComponent implements OnInit {
    let sTour: Date = this.getDateHTML(this.startTour);
    let eTour: Date = this.getDateHTML(this.endTour);
 
-   if (((sIns < eIns) && ( eIns < sTour) && (sTour < eTour))) {
 
+   if (( (sIns < eIns) && (eIns < sTour) && (sTour < eTour) )) 
+   {
      console.log("Torneo agregado.");
      this.newTournament = new Tournament(this.nameTour, sIns, eIns, sTour, eTour, this.teams);
      this.userLoggedServ.getUserLogged().getGame().addTournament(this.newTournament);
