@@ -1,7 +1,3 @@
-/**
- * Created by nahum on 26/11/16.
-*/
-
 export enum Rol {
     NULL,
     SUPERADMIN,
@@ -42,7 +38,7 @@ export class User {
     set setNick(nick: string) {
         this.nick = nick;
     }
-
+ 
     set setName(name: string) {
         this.name = name;
     }
@@ -93,23 +89,5 @@ export class User {
 
     get getGenre(): Genre {
         return this.genre;
-    }
-
-    get isEmpty(): boolean {
-        return this.getNick === 'null';
-    }
-
-    isEqual(user: User): boolean {
-        if (user.nick === this.nick &&
-            user.getDni === this.dni &&
-            user.getGenre === this.genre &&
-            user.getRol === this.rol &&
-            user.getBirthDate === this.birthDate &&
-            user.getName === this.name) {
-
-            return true;
-        } else {
-            return false;
-        }
     }
 }

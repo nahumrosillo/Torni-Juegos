@@ -36,30 +36,16 @@ export class NewAdminComponent implements OnInit {
         if (data[0] === undefined || data[0] === null) {
             this.newUser.setRol = Rol.ADMINISTRATOR;
             console.log("Creado el nuevo admin en la BD");
+            window.alert("Admin creado en la BD");
             this.service.users.push(this.newUser);
             this.service.mongoInsert("User", this.newUser).subscribe();
         }
         else {
           console.log("Ese admin ya existe en la BD");
+          window.alert("Ya existe en la BD");
         }
         
       }
     );
-
-/*
-
-    this.newUser.setRol = Rol.ADMINISTRATOR;
-    let userBD = this.db.getUser(this.newUser);
-
-    if (userBD === null || userBD === undefined) 
-    {
-      this.db.add(this.newUser);
-      console.log("ADMIN agregado a la BD");
-    } 
-    else 
-    {
-      console.log("Usuario ya existe en la BD");
-    }
-*/
   }
 }

@@ -37,7 +37,7 @@ export class MatchManagerComponent extends SystemManager implements OnInit
 
     this.tournamentSelected = userLoggedServ.getUserLogged().getTournament();
     //this.matchs = new Array<Match>();
-    this.matchs = this.tournamentSelected.getMatchs;
+    this.matchs = this.tournamentSelected.getMatchs();
 
     /*for(let i: Iterator = this.tournamentSelected.iterator() ; i.hasNext() ; i.next()) {
       this.matchs.push(i.current());

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Game, Category } from '../../shared/game/game';
 import { Tournament } from '../../shared/tournament/tournament';
 import { Match } from '../../shared/match/match';
+import { NormalMatch } from '../../shared/match/normalmatch';
 
 @Component({
   selector: 'app-match-panel',
@@ -21,7 +22,7 @@ export class MatchPanelComponent
   @Output() eventDelete = new EventEmitter();
   @Output() eventMatch = new EventEmitter();
 
-  @Input() match: Match;
+  @Input() match: NormalMatch;
   @Input() userLogged: User;
 
   deleteMatch() {
@@ -29,14 +30,16 @@ export class MatchPanelComponent
   }
 
   increaseLocalScore() {
-    this.match.setScoreLocal(1 + this.match.getScoreLocal);
+    this.match.setScoreLocal = 1 + this.match.getScoreLocal;
   }  
 
   increaseVisitorScore() {
-    this.match.setScoreVisitor(1 + this.match.getScoreVisitor);
+    this.match.setScoreVisitor = 1 + this.match.getScoreVisitor;
   }
 
   finishMatch() {
     this.match.endMatch();
+    this.match.getStartDate.getHours()
+    this.match.getStartDate.getMinutes()
   }
 }

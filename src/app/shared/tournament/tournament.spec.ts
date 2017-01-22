@@ -1,22 +1,24 @@
 import { TestBed, async } from '@angular/core/testing';
 import { Tournament } from './tournament';
+import { NormalTournament } from './normaltournament';
 import { Match } from './../match/match';
 import { Team } from './../team/team';
 import { User } from './../user/user';
 import { Iterator } from './../../util/iterator/iterator';
+import { NormalMatchFactory } from '../../util/factory-method/match-factory/normal-match-factory';
 
-let tournament: Tournament;
+let tournament: NormalTournament;
 
 let inidate: Date;
 let findate: Date;
 let iniTdate: Date;
 let finTdate: Date;
 
-describe('Tournament', () => {
+describe('NormalTournament', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [
-                Tournament
+                NormalTournament
             ],
         });   
     });
@@ -38,7 +40,9 @@ describe('Tournament', () => {
 
         inidate.getTime();
 
-        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
+        let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
+
+        tournament = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
 
         expect(tournament).toBeDefined();
     }));
@@ -57,7 +61,9 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
+        let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
+
+        tournament = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
 
         expect(tournament.getStartInscription).toEqual(inidate);
         expect(tournament.getEndInscription).toEqual(findate);
@@ -80,25 +86,16 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
+        let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
 
-
-        let iniInsc: Date = new Date(2017, 9, 5, 0, 0, 0, 0);
-        let finInsc: Date = new Date(2017, 10, 5, 0, 0, 0, 0);
+        tournament = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
         
         let award = 'Trofeo de oro';
 
-        tournament.setStartInscription = iniInsc;
-        tournament.setEndInscription = finInsc;
 
         tournament.setAward = award;
 
         expect(tournament.getNumMatch).toEqual(2);
-
-
-        expect(tournament.getStartInscription).toEqual(iniInsc);
-        expect(tournament.getEndInscription).toEqual(finInsc);
-
         expect(tournament.getAward).toEqual(award);
     }));
 
@@ -116,7 +113,9 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
+        let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
+
+        tournament = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
 
         let iterador = tournament.iterator();
 
@@ -145,7 +144,9 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
+        let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
+
+        tournament = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
 
         let iterador = tournament.iterator();
 
@@ -164,7 +165,7 @@ describe('Tournament', () => {
 
     }));
 
-    it('Torneo genera partidas cuando están finalizadas y finaliza el torneo', async(() => {
+    it('El ganador de torneo es el ganador que debería ser', async(() => {
         
         inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
         findate = new Date(2016, 9, 5, 0, 0, 0, 0);
@@ -178,28 +179,31 @@ describe('Tournament', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
+        let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
+
+        tournament = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
 
         let iterador = tournament.iterator();
 
-        iterador.current().setScoreLocal(5);
-        iterador.end().setScoreVisitor(5);
+        iterador.current().setScoreLocal = 5;
+        iterador.end().setScoreVisitor = 5;
 
         iterador.current().endMatch();
         iterador.end().endMatch();
 
-        expect(iterador.end().getVisitorTeam).toEqual(new Team(0, 5));
-        expect(iterador.end().getLocalTeam).toEqual(new Team(3, 5));
+        expect(iterador.end().getLocalTeam).toEqual(new Team(0, 5));
+        expect(iterador.end().getVisitorTeam).toEqual(new Team(3, 5));
 
         iterador.end().setScoreVisitor = 5;
 
         iterador.end().endMatch();
 
-        expect(tournament.getWinnerTournament).toEqual(new Team(0, 5));
+        expect(tournament.getWinnerTournament).toEqual(new Team(3, 5));
 
     }));
 
     it('Torneo introduce y elimina usuarios', async(() => {
+        
         inidate = new Date(2016, 8, 5, 0, 0, 0, 0);
         findate = new Date(2016, 9, 5, 0, 0, 0, 0);
         iniTdate = new Date(2016, 10, 5, 0, 0, 0, 0);
@@ -212,7 +216,9 @@ describe('Tournament', () => {
         teams.push(new Team(2, 1));
         teams.push(new Team(3, 1));
 
-        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
+        let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
+
+        tournament = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
 
         let user1: User = new User('user1');
         let user2: User = new User('user2');
@@ -220,21 +226,20 @@ describe('Tournament', () => {
         let user4: User = new User('user4');
         let user5: User = new User('user5');
 
-        expect(tournament.searchUserTournament(user1)).toEqual(false);
+        expect(tournament.searchPlayer(user1)).toEqual(false);
 
-        tournament.addUserTournament(user1);
+        tournament.addPlayer(user1);
 
-        expect(tournament.searchUserTournament(user1)).toEqual(true);
+        expect(tournament.searchPlayer(user1)).toEqual(true);
 
-        tournament.removeUserTournament(user1);
+        tournament.removePlayer(user1);
 
-        expect(tournament.searchUserTournament(user1)).toEqual(false);
+        expect(tournament.searchPlayer(user1)).toEqual(false);
 
-        tournament.addUserTournament(user1);        
-        tournament.addUserTournament(user2);
-        tournament.addUserTournament(user3);
-        expect(tournament.addUserTournament(user4)).toEqual(true);
-        expect(tournament.addUserTournament(user5)).toEqual(false);
+        tournament.addPlayer(user1);        
+        tournament.addPlayer(user2);
+        tournament.addPlayer(user3);
+        expect(tournament.addPlayer(user4)).toEqual(true);
+        expect(tournament.addPlayer(user5)).toEqual(false);
     }));
-
 });

@@ -5,11 +5,13 @@
       <div class="panel-heading">Match Info</div>
       <div class="panel-body"> ID Local Team: {{ match.getLocalTeam.getId }}  Local Score: {{ match.getScoreLocal }}</div>
       <div class="panel-body"> ID Visitor Team: {{ match.getVisitorTeam.getId}} Visitor Score: {{  match.getScoreVisitor}} </div>
-      <div class="panel-body"> Start Date : {{ match.getStartDate }}</div>
-      <div class="panel-body"> Finished: {{ match.isFinished }}</div>
+      <div class="panel-body"> Date : 
+      {{match.getStartDate.getDate()}}/{{match.getStartDate.getMonth()}}/{{match.startDate.getFullYear()}}
+        {{match.getStartDate.getHours()}}:{{match.getStartDate.getMinutes()}}</div>
+      <div class="panel-body"> Finished: {{ match.isFinished() }}</div>
     </div>
 
-  <div *ngIf="!match.isFinished ">
+  <div *ngIf="!match.isFinished() ">
     <button class="btn btn-lg btn-block btn-primary" 
     *ngIf="userLogged.getRol === 1 || userLogged.getRol === 3"
     (click)="finishMatch()">

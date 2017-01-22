@@ -32,39 +32,25 @@ export class DeleteSponsorComponent implements OnInit {
 
         if (data[0] === undefined || data[0] === null) {
           console.log("Patrocinador no existe en la BD");
+          window.alert("No existe en la BD");
         }
         else {
 
           let u: User = new User();
           u.setRol = data[0].rol;
 
-          if (u.getRol == Rol.SPONSOR) {
+          if (u.getRol === Rol.SPONSOR) {
             console.log("Patrocinador borrado de la BD");
+            window.alert("Patrocinador borrado de la BD");
             let i: number = this.service.users.indexOf(u);
             this.service.users.splice(i);
             this.service.mongoDelete("User", data[0]._id.$oid).subscribe();
           }
           else {
+            window.alert("No es un patrocinador");
             console.log("No es un Patrocinador");
           }
         }
       });
-
-/*
-    let userBD = this.db.getUser(this.newUser);
-
-    if (userBD !== null && userBD !== undefined) 
-    {
-      if (userBD.getRol === Rol.ADMINISTRATOR) 
-      {
-        this.db.remove(userBD);
-        console.log("ADMIN borrado de la BD");
-      }
-    } 
-    else 
-    {
-      console.log("Usuario no existe o no es Admin");
-    }
-*/
   }
 }

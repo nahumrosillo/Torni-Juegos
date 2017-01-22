@@ -40,6 +40,7 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
 
         if (data[0] === undefined || data[0] === null) {
           console.log("Usuario no existe en la BD");
+          window.alert("Ya existe en la BD");
         }
         else {
 
@@ -52,7 +53,7 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
           u.setBirthDate = data[0].birthdate;
           u.setDni = data[0].dni;
 
-          if (this.loginUser.getNick == u.getNick && this.loginUser.getPassword == u.getPassword) {
+          if (this.loginUser.getNick == u.getNick && this.loginUser.getPassword === u.getPassword) {
             console.log("Usuario Logeado");
             this.userLog.getUserLogged().setUser(u);
             this.isUserLogged = true;
@@ -60,25 +61,5 @@ export class LoginManagerComponent extends SystemManager implements OnInit {
           }
         }
       });
-  }
-
-  //  Login con Memory
-  onSubmit2() 
-  {
-    this.userBD = SystemManager.dataBase.getUser(this.loginUser);
-
-    if (this.userBD === null || this.userBD === undefined) 
-    {
-      console.log("Usuario No existe en la BD");
-    } 
-    else if (this.loginUser.getNick == this.userBD.getNick && this.loginUser.getPassword == this.userBD.getPassword) 
-    {
-      console.log("Usuario Logeado");
-
-      this.userLog.getUserLogged().setUser(this.userBD);
-
-      this.isUserLogged = true;
-      this.userLogged.emit( {user: this.userBD});
-    }
   }
 }

@@ -31,11 +31,12 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
   {
   	super();
 
+
+
     this.userLogged = userLoggedServ.getUserLogged().getUser();
     SystemManager.dataBase = dataBaseService.connect;
 
     this.gameSelected = userLoggedServ.getUserLogged().getGame();
-
 
 /*
     this.tournaments = new Array<Tournament>();
@@ -50,7 +51,7 @@ export class TournamentManagerComponent extends SystemManager implements OnInit
     }
     */
     
-    this.tournaments = this.gameSelected.getTournaments;
+    this.tournaments = this.gameSelected.getTournaments();
     /*this.tournaments = new Array<Tournament>();
 
     for(let i: Iterator = this.gameSelected.iterator() ; i.hasNext() ; i.next()) {

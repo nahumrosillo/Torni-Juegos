@@ -1,9 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 import { Match } from './match';
+import { NormalMatch } from './normalmatch';
 import { Team } from './../team/team';
 import { Tournament } from './../tournament/tournament';
+import { NormalTournament } from './../tournament/normaltournament';
 import { Ranking } from './../ranking/ranking';
 import { Observer } from './../../util/observer/observer';
+import { NormalMatchFactory } from './../../util/factory-method/match-factory/normal-match-factory';
 
 let tournament: Tournament;
 
@@ -25,7 +28,7 @@ describe('Match', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [
-                Match
+                NormalMatch
             ],
         });
 
@@ -43,7 +46,9 @@ describe('Match', () => {
         teams.push(team3 = new Team(2, 5));
         teams.push(team4 = new Team(3, 5));
 
-        tournament = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
+        let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
+
+        tournament = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
     });
 
     it('se construye llamando al constructor', async(() => {
@@ -53,7 +58,7 @@ describe('Match', () => {
         let teamlocal = new Team(0, 5);
         let teamvisitor = new Team(1, 5);
 
-        let match = new Match(tournament, date, teamlocal, teamvisitor);
+        let match = new NormalMatch(tournament, date, teamlocal, teamvisitor);
 
         expect(match).toBeDefined();
     }));
@@ -65,7 +70,7 @@ describe('Match', () => {
         let teamlocal = new Team(0, 5);
         let teamvisitor = new Team(1, 5);
 
-        let match = new Match(tournament, date, teamlocal, teamvisitor);
+        let match = new NormalMatch(tournament, date, teamlocal, teamvisitor);
     }));
 
     it('se construye un partido con puntuación 0-0', async(() => {
@@ -75,7 +80,7 @@ describe('Match', () => {
         let teamlocal = new Team(0, 5);
         let teamvisitor = new Team(1, 5);
 
-        let match = new Match(tournament, date, teamlocal, teamvisitor);
+        let match = new NormalMatch(tournament, date, teamlocal, teamvisitor);
 
         expect(match.getScoreLocal).toEqual(0);
         expect(match.getScoreLocal).toEqual(0);
@@ -88,7 +93,7 @@ describe('Match', () => {
         let teamlocal = new Team(0, 5);
         let teamvisitor = new Team(1, 5);
 
-        let match = new Match(tournament, date, teamlocal, teamvisitor);
+        let match = new NormalMatch(tournament, date, teamlocal, teamvisitor);
 
         expect(match.getLocalTeam).toEqual(teamlocal);
         expect(match.getVisitorTeam).toEqual(teamvisitor);
@@ -105,11 +110,11 @@ describe('Match', () => {
         let teamlocal = new Team(0, 5);
         let teamvisitor = new Team(1, 5);
 
-        let match = new Match(tournament, date, teamlocal, teamvisitor);
+        let match = new NormalMatch(tournament, date, teamlocal, teamvisitor);
         ranking = new Ranking(teams);
 
-        match.setScoreLocal(scoreLocal);
-        match.setScoreVisitor(scoreVisitor);
+        match.setScoreLocal = scoreLocal;
+        match.setScoreVisitor = scoreVisitor;
 
         expect(match.getScoreLocal).toEqual(scoreLocal);
         expect(match.getScoreVisitor).toEqual(scoreVisitor);
@@ -128,15 +133,15 @@ describe('Match', () => {
         let teamlocal = new Team(0, 5);
         let teamvisitor = new Team(1, 5);
 
-        let match = new Match(tournament, date, teamlocal, teamvisitor);
+        let match = new NormalMatch(tournament, date, teamlocal, teamvisitor);
 
-        match.setScoreLocal(scoreLocal);
-        match.setScoreVisitor(scoreVisitor);
+        match.setScoreLocal = scoreLocal;
+        match.setScoreVisitor = scoreVisitor;
 
         match.endMatch();
 
-        match.setScoreLocal(scoreLocalFalse);
-        match.setScoreVisitor(scoreVisitorFalse);
+        match.setScoreLocal = scoreLocalFalse;
+        match.setScoreVisitor = scoreVisitorFalse;
 
         expect(match.getScoreLocal).toEqual(scoreLocal);
         expect(match.getScoreVisitor).toEqual(scoreVisitor);

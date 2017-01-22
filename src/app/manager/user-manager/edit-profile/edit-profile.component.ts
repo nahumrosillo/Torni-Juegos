@@ -20,7 +20,6 @@ export class EditProfileComponent implements OnInit
   constructor(bdService: BDService, private userLog: UserLoggedService, private service: MongoAPIService) {
       this.bd = bdService.connect;
 
-      let user = this.userLog.getUserLogged().getUser();
       this.userLogged = this.userLog.getUserLogged().getUser();
 
       console.log(this.userLogged.getNick);
@@ -58,13 +57,8 @@ export class EditProfileComponent implements OnInit
         this.service.users.push(u);
 
         console.log("Datos Actualizados en la BD");
+        window.alert("Datos actualizados en la BD");
       }
     );
-/*
-    this.bd.remove(this.userLogged);
-    this.bd.add(this.userLogged);
-
-    this.userLog.getUserLogged().setUser(this.userLogged);
-    */
   }
 }

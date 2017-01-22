@@ -1,7 +1,3 @@
-/**
- * Created by nahum on 26/11/16.
- */
-
 import { TestBed, async } from '@angular/core/testing';
 import { User, Rol, Genre } from './user';
 
@@ -58,7 +54,6 @@ describe('User', () => {
     it('setter/getter Nick', async(() => {
         user.setNick = 'Nahum';
         expect(user.getNick).toEqual('Nahum');
-        expect(user.isEmpty).toBe(false);
     }));
 
     it('setter/getter Dni', async(() => {
@@ -84,6 +79,6 @@ describe('User', () => {
         let u: User;
         u = new User();
 
-        expect(user.isEqual(u));
+        expect(user === u);
     }));
 });

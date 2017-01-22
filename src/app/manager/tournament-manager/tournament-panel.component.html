@@ -11,7 +11,7 @@
     </div>
 
 	<button class="btn btn-lg btn-block btn-primary" (click)="addPlayer()"
-	*ngIf="!tournament.isFullTournament">
+	*ngIf="!(tournament.getNumMaxUsers === tournament.getCurrentUsers)">
 		Add Player
 	</button>
 

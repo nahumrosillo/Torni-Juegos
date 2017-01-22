@@ -32,10 +32,12 @@ export class DeleteGameComponent implements OnInit {
 
         if (data[0] === undefined || data[0] === null) {
           console.log("Juego no existe en la BD");
+          window.alert("El juego no existe en la BD");
         }
         else {
 
           console.log("Juego borrado de la BD");
+          window.alert("Juego borrado de la BD");
           this.service.mongoDelete("Game", data[0]._id.$oid);
         }
       });

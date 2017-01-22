@@ -42,7 +42,7 @@ export class ViewRankingComponent extends SystemManager implements OnInit
     this.userLogged = userLoggedServ.getUserLogged().getUser();
     SystemManager.dataBase = dataBaseService.connect;
 
-    this.ranking = userLoggedServ.getUserLogged().getTournament().getRanking;
+    this.ranking = userLoggedServ.getUserLogged().getTournament().getRanking();
     /*this.teams = new Array<ScoreTeam>();
 
     for(let iterator: Iterator = this.ranking.iterator() ; iterator.hasNext() ; iterator.next()) {
@@ -60,14 +60,10 @@ export class ViewRankingComponent extends SystemManager implements OnInit
         this.totalUsers.push (t.getUsers[j]);
       }
     }
-    console.log(this.totalUsers);
-
-
   }
 
 	ngOnInit() { }
 
   activeTeam() {
-    console.log(this.teamSelected);
   }
 }

@@ -35,10 +35,10 @@ export class TournamentPanelComponent
   viewRanking() {
     this.eventRanking.emit();
     console.log("Ranking");
-    console.log(this.tournament.getRanking);
+    console.log(this.tournament.getRanking());
   }
 
   addPlayer() {
-    this.tournament.addUserTournament(this.userLogged);
+    this.tournament.addPlayer(this.userLogged);
   }
 }

@@ -35,7 +35,7 @@ export class Team implements Aggregator
         return this.Users.length;
     }
 
-    get isFull(): boolean { //UT
+    isFull(): boolean { //UT
         return this.Users.length == this.maxPlayers;
     }
     

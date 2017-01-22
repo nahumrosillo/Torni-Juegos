@@ -35,29 +35,15 @@ export class NewSponsorComponent implements OnInit {
         if (data[0] === undefined || data[0] === null) {
             this.newUser.setRol = Rol.SPONSOR;
             console.log("Creado el nuevo sponsor en la BD");
+            window.alert("Sponsor creado en la BD");
             this.service.users.push(this.newUser);
             this.service.mongoInsert("User", this.newUser).subscribe();
         }
         else {
-          console.log("Ese sponsor ya existe en la BD");
+          console.log("Ya existe en la BD");
         }
         
       }
     );
-
-/*
-    this.newUser.setRol = Rol.SPONSOR;
-    let userBD = this.db.getUser(this.newUser);
-
-    if (userBD === null || userBD === undefined) 
-    {
-      this.db.add(this.newUser);
-      console.log("Sponsor agregado a la BD");
-    } 
-    else 
-    {
-      console.log("Usuario ya existe en la BD");
-    }
-*/
   }
 }

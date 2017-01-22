@@ -55,10 +55,12 @@ export class NewGameComponent implements OnInit {
     {
       this.db.add(this.newGame);
       console.log("Juego agregado a la BD");
+      window.alert("Juego creado en la BD");
     } 
     else 
     {
       console.log("Juego ya existe en la BD");
+      window.alert("Ya existe en la BD");
     }
    
 

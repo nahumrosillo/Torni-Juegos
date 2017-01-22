@@ -17,6 +17,7 @@ export class NormalMatch implements Match, Subject {
 
 	constructor(tournament: Tournament, startdate: Date, local?: Team, visitor?: Team) //OK
 	{
+
 		this.tournament = tournament;
 		this.startDate = startdate;
 		this.LocalTeam = local;
@@ -37,7 +38,7 @@ export class NormalMatch implements Match, Subject {
 	}
 
 	// Getters
-	getWinner(): Team { //OK
+	get getWinner(): Team { //OK
 		
 		if(this.scoreL > this.scoreV)
 			return this.LocalTeam;
@@ -45,34 +46,34 @@ export class NormalMatch implements Match, Subject {
 			return this.VisitorTeam;
 	}
 
-	getLocalTeam(): Team {		//OK
+	get getLocalTeam(): Team {		//OK
 		
 		return this.LocalTeam;
 	}
 	
-	getVisitorTeam(): Team {	//OK
+	get getVisitorTeam(): Team {	//OK
 		
 		return this.VisitorTeam;
 	}
 
-	getScoreLocal(): number {	//OK
+	get getScoreLocal(): number {	//OK
 
 		return this.scoreL;
 	}
 
-	getScoreVisitor(): number {	//OK
+	get getScoreVisitor(): number {	//OK
 
 		return this.scoreV;
 	}
 
-	getStartDate(): Date {		//OK
+	get getStartDate(): Date {		//OK
 
 		return this.startDate;
 	}
 
 
 	// Setters
-	setScoreLocal(score: number) {  //OK
+	set setScoreLocal(score: number) {  //OK
 
 		if(!this.finishedMatch)
 		{
@@ -81,7 +82,7 @@ export class NormalMatch implements Match, Subject {
 		}
 	}
 
-	setScoreVisitor(score: number) { //OK
+	set setScoreVisitor(score: number) { //OK
 		
 		if(!this.finishedMatch) {
 			this.scoreV = score;

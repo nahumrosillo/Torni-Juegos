@@ -40,11 +40,13 @@ export class RegisterUserManagerComponent extends SystemManager implements OnIni
         if (data[0] === undefined || data[0] === null) {
             this.newUser.setRol = Rol.PLAYER;
             console.log("Creado el nuevo Jugador en la BD");
+            window.alert("Player creado en la BD");
             this.service.users.push(this.newUser);
             this.service.mongoInsert("User", this.newUser).subscribe();
         }
         else {
           console.log("Ese nick ya existe en la BD");
+          window.alert("Ese nick ya existe en la BD");
         }
         
       }

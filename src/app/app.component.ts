@@ -24,9 +24,10 @@ export class AppComponent
   }
 
   onUserLogged(user) {
+    
     this.loginTerminated = true;
-    this.userLogged = user;
-    this.userLog.getUserLogged().setUser = user;
+    this.userLogged = user.user;
+    this.userLog.getUserLogged().setUser(user.user);
     this.name = this.userLog.getUserLogged().getUser().getNick;
     this.router.navigate(['/usermanager']);
   }
@@ -58,11 +59,5 @@ export class AppComponent
             this.router.navigate(['/gamemanager']);
           }, 1000);
       });
-
-/*
-      let u: User = new User("MazingerZeta5");
-      this.service.users.push(u)
-      this.service.mongoInsert("User", u).subscribe();
-      */
   }
 }

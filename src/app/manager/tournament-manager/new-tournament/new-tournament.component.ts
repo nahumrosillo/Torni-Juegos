@@ -3,6 +3,9 @@ import { BDService } from '../../bd.service';
 import { UserLoggedService } from '../../userLogged.service';
 import { Game, Category } from '../../../shared/game/game';
 import { Tournament } from '../../../shared/tournament/tournament';
+import { NormalTournamentFactory } from '../../../util/factory-method/tournament-factory/normal-tournament-factory';
+import { NormalMatchFactory } from '../../../util/factory-method/match-factory/normal-match-factory';
+import { MatchFactory } from '../../../util/factory-method/match-factory/match-factory';
 import { Team } from '../../../shared/team/team';
 
 
@@ -69,7 +72,14 @@ export class NewTournamentComponent implements OnInit {
    if (( (sIns < eIns) && (eIns < sTour) && (sTour < eTour) )) 
    {
      console.log("Torneo agregado.");
-     this.newTournament = new Tournament(this.nameTour, sIns, eIns, sTour, eTour, this.teams);
+     window.alert("Torneo Agregado");
+     //this.newTournament = new NormalTournamentFactory(this.nameTour, sIns, eIns, sTour, eTour, this.teams, new NormalMatchFactory());
+     
+     let typeMatch: MatchFactory = new NormalMatchFactory(sTour, eTour, this.teams.length);
+
+     this.newTournament = new NormalTournamentFactory()
+       .createTournament(this.nameTour, sIns, eIns, sTour, eTour, this.teams, typeMatch);
+
      this.userLoggedServ.getUserLogged().getGame().addTournament(this.newTournament);
    }
    else {

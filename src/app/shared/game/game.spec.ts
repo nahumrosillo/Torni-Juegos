@@ -1,10 +1,8 @@
-/**
- * Created by nahum on 26/11/16.
- */ 
-
 import { TestBed, async } from '@angular/core/testing';
 import { Game } from './game';
 import { Tournament } from '../tournament/tournament';
+import { NormalTournament } from '../tournament/normaltournament';
+import { NormalMatchFactory } from '../../util/factory-method/match-factory/normal-match-factory';
 import { Team } from '../team/team';
 import { Category } from './game';
 import { Iterator } from './../../util/iterator/iterator';
@@ -63,9 +61,11 @@ describe('Game', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
-        let tournament1 = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
-        let tournament2 = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
-        let tournament3 = new Tournament(name, inidate, findate, iniTdate, finTdate, teams);
+        let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
+
+        let tournament1 = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
+        let tournament2 = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
+        let tournament3 = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch);
 
         let game = new Game(name, description, category);
 
@@ -95,9 +95,10 @@ describe('Game', () => {
         teams.push(new Team(2, 5));
         teams.push(new Team(3, 5));
 
- 
-        let t1 = new Tournament(name, inidate, findate, iniTdate, finTdate, teams); 
-        let t2 = new Tournament(name, inidate, findate, iniTdate, finTdate, teams); 
+         let typeMatch: NormalMatchFactory = new NormalMatchFactory(iniTdate, finTdate, 4);
+
+        let t1 = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch); 
+        let t2 = new NormalTournament(name, inidate, findate, iniTdate, finTdate, teams, typeMatch); 
 
         game.addTournament(t1);
         game.addTournament(t1);

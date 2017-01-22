@@ -42,7 +42,7 @@ describe('Team', () => {
         let team = new Team(0, maxPlayers);
 
         //Testing isFull when false
-        expect(team.isFull).toEqual(false);
+        expect(team.isFull()).toEqual(false);
         let user1: User = new User();
         let user2: User = new User();
         let user3: User = new User();
@@ -56,7 +56,7 @@ describe('Team', () => {
 
         //Testing isFull when true
         expect(team.searchPlayerIntoTeam(user1)).toEqual(true);
-        expect(team.isFull).toEqual(true);
+        expect(team.isFull()).toEqual(true);
     }));
 
     it('equipo no admite mas jugadores', async(() => {
@@ -65,7 +65,7 @@ describe('Team', () => {
         let team = new Team(0, maxPlayers);
 
         //Testing isFull when false
-        expect(team.isFull).toEqual(false);
+        expect(team.isFull()).toEqual(false);
         let user1: User = new User();
         let user2: User = new User();
         team.addPlayerIntoTeam(user1);
