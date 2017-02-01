@@ -16,3 +16,7 @@ Se requiere la versión 1.6 o superior de docker compose.
 ## Instalacion de docker compose
 
 Accede a la pagina https://docs.docker.com/compose/install/ para instalar una version superior a la 1.6.
+
+### Para la asignatura de DSS
+
+La aplicacion concreta para DSS y el codigo fuente está dentro de la carpeta: ParaDSS/
