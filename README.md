@@ -1,9 +1,15 @@
 # Torni-Juegos
 
-Torni-Juegos es una plataforma para crear y jugar a torneos competitivos entre jugadores y de cuaquier juego.
+Torni-Juegos es una plataforma web para crear y jugar a torneos competitivos.
+
+Tecnologías usadas:
+ * Framework: Angular 2, TypeScript y Bootstrap.
+ * Pruebas Unitarias: Karma
+ * Base de datos: MongoDB
+
 
 ### Documentación
-Accede a la [Wiki](https://github.com/nahumrosillo/Torni-Juegos/wiki), contiene toda la documentación del proyecto.
+Accede a la [Wiki](https://github.com/nahumrosillo/Torni-Juegos/wiki). Contiene toda la documentación del proyecto.
 
 ### Instalación y Construcción
 
@@ -16,7 +22,3 @@ Se requiere la versión 1.6 o superior de docker compose.
 ## Instalacion de docker compose
 
 Accede a la pagina https://docs.docker.com/compose/install/ para instalar una version superior a la 1.6.
-
-### Para la asignatura de DSS
-
-La aplicacion concreta para DSS y el codigo fuente está dentro de la carpeta: ParaDSS/
