@@ -2,11 +2,12 @@
 
 Torni-Juegos es una plataforma web para crear y jugar a torneos competitivos.
 
+<img src="https://github.com/nahumrosillo/Torni-Juegos/blob/master/Scheme.png" width="512">
+
 Tecnologías usadas:
  * Framework: Angular 2, TypeScript y Bootstrap.
  * Pruebas Unitarias: Karma
  * Base de datos: MongoDB
-
 
 ### Documentación
 Accede a la [Wiki](https://github.com/nahumrosillo/Torni-Juegos/wiki). Contiene toda la documentación del proyecto.
